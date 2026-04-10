@@ -5,7 +5,7 @@
 - [x] 1. Zainicjować projekt `Vite + React + TypeScript`.
 - [x] 2. Dodać i skonfigurować `Tailwind CSS`, `shadcn/ui`, `React Router`.
 - [x] 3. Przygotować strukturę katalogów: `src/config`, `src/data/matches`, `src/data/predictions`.
-- [ ] 4. Zdefiniować `src/config/app.config.json` (punktacja, flagi etapów, kolory).
+- [x] 4. Zdefiniować `src/config/app.config.ts` (punktacja, flagi etapów, kolory).
 - [ ] 5. Dodać przykładowe dane meczów (`group-a`, `group-b`) oraz typów graczy.
 - [ ] 6. Napisać parsery i mapowanie JSON -> model domenowy (mecze, gracze, punkty).
 - [ ] 7. Zaimplementować logikę punktacji (dokładny wynik vs strona 1/X/2).
@@ -32,3 +32,9 @@
 - [ ] Automatyczne pobieranie wyników rzeczywistych z API.
 - [ ] Obsługa wielu turniejów + archiwum.
 - [ ] Motywy kolorystyczne per turniej.
+
+## Ideas for future
+
+- [ ] Multi-turniej: `src/config/tournaments/<tournament-id>.config.ts` (osobny config na każdy turniej).
+- [ ] Globalny plik `src/config/app.ts` z `activeTournamentId` i metadanymi archiwum.
+- [ ] Wspólny kontrakt typów dla configów turniejowych (`TournamentConfig`) + walidacja przy starcie aplikacji.

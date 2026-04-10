@@ -7,24 +7,24 @@ Ten dokument opisuje finalną propozycję danych dla `bet-cup` (frontend-only, b
 ```text
 src/
   config/
-    app.config.json
+    app.config.ts
   data/
     matches/
-    group-stage.json
-    round-of-32.json
-    round-of-16.json
-    round-of-8.json
-    round-of-4.json
-    third-place.json
-    final.json
-    predictions/
-    adam-nowak/
       group-stage.json
       round-of-32.json
       round-of-16.json
-    kasia-k/
-      group-stage.json
-      round-of-32.json
+      round-of-8.json
+      round-of-4.json
+      third-place.json
+      final.json
+    predictions/
+      adam-nowak/
+        group-stage.json
+        round-of-32.json
+        round-of-16.json
+      kasia-k/
+        group-stage.json
+        round-of-32.json
 ```
 
 ### Dlaczego tak?
@@ -34,45 +34,45 @@ src/
 - każdy gracz ma osobny folder, więc dodawanie danych jest proste i ręczne,
 - nie potrzebujemy osobnego `users.json` - kolumny tabeli budujemy na podstawie folderów w `predictions`.
 
-## Konfiguracja globalna
+## Konfiguracja globalna (TS)
 
-Plik: `src/config/app.config.json`
+Plik: `src/config/app.config.ts`
 
-```json
-{
-  "tournament": {
-    "id": "world-cup-2026",
-    "name": "World Cup 2026"
+```ts
+export const appConfig = {
+  tournament: {
+    id: "world-cup-2026",
+    name: "World Cup 2026",
   },
-  "scoring": {
-    "exactScorePoints": 5,
-    "outcomePoints": 3
+  scoring: {
+    exactScorePoints: 5,
+    outcomePoints: 3,
   },
-  "phases": {
+  phases: {
     "group-stage": {
-      "label": "Faza grupowa",
-      "tableVisible": true,
-      "formVisible": true
+      label: "Faza grupowa",
+      tableVisible: true,
+      formVisible: true,
     },
     "round-of-32": {
-      "label": "1/32",
-      "tableVisible": false,
-      "formVisible": false
+      label: "1/32",
+      tableVisible: false,
+      formVisible: false,
     },
     "round-of-16": {
-      "label": "1/16",
-      "tableVisible": false,
-      "formVisible": false
-    }
+      label: "1/16",
+      tableVisible: false,
+      formVisible: false,
+    },
   },
-  "ui": {
-    "colors": {
-      "exactHitBg": "#16a34a",
-      "outcomeHitBg": "#2563eb",
-      "missBg": "#111827"
-    }
-  }
-}
+  ui: {
+    colors: {
+      exactHitBg: "#16a34a",
+      outcomeHitBg: "#2563eb",
+      missBg: "#111827",
+    },
+  },
+} as const
 ```
 
 ## Przykładowe dane

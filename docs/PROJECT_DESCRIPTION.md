@@ -37,7 +37,7 @@ Projekt jest prowadzony przez organizatora, który ręcznie zarządza danymi i p
 
 - Dokładny wynik: domyślnie `5` punktów.
 - Trafiona strona (1/X/2): domyślnie `3` punkty.
-- Wszystko konfigurowalne globalnie w `src/config/app.config.json`.
+- Wszystko konfigurowalne globalnie w `src/config/app.config.ts`.
 
 ## Etapy turnieju i widoczność
 
