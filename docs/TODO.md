@@ -3,7 +3,7 @@
 ## MVP (kolejność wdrażania)
 
 - [x] 1. Zainicjować projekt `Vite + React + TypeScript`.
-- [ ] 2. Dodać i skonfigurować `Tailwind CSS`, `shadcn/ui`, `React Router`.
+- [x] 2. Dodać i skonfigurować `Tailwind CSS`, `shadcn/ui`, `React Router`.
 - [ ] 3. Przygotować strukturę katalogów: `config`, `data/matches`, `data/predictions`.
 - [ ] 4. Zdefiniować `config/app.config.json` (punktacja, flagi etapów, kolory).
 - [ ] 5. Dodać przykładowe dane meczów (`group-a`, `group-b`) oraz typów graczy.
