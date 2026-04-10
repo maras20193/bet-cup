@@ -20,7 +20,7 @@
 
 ## Dane i stan
 
-- JSON-y w repozytorium (`config` + `data`)
+- JSON-y w repozytorium (`src/config` + `src/data`)
 - Funkcje mapujące JSON -> model aplikacyjny
 - `TanStack Query` (cache/selectory dla danych frontendowych)
 - `localStorage` (draft formularza)

@@ -4,8 +4,8 @@
 
 - [x] 1. Zainicjować projekt `Vite + React + TypeScript`.
 - [x] 2. Dodać i skonfigurować `Tailwind CSS`, `shadcn/ui`, `React Router`.
-- [ ] 3. Przygotować strukturę katalogów: `config`, `data/matches`, `data/predictions`.
-- [ ] 4. Zdefiniować `config/app.config.json` (punktacja, flagi etapów, kolory).
+- [x] 3. Przygotować strukturę katalogów: `src/config`, `src/data/matches`, `src/data/predictions`.
+- [ ] 4. Zdefiniować `src/config/app.config.json` (punktacja, flagi etapów, kolory).
 - [ ] 5. Dodać przykładowe dane meczów (`group-a`, `group-b`) oraz typów graczy.
 - [ ] 6. Napisać parsery i mapowanie JSON -> model domenowy (mecze, gracze, punkty).
 - [ ] 7. Zaimplementować logikę punktacji (dokładny wynik vs strona 1/X/2).

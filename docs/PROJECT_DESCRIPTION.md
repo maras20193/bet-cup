@@ -37,7 +37,7 @@ Projekt jest prowadzony przez organizatora, który ręcznie zarządza danymi i p
 
 - Dokładny wynik: domyślnie `5` punktów.
 - Trafiona strona (1/X/2): domyślnie `3` punkty.
-- Wszystko konfigurowalne globalnie w `config/app.config.json`.
+- Wszystko konfigurowalne globalnie w `src/config/app.config.json`.
 
 ## Etapy turnieju i widoczność
 
@@ -51,7 +51,7 @@ Dzięki temu można przygotować kolejne etapy wcześniej i pokazać je dopiero 
 
 - Brak backendu i bazy danych.
 - Dane meczów i typów trzymane w plikach JSON.
-- Kolumny graczy budowane na podstawie folderów w `data/predictions`.
+- Kolumny graczy budowane na podstawie folderów w `src/data/predictions`.
 - Na starcie przykładowy zakres: tylko `Grupa A` i `Grupa B` (4 drużyny w każdej).
 
 ## UI/UX

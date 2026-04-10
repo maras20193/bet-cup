@@ -5,10 +5,11 @@ Ten dokument opisuje finalną propozycję danych dla `bet-cup` (frontend-only, b
 ## Struktura katalogów
 
 ```text
-config/
-  app.config.json
-data/
-  matches/
+src/
+  config/
+    app.config.json
+  data/
+    matches/
     group-stage.json
     round-of-32.json
     round-of-16.json
@@ -16,7 +17,7 @@ data/
     round-of-4.json
     third-place.json
     final.json
-  predictions/
+    predictions/
     adam-nowak/
       group-stage.json
       round-of-32.json
@@ -35,7 +36,7 @@ data/
 
 ## Konfiguracja globalna
 
-Plik: `config/app.config.json`
+Plik: `src/config/app.config.json`
 
 ```json
 {
@@ -76,7 +77,7 @@ Plik: `config/app.config.json`
 
 ## Przykładowe dane
 
-### `data/matches/group-stage.json`
+### `src/data/matches/group-stage.json`
 
 ```json
 {
@@ -117,7 +118,7 @@ Plik: `config/app.config.json`
 }
 ```
 
-### `data/predictions/adam-nowak/group-stage.json`
+### `src/data/predictions/adam-nowak/group-stage.json`
 
 ```json
 {
@@ -140,7 +141,7 @@ Plik: `config/app.config.json`
 }
 ```
 
-### `data/predictions/adam-nowak/round-of-32.json`
+### `src/data/predictions/adam-nowak/round-of-32.json`
 
 ```json
 {
