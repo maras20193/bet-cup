@@ -1,0 +1,10 @@
+{
+  "userId": "tomek-k",
+  "displayName": "Tomek",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-04-10T12:30:00.000Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 1, "away": 2 },
+    { "matchId": "r4-002", "home": 3, "away": 2 }
+  ]
+}

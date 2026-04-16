@@ -20,8 +20,9 @@
 
 ## Dane i stan
 
-- JSON-y w repozytorium (`src/config` + `src/data`)
-- Funkcje mapujące JSON -> model aplikacyjny
+- Dane organizatora w TS (`src/config`, `src/data` — mecze z `result`, `teams`)
+- Typy graczy jako JSON w `src/data/predictions`
+- Funkcje mapujące dane -> model aplikacyjny
 - `TanStack Query` (cache/selectory dla danych frontendowych)
 - `localStorage` (draft formularza)
 
@@ -42,5 +43,5 @@
 ## Uwagi architektoniczne
 
 - Projekt działa bez backendu i bez bazy danych.
-- Dodanie nowego pliku JSON wymaga nowego builda/deployu.
+- Zmiany w `src/` wymagają nowego builda/deployu.
 - Wysyłka mailowa jest poza MVP (na MVP: kopiowanie JSON do schowka).

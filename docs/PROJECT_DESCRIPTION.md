@@ -12,7 +12,7 @@ Projekt jest prowadzony przez organizatora, który ręcznie zarządza danymi i p
 
 - Wiersze: mecze.
 - Kolumny: gracze.
-- Pierwsza kolumna: mecz (`homeTeam vs awayTeam`) + flaga kraju.
+- Pierwsza kolumna: mecz (`homeId` / `awayId` jak `POLAND` vs `BELGIUM`, mapowane przez `teams`) + flaga.
 - W kolumnach graczy: typowany wynik.
 - Nad kolumną gracza: suma punktów.
 - Sekcje tabeli oddzielone nagłówkami etapów (np. `Grupa A`, `Grupa B`).
@@ -50,7 +50,8 @@ Dzięki temu można przygotować kolejne etapy wcześniej i pokazać je dopiero 
 ## Zarządzanie danymi
 
 - Brak backendu i bazy danych.
-- Dane meczów i typów trzymane w plikach JSON.
+- Mecze z wynikiem w jednym obiekcie (`result: { home, away } | null`) oraz słownik drużyn w TypeScript (`src/data`).
+- Typy graczy (wklejka z formularza) w JSON pod `src/data/predictions`.
 - Kolumny graczy budowane na podstawie folderów w `src/data/predictions`.
 - Na starcie przykładowy zakres: tylko `Grupa A` i `Grupa B` (4 drużyny w każdej).
 

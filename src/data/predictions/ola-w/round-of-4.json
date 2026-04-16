@@ -1,0 +1,10 @@
+{
+  "userId": "ola-w",
+  "displayName": "Ola",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-04-10T12:00:00.000Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 0 },
+    { "matchId": "r4-002", "home": 1, "away": 1 }
+  ]
+}

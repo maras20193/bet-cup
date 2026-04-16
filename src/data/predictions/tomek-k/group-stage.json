@@ -1,0 +1,20 @@
+{
+  "userId": "tomek-k",
+  "displayName": "Tomek",
+  "phaseId": "group-stage",
+  "submittedAt": "2026-04-10T12:30:00.000Z",
+  "predictions": [
+    { "matchId": "gs-a-001", "home": 0, "away": 0 },
+    { "matchId": "gs-a-002", "home": 0, "away": 2 },
+    { "matchId": "gs-a-003", "home": 1, "away": 1 },
+    { "matchId": "gs-a-004", "home": 0, "away": 0 },
+    { "matchId": "gs-a-005", "home": 1, "away": 0 },
+    { "matchId": "gs-a-006", "home": 1, "away": 3 },
+    { "matchId": "gs-b-001", "home": 2, "away": 3 },
+    { "matchId": "gs-b-002", "home": 1, "away": 1 },
+    { "matchId": "gs-b-003", "home": 3, "away": 2 },
+    { "matchId": "gs-b-004", "home": 0, "away": 0 },
+    { "matchId": "gs-b-005", "home": 2, "away": 2 },
+    { "matchId": "gs-b-006", "home": 0, "away": 2 }
+  ]
+}

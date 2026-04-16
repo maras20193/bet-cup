@@ -22,13 +22,14 @@ Prosta aplikacja webowa do obstawiania meczów Mistrzostw Świata / Europy w zam
 - Opis projektu: `docs/PROJECT_DESCRIPTION.md`
 - Stack technologiczny: `docs/TECH_STACK.md`
 - Plan prac (MVP + backlog): `docs/TODO.md`
-- Format danych JSON: `docs/JSON_FORMAT_PROPOSALS.md`
+- Format danych (TS + JSON typów): `docs/JSON_FORMAT_PROPOSALS.md`
 
 ## Założenia techniczne
 
 - Aplikacja działa jako frontend statyczny.
-- Dane trzymamy w plikach JSON w repozytorium.
-- Organizator ręcznie dodaje/aktualizuje pliki z danymi.
+- Dane organizatora (mecze z polem `result`, drużyny) w TypeScript pod `src/data`.
+- Typy od graczy jako JSON w `src/data/predictions`.
+- Organizator ręcznie edytuje te pliki w repozytorium.
 - Na start obsługujemy jeden turniej.
 
 ## Planowane uruchamianie projektu

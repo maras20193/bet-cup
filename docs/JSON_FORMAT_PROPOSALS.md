@@ -1,6 +1,8 @@
-# Propozycja formatu danych JSON (MVP)
+# Format danych (MVP)
 
-Ten dokument opisuje finalną propozycję danych dla `bet-cup` (frontend-only, bez bazy i backendu).
+Dane **organizatora** (mecze, wyniki, słownik drużyn) są w **TypeScript** — czytelność w IDE, mniej literówek, typy (`TeamId` itd.).
+
+**Typy od graczy** (wklejka z formularza) zostają w **JSON** w `src/data/predictions/...`.
 
 ## Struktura katalogów
 
@@ -9,30 +11,27 @@ src/
   config/
     app.config.ts
   data/
+    teams/
+      teams.ts
     matches/
-      group-stage.json
-      round-of-32.json
-      round-of-16.json
-      round-of-8.json
-      round-of-4.json
-      third-place.json
-      final.json
+      types.ts
+      group-stage/
+        types.ts
+        group-a.ts
+        group-b.ts
+        index.ts
+      round-of-4.ts
     predictions/
-      adam-nowak/
+      <userId>/
         group-stage.json
-        round-of-32.json
-        round-of-16.json
-      kasia-k/
-        group-stage.json
-        round-of-32.json
 ```
 
-### Dlaczego tak?
+## Dlaczego tak?
 
-- grupy są w jednym pliku (`group-stage.json`), więc na etapie grupowym dostajesz 1 plik na gracza,
-- faza pucharowa jest rozbita etapami czasowymi (`round-of-32`, `round-of-16`, ...),
-- każdy gracz ma osobny folder, więc dodawanie danych jest proste i ręczne,
-- nie potrzebujemy osobnego `users.json` - kolumny tabeli budujemy na podstawie folderów w `predictions`.
+- `teams` używa kluczy semantycznych (`POLAND`, `GERMANY`, …) — od razu widać drużynę; pole `code` to ISO pod flagi/API.
+- Mecze i wyniki w jednym miejscu: każdy mecz ma `result: { home, away } | null` (`null` = brak jeszcze wyniku).
+- JSON tylko tam, gdzie dane przychodzą ze schowka od gracza.
+- Kolumny tabeli budujemy z folderów w `predictions` (bez `users.json`).
 
 ## Konfiguracja globalna (TS)
 
@@ -54,16 +53,6 @@ export const appConfig = {
       tableVisible: true,
       formVisible: true,
     },
-    "round-of-32": {
-      label: "1/32",
-      tableVisible: false,
-      formVisible: false,
-    },
-    "round-of-16": {
-      label: "1/16",
-      tableVisible: false,
-      formVisible: false,
-    },
   },
   ui: {
     colors: {
@@ -75,48 +64,57 @@ export const appConfig = {
 } as const
 ```
 
-## Przykładowe dane
+## Przykładowe dane (organizator — TS)
 
-### `src/data/matches/group-stage.json`
+### `src/data/teams/teams.ts`
 
-```json
+```ts
+export const teams = {
+  POLAND: { code: "PL", name: "Polska", flag: "🇵🇱" },
+  BELGIUM: { code: "BE", name: "Belgia", flag: "🇧🇪" },
+} as const
+
+export type TeamId = keyof typeof teams
+```
+
+### `src/data/matches/types.ts`
+
+```ts
+export type MatchResult = { home: number; away: number } | null
+```
+
+### `src/data/matches/group-stage/`
+
+- `group-a.ts` / `group-b.ts` — mecze danej grupy.
+- `index.ts` — składa `groupStageMatches` (`phaseId` + połączone tablice).
+
+```ts
+// group-a.ts (fragment)
+export const groupStageGroupAMatches = [
+  {
+    id: "gs-a-001",
+    groupId: "A",
+    homeId: "POLAND",
+    awayId: "BELGIUM",
+    result: { home: 2, away: 1 },
+  },
+]
+```
+
+### `src/data/matches/round-of-4.ts`
+
+Sloty pucharowe (`1A`, `2B`) to `homeRef` / `awayRef`, nie wpisy w `teams`:
+
+```ts
 {
-  "phaseId": "group-stage",
-  "matches": [
-    {
-      "id": "gs-001",
-      "groupId": "A",
-      "homeTeam": {
-        "name": "Polska",
-        "code": "PL"
-      },
-      "awayTeam": {
-        "name": "Belgia",
-        "code": "BE"
-      },
-      "kickoffUtc": "2026-06-11T18:00:00Z",
-      "result": {
-        "home": 2,
-        "away": 1
-      }
-    },
-    {
-      "id": "gs-002",
-      "groupId": "B",
-      "homeTeam": {
-        "name": "Hiszpania",
-        "code": "ES"
-      },
-      "awayTeam": {
-        "name": "Niemcy",
-        "code": "DE"
-      },
-      "kickoffUtc": "2026-06-12T18:00:00Z",
-      "result": null
-    }
-  ]
+  id: "r4-001",
+  homeRef: { type: "group-rank", groupId: "A", place: 1 },
+  awayRef: { type: "group-rank", groupId: "B", place: 2 },
+  result: null,
 }
 ```
+
+## Typy od graczy (JSON)
 
 ### `src/data/predictions/adam-nowak/group-stage.json`
 
@@ -128,32 +126,9 @@ export const appConfig = {
   "submittedAt": "2026-06-10T12:00:00Z",
   "predictions": [
     {
-      "matchId": "gs-001",
+      "matchId": "gs-a-001",
       "home": 2,
       "away": 1
-    },
-    {
-      "matchId": "gs-002",
-      "home": 1,
-      "away": 1
-    }
-  ]
-}
-```
-
-### `src/data/predictions/adam-nowak/round-of-32.json`
-
-```json
-{
-  "userId": "adam-nowak",
-  "displayName": "Adam N.",
-  "phaseId": "round-of-32",
-  "submittedAt": "2026-06-25T10:00:00Z",
-  "predictions": [
-    {
-      "matchId": "r32-001",
-      "home": 1,
-      "away": 0
     }
   ]
 }
@@ -167,17 +142,10 @@ export const appConfig = {
 
 ## Auto-zapis draftu formularza
 
-Rekomendacja MVP:
-- zapis do `localStorage` na `onChange` z debounce `500ms`,
-- klucz bez emaila: `draft:{phaseId}:{displayNameSlug}`,
+- `localStorage`, debounce ~500ms,
+- klucz: `draft:{phaseId}:{displayNameSlug}`,
 - po submit: kopiuj JSON do schowka i czyść draft.
-
-Przykład:
-
-```text
-draft:group-stage:adam-n
-```
 
 ## Ważna uwaga (frontend-only)
 
-Pliki JSON są częścią aplikacji. Po dodaniu nowych plików do repo trzeba zrobić nowy build/deploy, aby były widoczne na produkcji.
+Nowe pliki w `src/` wymagają builda/deployu, żeby były widoczne na produkcji.
