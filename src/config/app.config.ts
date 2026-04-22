@@ -1,41 +1,8 @@
-export const phaseIds = [
-  "group-stage",
-  "round-of-32",
-  "round-of-16",
-  "round-of-8",
-  "round-of-4",
-  "third-place",
-  "final",
-] as const
+import type { AppConfig } from "@/types/app-config"
+import { phaseIds, type PhaseId } from "@/types/phase"
 
-export type PhaseId = (typeof phaseIds)[number]
-
-export type AppConfig = {
-  tournament: {
-    id: string
-    name: string
-  }
-  scoring: {
-    exactScorePoints: number
-    outcomePoints: number
-  }
-  phaseOrder: PhaseId[]
-  phases: Record<
-    PhaseId,
-    {
-      label: string
-      tableVisible: boolean
-      formVisible: boolean
-    }
-  >
-  ui: {
-    colors: {
-      exactHitBg: string
-      outcomeHitBg: string
-      missBg: string
-    }
-  }
-}
+export { phaseIds, type PhaseId }
+export type { AppConfig }
 
 export const appConfig: AppConfig = {
   tournament: {
@@ -46,15 +13,7 @@ export const appConfig: AppConfig = {
     exactScorePoints: 5,
     outcomePoints: 3,
   },
-  phaseOrder: [
-    "group-stage",
-    "round-of-32",
-    "round-of-16",
-    "round-of-8",
-    "round-of-4",
-    "third-place",
-    "final",
-  ],
+  phaseOrder: [...phaseIds],
   phases: {
     "group-stage": {
       label: "Faza grupowa",

@@ -1,4 +1,4 @@
-import type { Match } from "@/data/types"
+import type { Match } from "@/types/match"
 
 export const groupStageGroupBMatches = [
   {

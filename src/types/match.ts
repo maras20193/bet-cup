@@ -1,4 +1,4 @@
-import { teams } from "./teams/teams"
+import { teams } from "@/data/teams/teams"
 
 export type TeamId = keyof typeof teams
 

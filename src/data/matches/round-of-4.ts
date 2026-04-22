@@ -1,4 +1,4 @@
-import type { Match } from "@/data/types"
+import type { Match } from "@/types/match"
 
 export const roundOf4Matches = {
   phaseId: "round-of-4" as const,
