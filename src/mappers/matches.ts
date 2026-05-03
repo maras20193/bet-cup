@@ -1,4 +1,5 @@
 import { groupStageMatches } from "@/data/matches/group-stage"
+import { mockOfficialResultsByMatchId } from "@/data/matches/mock-official-results"
 import { finalMatch } from "@/data/matches/knockout/final"
 import { roundOf16Matches } from "@/data/matches/knockout/round-of-16"
 import { roundOf32Matches } from "@/data/matches/knockout/round-of-32"
@@ -22,7 +23,11 @@ const matchPhaseBlocks = [
 
 export function buildAllMatches(): MatchWithPhase[] {
   return matchPhaseBlocks.flatMap((block) =>
-    block.matches.map((match) => ({ ...match, phaseId: block.phaseId })),
+    block.matches.map((match) => {
+      const overlay = mockOfficialResultsByMatchId[match.id]
+      const result = overlay ?? match.result
+      return { ...match, result, phaseId: block.phaseId }
+    }),
   )
 }
 

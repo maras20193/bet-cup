@@ -13,3 +13,9 @@ export type PhasePredictions = {
   submittedAt: string
   predictions: ScorePrediction[]
 }
+
+export type PlayerPredictionBundleInput = {
+  userId: string
+  displayName: string
+  phaseFiles: readonly PhasePredictions[]
+}
