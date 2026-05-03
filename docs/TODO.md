@@ -7,11 +7,11 @@
 - [x] 3. Przygotować strukturę katalogów: `src/config`, `src/data` (mecze z `result` + `teams` w TS, `predictions` pod JSON od graczy).
 - [x] 4. Zdefiniować `src/config/app.config.ts` (punktacja, flagi etapów, kolory).
 - [x] 5. Dodać przykładowe dane meczów z `result` (TS) oraz przykładowe typy graczy (JSON w `predictions`).
-- [ ] 6. Napisać parsery i mapowanie JSON -> model domenowy (mecze, gracze, punkty).
-- [ ] 7. Zaimplementować logikę punktacji (dokładny wynik vs strona 1/X/2).
-- [ ] 8. Zbudować layout aplikacji (sidebar + widoki: `Wyniki`, `Typowanie`).
-- [ ] 9. Zaimplementować tabelę wyników z sekcjami etapów i kolorowaniem komórek.
-- [ ] 10. Dodać lokalną mapę kodów krajów -> flagi (na start emoji).
+- [x] 6. Napisać parsery i mapowanie JSON -> model domenowy (mecze, gracze, punkty).
+- [x] 7. Zaimplementować logikę punktacji (dokładny wynik vs strona 1/X/2).
+- [x] 8. Zbudować layout aplikacji (sidebar + widoki: `Wyniki`, `Typowanie`).
+- [x] 9. Zaimplementować tabelę wyników z sekcjami etapów i kolorowaniem komórek.
+- [x] 10. Dodać lokalną mapę kodów krajów -> flagi (na start emoji).
 - [ ] 11. Zbudować wykres słupkowy punktów (`Recharts`).
 - [ ] 12. Zbudować formularz typowania (`react-hook-form` + `zod`).
 - [ ] 13. Dodać auto-zapis draftu formularza do `localStorage` (debounce + restore).
