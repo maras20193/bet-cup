@@ -61,6 +61,8 @@ function teamPair(match: Match) {
 
 function MatchLabel({ match }: { match: Match }) {
   const { home, away } = teamPair(match)
+  const homeLabel = home?.name ?? match.homeSlot ?? "—"
+  const awayLabel = away?.name ?? match.awaySlot ?? "—"
   return (
     <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm leading-tight">
       {home ? (
@@ -69,7 +71,7 @@ function MatchLabel({ match }: { match: Match }) {
           <TeamFlag code={home.code} />
         </>
       ) : (
-        <span>—</span>
+        <span className="font-medium text-muted-foreground">{homeLabel}</span>
       )}
       <span className="text-muted-foreground">—</span>
       {away ? (
@@ -78,7 +80,7 @@ function MatchLabel({ match }: { match: Match }) {
           <span className="font-medium text-foreground">{away.name}</span>
         </>
       ) : (
-        <span>—</span>
+        <span className="font-medium text-muted-foreground">{awayLabel}</span>
       )}
     </div>
   )

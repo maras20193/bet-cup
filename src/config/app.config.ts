@@ -21,22 +21,22 @@ export const appConfig: AppConfig = {
       formVisible: true,
     },
     "round-of-32": {
-      label: "1/32",
+      label: "1/16 finału",
       tableVisible: false,
       formVisible: false,
     },
     "round-of-16": {
-      label: "1/16",
+      label: "1/8 finału",
       tableVisible: false,
       formVisible: false,
     },
     "round-of-8": {
-      label: "1/8",
+      label: "Ćwierćfinały",
       tableVisible: false,
       formVisible: false,
     },
     "round-of-4": {
-      label: "1/4",
+      label: "Półfinały",
       tableVisible: false,
       formVisible: false,
     },
@@ -46,7 +46,7 @@ export const appConfig: AppConfig = {
       formVisible: false,
     },
     final: {
-      label: "Final",
+      label: "Finał",
       tableVisible: false,
       formVisible: false,
     },

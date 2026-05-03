@@ -8,6 +8,8 @@ export const roundOf4Matches = {
       groupId: null,
       homeId: null,
       awayId: null,
+      homeSlot: "#1 (ćwierćfinał)",
+      awaySlot: "#2 (ćwierćfinał)",
       result: null,
     },
     {
@@ -15,6 +17,8 @@ export const roundOf4Matches = {
       groupId: null,
       homeId: null,
       awayId: null,
+      homeSlot: "#3 (ćwierćfinał)",
+      awaySlot: "#4 (ćwierćfinał)",
       result: null,
     },
   ] satisfies Match[],
