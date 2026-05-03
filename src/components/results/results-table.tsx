@@ -47,7 +47,7 @@ function TeamFlag({ code }: { code: string }) {
       height={18}
       loading="lazy"
       decoding="async"
-      className="inline-block shrink-0 rounded-sm object-cover shadow-sm ring-1 ring-black/5 dark:ring-white/10"
+      className="inline-block shadow-sm rounded-sm ring-1 ring-black/5 dark:ring-white/10 object-cover shrink-0"
       aria-hidden
     />
   )
@@ -87,14 +87,14 @@ function MatchLabel({ match }: { match: Match }) {
 function OfficialResultPill({ match }: { match: Match }) {
   if (match.result) {
     return (
-      <span className="inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold tabular-nums text-zinc-950">
+      <span className="inline-flex bg-white px-3 py-1 rounded-full font-semibold tabular-nums text-zinc-950 text-xs">
         {match.result.home}-{match.result.away}
       </span>
     )
   }
   return (
     <span
-      className="inline-flex rounded-full border border-foreground/25 bg-transparent px-3 py-1 text-xs font-medium text-muted-foreground dark:border-white/35"
+      className="inline-flex bg-transparent px-3 py-1 border border-foreground/25 dark:border-white/35 rounded-full font-medium text-muted-foreground text-xs"
       title="Brak wyniku"
     >
       ?
@@ -126,9 +126,11 @@ function PlayerPredictionCell({ cell }: { cell: PlayerMatchCell }) {
 
   return (
     <div className="flex flex-col items-center gap-1 py-0.5">
-      <span className={predictionPillClass(cell)}>{formatPrediction(cell)}</span>
+      <span className={predictionPillClass(cell)}>
+        {formatPrediction(cell)}
+      </span>
       {showPoints ? (
-        <span className="text-[10px] font-medium tabular-nums text-muted-foreground">
+        <span className="font-medium tabular-nums text-[10px] text-muted-foreground">
           +{cell.points} pkt
         </span>
       ) : null}
@@ -141,13 +143,13 @@ function stickyCellClass(columnId: string): string | undefined {
     return cn(
       STICKY_MATCH,
       "sticky z-30 border-0 bg-card shadow-[4px_0_12px_-6px_rgba(0,0,0,0.2)] dark:bg-zinc-950 dark:shadow-[4px_0_12px_-6px_rgba(0,0,0,0.5)]",
-      STICKY_MATCH_LEFT,
+      STICKY_MATCH_LEFT
     )
   }
   if (columnId === "result") {
     return cn(
-      "sticky z-30 w-24 min-w-24 shrink-0 border-0 bg-card text-center align-middle shadow-[4px_0_12px_-6px_rgba(0,0,0,0.2)] dark:bg-zinc-950 dark:shadow-[4px_0_12px_-6px_rgba(0,0,0,0.5)]",
-      STICKY_RESULT_LEFT,
+      "z-30 sticky bg-card dark:bg-zinc-950 shadow-[4px_0_12px_-6px_rgba(0,0,0,0.2)] dark:shadow-[4px_0_12px_-6px_rgba(0,0,0,0.5)] border-0 w-24 min-w-24 text-center align-middle shrink-0",
+      STICKY_RESULT_LEFT
     )
   }
   return undefined
@@ -157,16 +159,16 @@ function ResultsLegend() {
   const { exactScorePoints, outcomePoints } = appConfig.scoring
   return (
     <div className="flex flex-wrap gap-2">
-      <span className="inline-flex items-center rounded-full bg-white px-3 py-1.5 text-xs font-medium text-zinc-950">
+      <span className="inline-flex items-center bg-white px-3 py-1.5 rounded-full font-medium text-zinc-950 text-xs">
         Dokładny wynik ({exactScorePoints} pkt)
       </span>
-      <span className="inline-flex items-center rounded-full bg-zinc-500 px-3 py-1.5 text-xs font-medium text-white dark:bg-zinc-600">
+      <span className="inline-flex items-center bg-zinc-500 dark:bg-zinc-600 px-3 py-1.5 rounded-full font-medium text-white text-xs">
         Trafiony typ ({outcomePoints} pkt)
       </span>
-      <span className="inline-flex items-center rounded-full bg-red-600 px-3 py-1.5 text-xs font-medium text-white">
+      <span className="inline-flex items-center bg-red-600 px-3 py-1.5 rounded-full font-medium text-white text-xs">
         Błędny typ (0 pkt)
       </span>
-      <span className="inline-flex items-center rounded-full border border-foreground/25 px-3 py-1.5 text-xs font-medium text-muted-foreground dark:border-white/40">
+      <span className="inline-flex items-center px-3 py-1.5 border border-foreground/25 dark:border-white/40 rounded-full font-medium text-muted-foreground text-xs">
         Oczekuje na wynik
       </span>
     </div>
@@ -188,7 +190,7 @@ export function ResultsTable({
 
   const { rows, playerTotals } = useMemo(
     () => buildResultsTableModel(matches, bundles, phaseId, scoring),
-    [matches, bundles, phaseId, scoring],
+    [matches, bundles, phaseId, scoring]
   )
 
   const columns = useMemo<ColumnDef<ResultsTableRow>[]>(() => {
@@ -196,7 +198,7 @@ export function ResultsTable({
       id: `player-${b.userId}`,
       header: () => (
         <div className="flex flex-col items-center gap-1 py-1 text-center leading-tight">
-          <span className="max-w-[6rem] truncate text-xs font-semibold">
+          <span className="max-w-[6rem] font-semibold text-xs truncate">
             {b.displayName}
           </span>
           <span className="text-[10px] text-muted-foreground">
@@ -217,7 +219,7 @@ export function ResultsTable({
       {
         id: "match",
         header: () => (
-          <span className="text-left text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          <span className="font-semibold text-muted-foreground text-xs text-left uppercase tracking-wide">
             Mecz
           </span>
         ),
@@ -230,7 +232,7 @@ export function ResultsTable({
       {
         id: "result",
         header: () => (
-          <span className="text-center text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          <span className="font-semibold text-muted-foreground text-xs text-center uppercase tracking-wide">
             Wynik
           </span>
         ),
@@ -262,12 +264,12 @@ export function ResultsTable({
   return (
     <section
       className={cn(
-        "space-y-4 rounded-xl border border-border bg-card p-4 shadow-sm",
-        "dark:border-white/10 dark:bg-zinc-950 dark:shadow-none",
+        "space-y-4 bg-card shadow-sm p-4 border border-border rounded-xl",
+        "dark:border-white/10 dark:bg-zinc-950 dark:shadow-none"
       )}
     >
       <div className="space-y-1">
-        <h2 className="font-heading text-lg font-semibold tracking-tight text-foreground">
+        <h2 className="font-heading font-semibold text-foreground text-lg tracking-tight">
           Tabela wyników
         </h2>
         <ResultsLegend />
@@ -275,16 +277,16 @@ export function ResultsTable({
 
       <div
         className={cn(
-          "[&_[data-slot=table-container]]:rounded-lg [&_[data-slot=table-container]]:border [&_[data-slot=table-container]]:border-border/60 dark:[&_[data-slot=table-container]]:border-white/10",
+          "[&_[data-slot=table-container]]:border [&_[data-slot=table-container]]:border-border/60 dark:[&_[data-slot=table-container]]:border-white/10 [&_[data-slot=table-container]]:rounded-lg",
           "[&_td]:border-0 [&_th]:border-0",
-          "[&_tbody_tr]:border-b [&_tbody_tr]:border-border/50 [&_tbody_tr:last-child]:border-0 dark:[&_tbody_tr]:border-white/10",
-          "[&_thead_tr]:border-b [&_thead_tr]:border-border/60 dark:[&_thead_tr]:border-white/10",
+          "[&_tbody_tr]:border-b [&_tbody_tr]:border-border/50 dark:[&_tbody_tr]:border-white/10 [&_tbody_tr:last-child]:border-0",
+          "[&_thead_tr]:border-b [&_thead_tr]:border-border/60 dark:[&_thead_tr]:border-white/10"
         )}
       >
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((hg) => (
-              <TableRow key={hg.id} className="border-0 hover:bg-transparent">
+              <TableRow key={hg.id} className="hover:bg-transparent border-0">
                 {hg.headers.map((header) => {
                   const sticky = stickyCellClass(header.column.id)
                   const isPlayer = header.column.id.startsWith("player-")
@@ -292,16 +294,16 @@ export function ResultsTable({
                     <TableHead
                       key={header.id}
                       className={cn(
-                        "h-auto min-h-10 border-0 align-bottom text-foreground",
+                        "border-0 h-auto min-h-10 text-foreground align-bottom",
                         sticky,
-                        isPlayer && "min-w-[5.5rem] px-2 text-center",
+                        isPlayer && "min-w-[5.5rem] px-2 text-center"
                       )}
                     >
                       {header.isPlaceholder
                         ? null
                         : flexRender(
                             header.column.columnDef.header,
-                            header.getContext(),
+                            header.getContext()
                           )}
                     </TableHead>
                   )
@@ -314,10 +316,13 @@ export function ResultsTable({
               const original = row.original
               if (original.kind === "group") {
                 return (
-                  <TableRow key={row.id} className="border-0 hover:bg-transparent">
+                  <TableRow
+                    key={row.id}
+                    className="hover:bg-transparent border-0"
+                  >
                     <TableCell
                       colSpan={colCount}
-                      className="border-0 bg-muted/50 py-2 font-heading text-sm font-semibold tracking-tight text-foreground dark:bg-white/5"
+                      className="bg-muted/50 dark:bg-white/5 py-2 border-0 font-heading font-semibold text-foreground text-sm tracking-tight"
                     >
                       {original.groupLabel}
                     </TableCell>
@@ -328,7 +333,7 @@ export function ResultsTable({
               return (
                 <TableRow
                   key={row.id}
-                  className="border-0 hover:bg-muted/30 dark:hover:bg-white/[0.04]"
+                  className="hover:bg-muted/30 dark:hover:bg-white/[0.04] border-0"
                 >
                   {row.getVisibleCells().map((cell) => {
                     const sticky = stickyCellClass(cell.column.id)
@@ -341,12 +346,12 @@ export function ResultsTable({
                           sticky,
                           isPlayer && "min-w-[5.5rem] px-2 text-center",
                           cell.column.id === "match" && "py-2",
-                          cell.column.id === "result" && "py-2",
+                          cell.column.id === "result" && "py-2"
                         )}
                       >
                         {flexRender(
                           cell.column.columnDef.cell,
-                          cell.getContext(),
+                          cell.getContext()
                         )}
                       </TableCell>
                     )
