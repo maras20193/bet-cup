@@ -18,7 +18,7 @@ function hash32(s: string): number {
 function predictionScore(
   matchId: string,
   playerIndex: number,
-  phaseId: PhaseId,
+  phaseId: PhaseId
 ): Pick<ScorePrediction, "home" | "away"> {
   const h = (hash32(matchId) ^ hash32(`${playerIndex}:${phaseId}`)) >>> 0
   const home = h % 5
@@ -50,7 +50,7 @@ function phasePredictionsForPlayer(
   playerIndex: number,
   userId: string,
   displayName: string,
-  phaseId: PhaseId,
+  phaseId: PhaseId
 ): PhasePredictions {
   const predictions: ScorePrediction[] = allMatches
     .filter((m) => m.phaseId === phaseId)
@@ -75,6 +75,6 @@ export const demoPlayerPredictionBundles = PLAYERS.map((p, playerIndex) => ({
   userId: p.userId,
   displayName: p.displayName,
   phaseFiles: phaseIds.map((phaseId) =>
-    phasePredictionsForPlayer(playerIndex, p.userId, p.displayName, phaseId),
+    phasePredictionsForPlayer(playerIndex, p.userId, p.displayName, phaseId)
   ),
 })) satisfies readonly PlayerPredictionBundleInput[]

@@ -1,24 +1,28 @@
-import { groupStageAllMatches } from "@/data/matches/group-stage"
-import type { MatchResult } from "@/types/match"
+import { groupStageMatches } from "@/data/matches/group-stage"
+import type { Match, MatchResult } from "@/types/match"
 
-function hash32(s: string): number {
-  let h = 2166136261
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i)
-    h = Math.imul(h, 16777619)
-  }
-  return h >>> 0
-}
-
-function resultForGroupStageId(id: string): MatchResult {
-  const h = hash32(id)
-  const home = h % 5
-  const away = Math.floor(h / 11) % 5
-  return { home, away }
-}
-
+/** Jawne wyniki dla części meczów (demo — podgląd tabeli i wykresu punktów). */
 export const mockOfficialResultsByMatchId: Readonly<
   Record<string, MatchResult>
-> = Object.fromEntries(
-  groupStageAllMatches.map((m) => [m.id, resultForGroupStageId(m.id)]),
-) as Readonly<Record<string, MatchResult>>
+> = {
+  "gs-a-001": { home: 2, away: 1 },
+  "gs-a-002": { home: 0, away: 0 },
+  "gs-a-003": { home: 3, away: 2 },
+  "gs-a-004": { home: 1, away: 2 },
+  "gs-a-005": { home: 2, away: 2 },
+  "gs-b-001": { home: 0, away: 1 },
+}
+
+export function withOfficialResultsOverlay(
+  matches: readonly Match[],
+): Match[] {
+  return matches.map((m) => ({
+    ...m,
+    result: mockOfficialResultsByMatchId[m.id] ?? m.result,
+  }))
+}
+
+/** Faza grupowa z nałożonymi mockowymi wynikami (tylko wybrane mecze). */
+export const groupStageMatchesWithDemoResults = withOfficialResultsOverlay([
+  ...groupStageMatches.matches,
+])

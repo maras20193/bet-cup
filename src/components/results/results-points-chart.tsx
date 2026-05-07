@@ -5,7 +5,7 @@ import {
   demoPlayerPredictionBundles,
   type PlayerPredictionBundleInput,
 } from "@/data/predictions"
-import { groupStageMatches } from "@/data/matches/group-stage"
+import { groupStageMatchesWithDemoResults } from "@/data/matches/mock-official-results"
 import { appConfig } from "@/config/app.config"
 import type { Match } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
@@ -25,13 +25,8 @@ import {
 } from "@/components/ui/chart"
 import { cn } from "@/lib/utils"
 
-const BAR_FILLS = [
-  "var(--chart-1)",
-  "var(--chart-2)",
-  "var(--chart-3)",
-  "var(--chart-4)",
-  "var(--chart-5)",
-] as const
+/** Naprzemienne kolory słupków — jak paleta typów w tabeli (zieleń, niebieski, czerwień). */
+const BAR_FILLS = ["#059669", "#2563eb", "#dc2626"] as const
 
 const chartConfig = {
   points: {
@@ -44,13 +39,16 @@ export type ResultsPointsChartProps = {
   matches?: readonly Match[]
   bundles?: readonly PlayerPredictionBundleInput[]
   className?: string
+  /** Wypełnia dostępną wysokość rodzica (np. dashboard bez scrolla strony). */
+  fillHeight?: boolean
 }
 
 export function ResultsPointsChart({
   phaseId = "group-stage",
-  matches = groupStageMatches.matches,
+  matches = groupStageMatchesWithDemoResults,
   bundles = demoPlayerPredictionBundles,
   className,
+  fillHeight = false,
 }: ResultsPointsChartProps) {
   const scoring = appConfig.scoring
 
@@ -74,20 +72,31 @@ export function ResultsPointsChart({
     <Card
       className={cn(
         "border-border/60 bg-muted/15 py-3 shadow-none ring-1 ring-border/40 dark:bg-white/3 dark:ring-white/10",
+        fillHeight && "min-h-0 flex-1",
         className,
       )}
       size="sm"
     >
-      <CardHeader className="px-4 pb-0 group-data-[size=sm]/card:px-3">
+      <CardHeader className="shrink-0 px-4 pb-0 group-data-[size=sm]/card:px-3">
         <CardTitle className="text-sm">Punkty według gracza</CardTitle>
         <CardDescription className="text-xs">
           Suma punktów w tej fazie — każdy słupek to jedna osoba
         </CardDescription>
       </CardHeader>
-      <CardContent className="px-2 pt-2 pb-0 sm:px-3">
+      <CardContent
+        className={cn(
+          "px-2 pt-2 pb-0 sm:px-3",
+          fillHeight && "flex min-h-0 flex-1 flex-col overflow-hidden pb-3"
+        )}
+      >
         <ChartContainer
           config={chartConfig}
-          className="aspect-auto h-[min(280px,45vh)] w-full min-h-[200px] max-w-full"
+          className={cn(
+            "aspect-auto w-full max-w-full",
+            fillHeight
+              ? "min-h-[200px] flex-1 min-w-0 basis-0"
+              : "h-[min(280px,45vh)] min-h-[200px]"
+          )}
         >
           <BarChart
             data={data}
