@@ -78,8 +78,8 @@ export const ScorePredictionForm = ({
               </MatchGroupSection>
             ))}
           </CardContent>
-          <CardFooter className="justify-end px-4 pt-4 pb-6 sm:pb-7 border-t">
-            <Button type="submit">Zapisz typy (dev)</Button>
+          <CardFooter className="justify-end mt-6 px-4 pt-4 pb-6 sm:pb-7 border-t">
+            <Button type="submit">Wyślij typy</Button>
           </CardFooter>
         </form>
       </Form>

@@ -1,9 +1,4 @@
-import {
-  useLayoutEffect,
-  useRef,
-  useState,
-  type ReactNode,
-} from "react"
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -13,7 +8,6 @@ export type EllipsisWithTooltipProps = {
   children: ReactNode
 }
 
-/** Obcięcie z „…”; `title` (podpowiedź przeglądarki) tylko gdy tekst rzeczywiście nie mieści się w polu. */
 export const EllipsisWithTooltip = ({
   titleText,
   className,

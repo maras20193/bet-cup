@@ -6,5 +6,4 @@ export type PhaseMatchBundle = {
   matches: readonly Match[]
 }
 
-/** Alias semantyczny — mecze jednej fazy turnieju (np. do formularza typowania). */
 export type PhaseMatchData = PhaseMatchBundle
