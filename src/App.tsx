@@ -2,9 +2,9 @@ import { Route, Routes } from "react-router"
 
 import { AppShell } from "@/components/layout/app-shell"
 import { DashboardPage } from "@/pages/dashboard-page"
-import { PredictionsPage } from "@/pages/predictions-page"
+import { PredictionsPage } from "@/pages/PredictionsPage"
 
-export function App() {
+export const App = () => {
   return (
     <Routes>
       <Route element={<AppShell />}>

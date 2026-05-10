@@ -29,38 +29,20 @@ import {
   type PlayerMatchCell,
   type ResultsTableRow,
 } from "@/components/results/build-results-table-data"
+import { TeamLabelWithFlag } from "@/components/shared/TeamLabelWithFlag"
 
 /** Stała szerokość kolumny meczu — spójne `left` dla kolumny wyniku i pion wyrównania flag. */
 const MATCH_COL_WIDTH_CLASS = "w-56 min-w-56 max-w-56"
 const STICKY_MATCH_LEFT = "left-0"
 const STICKY_RESULT_LEFT = "left-56"
 
-function flagCdnUrl(code: string): string {
-  return `https://flagcdn.com/24x18/${code.toLowerCase()}.webp`
-}
-
-function TeamFlag({ code }: { code: string }) {
-  return (
-    <img
-      src={flagCdnUrl(code)}
-      alt=""
-      width={24}
-      height={18}
-      loading="lazy"
-      decoding="async"
-      className="inline-block shadow-sm rounded-sm ring-1 ring-black/5 dark:ring-white/10 object-cover shrink-0"
-      aria-hidden
-    />
-  )
-}
-
-function teamPair(match: Match) {
+const teamPair = (match: Match) => {
   const home = match.homeId ? teams[match.homeId] : null
   const away = match.awayId ? teams[match.awayId] : null
   return { home, away }
 }
 
-function MatchLabel({ match }: { match: Match }) {
+const MatchLabel = ({ match }: { match: Match }) => {
   const { home, away } = teamPair(match)
   const homeLabel = home?.name ?? match.homeSlot ?? "—"
   const awayLabel = away?.name ?? match.awaySlot ?? "—"
@@ -74,38 +56,30 @@ function MatchLabel({ match }: { match: Match }) {
         "grid-cols-[minmax(0,1fr)_1.75rem_auto_1.75rem_minmax(0,1fr)]"
       )}
     >
-      <span
-        className={cn(
-          "min-w-0 font-medium text-right truncate",
-          home ? "text-foreground" : "text-muted-foreground"
-        )}
-        title={homeTitle}
-      >
-        {home ? home.name : homeLabel}
-      </span>
-      <span className="flex justify-center items-center w-7 h-[18px] shrink-0">
-        {home ? <TeamFlag code={home.code} /> : null}
-      </span>
+      <TeamLabelWithFlag
+        label={home ? home.name : homeLabel}
+        titleText={homeTitle}
+        flagCode={home?.code}
+        layout="label-flag"
+        teamResolved={Boolean(home)}
+        ellipsisClassName="min-w-0"
+      />
       <span className="text-muted-foreground text-center shrink-0" aria-hidden>
         —
       </span>
-      <span className="flex justify-center items-center w-7 h-[18px] shrink-0">
-        {away ? <TeamFlag code={away.code} /> : null}
-      </span>
-      <span
-        className={cn(
-          "min-w-0 font-medium text-left truncate",
-          away ? "text-foreground" : "text-muted-foreground"
-        )}
-        title={awayTitle}
-      >
-        {away ? away.name : awayLabel}
-      </span>
+      <TeamLabelWithFlag
+        label={away ? away.name : awayLabel}
+        titleText={awayTitle}
+        flagCode={away?.code}
+        layout="flag-label"
+        teamResolved={Boolean(away)}
+        ellipsisClassName="min-w-0"
+      />
     </div>
   )
 }
 
-function OfficialResultPill({ match }: { match: Match }) {
+const OfficialResultPill = ({ match }: { match: Match }) => {
   if (match.result) {
     return (
       <span className="inline-flex bg-white px-3 py-1 rounded-full font-semibold tabular-nums text-zinc-950 text-xs">
@@ -123,7 +97,7 @@ function OfficialResultPill({ match }: { match: Match }) {
   )
 }
 
-function predictionPillClass(cell: PlayerMatchCell): string {
+const predictionPillClass = (cell: PlayerMatchCell): string => {
   if (!cell.hasOfficialResult) {
     return "rounded-full border border-foreground/20 bg-transparent px-3 py-1 text-xs font-semibold tabular-nums text-foreground dark:border-white/40"
   }
@@ -137,18 +111,18 @@ function predictionPillClass(cell: PlayerMatchCell): string {
   }
 }
 
-function formatPrediction(cell: PlayerMatchCell): string {
+const formatPrediction = (cell: PlayerMatchCell): string => {
   if (!cell.prediction) return "—"
   return `${cell.prediction.home}-${cell.prediction.away}`
 }
 
-function PlayerColumnHeader({
+const PlayerColumnHeader = ({
   displayName,
   points,
 }: {
   displayName: string
   points: number
-}) {
+}) => {
   return (
     <div className="flex min-h-14 flex-col items-center justify-center gap-1 px-0.5 py-1 text-center leading-tight">
       <span className="max-w-[6rem] truncate font-semibold text-sm">
@@ -162,7 +136,7 @@ function PlayerColumnHeader({
   )
 }
 
-function PlayerPredictionCell({ cell }: { cell: PlayerMatchCell }) {
+const PlayerPredictionCell = ({ cell }: { cell: PlayerMatchCell }) => {
   return (
     <div className="flex justify-center items-center py-0.5">
       <span className={predictionPillClass(cell)}>
@@ -172,10 +146,10 @@ function PlayerPredictionCell({ cell }: { cell: PlayerMatchCell }) {
   )
 }
 
-function stickyCellClass(
+const stickyCellClass = (
   columnId: string,
   row: "header" | "body"
-): string | undefined {
+): string | undefined => {
   if (columnId === "match") {
     const base = cn(
       MATCH_COL_WIDTH_CLASS,
@@ -206,7 +180,7 @@ function stickyCellClass(
   return undefined
 }
 
-function ResultsLegend() {
+const ResultsLegend = () => {
   const { exactScorePoints, outcomePoints } = appConfig.scoring
   const awaitingLegend =
     "inline-flex items-center px-3 py-1.5 border border-foreground/25 dark:border-white/40 rounded-full font-medium text-muted-foreground text-xs"
@@ -234,12 +208,12 @@ export type ResultsTableProps = {
   layout?: "default" | "fill"
 }
 
-export function ResultsTable({
+export const ResultsTable = ({
   phaseId = "group-stage",
   matches = groupStageMatchesWithDemoResults,
   bundles = demoPlayerPredictionBundles,
   layout = "default",
-}: ResultsTableProps) {
+}: ResultsTableProps) => {
   const scoring = appConfig.scoring
 
   const { rows, playerTotals } = useMemo(

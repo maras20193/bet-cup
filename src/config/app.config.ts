@@ -14,7 +14,6 @@ export const appConfig: AppConfig = {
     outcomePoints: 3,
   },
   phaseOrder: [...phaseIds],
-  /** `formVisible` — czy na stronie typowania renderuje się formularz dla danej fazy. */
   phases: {
     "group-stage": {
       label: "Faza grupowa",

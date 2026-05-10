@@ -36,4 +36,11 @@ export const groupStageGroupBMatches = [
     awayId: "QATAR",
     result: null,
   },
+  {
+    id: "gs-b-006",
+    groupId: "B",
+    homeId: "BOSNIA_HERZEGOVINA",
+    awayId: "SWITZERLAND",
+    result: null,
+  },
 ] as const satisfies readonly Match[]
