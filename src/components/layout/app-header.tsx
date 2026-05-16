@@ -10,6 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { navItems } from "@/config/navigation"
 import { cn } from "@/lib/utils"
 
 const navLinkClassName = ({
@@ -25,11 +26,6 @@ const navLinkClassName = ({
       ? "text-foreground"
       : "text-muted-foreground hover:text-foreground"
   )
-
-const navItems = [
-  { to: "/", label: "Dashboard", end: true as const },
-  { to: "/typowanie", label: "Typowanie wyników", end: false as const },
-] as const
 
 export function AppHeader() {
   const [mobileOpen, setMobileOpen] = React.useState(false)

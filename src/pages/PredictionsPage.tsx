@@ -17,7 +17,7 @@ export const PredictionsPage = () => {
     <div className="space-y-6 pb-6 w-full">
       <div className="space-y-2">
         <h1 className="font-heading font-semibold text-foreground text-2xl tracking-tight">
-          Typowanie wyników
+          Typowanie
         </h1>
       </div>
 
