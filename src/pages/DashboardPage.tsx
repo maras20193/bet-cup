@@ -26,25 +26,22 @@ export function DashboardPage() {
   }
 
   return (
-    <div className="flex flex-col flex-1 gap-6 min-h-0 overflow-hidden">
+    <div className="flex flex-col flex-1 space-y-6 pb-6 w-full">
       <ResultsViewSwitcher value={view} onChange={setView} />
 
       {view === "chart" && (
         <div
           role="tabpanel"
-          className="flex flex-col flex-1 min-h-0 overflow-hidden"
+          className="flex flex-col min-h-[min(32rem,calc(100dvh-11rem))]"
         >
           <ResultsPointsChart fillHeight phaseId={dashboardPhaseId} />
         </div>
       )}
 
       {view === "table" && (
-        <div
-          role="tabpanel"
-          className="flex flex-col flex-1 gap-4 min-h-0 overflow-hidden"
-        >
+        <div role="tabpanel" className="space-y-4">
           <TitleAndPointsLegend />
-          <ResultsTable layout="fill" phaseId={dashboardPhaseId} />
+          <ResultsTable phaseId={dashboardPhaseId} />
         </div>
       )}
     </div>

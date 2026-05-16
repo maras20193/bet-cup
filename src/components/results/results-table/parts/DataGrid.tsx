@@ -59,23 +59,16 @@ function stickyCellClass(
 export type DataGridProps = {
   table: TanstackTable<ResultsTableRow>
   colCount: number
-  scrollContainerClass: string
-  layout: "default" | "fill"
+  scrollContainerClass?: string
 }
 
 export function DataGrid({
   table,
   colCount,
   scrollContainerClass,
-  layout,
 }: DataGridProps) {
   return (
-    <div
-      className={cn(
-        tableChromeClass,
-        layout === "fill" && "flex min-h-0 flex-1 flex-col",
-      )}
-    >
+    <div className={tableChromeClass}>
       <Table containerClassName={scrollContainerClass}>
         <TableHeader>
           {table.getHeaderGroups().map((hg) => (
