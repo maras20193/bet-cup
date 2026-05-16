@@ -8,7 +8,7 @@ export type TitleAndPointsLegendProps = {
 
 export function TitleAndPointsLegend({ className }: TitleAndPointsLegendProps) {
   return (
-    <div className={cn("space-y-1 shrink-0", className)}>
+    <div className={cn("space-y-2 shrink-0", className)}>
       <h2 className="font-heading font-semibold text-foreground text-lg tracking-tight">
         Tabela wyników
       </h2>

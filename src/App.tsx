@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router"
 
 import { AppShell } from "@/components/layout/app-shell"
-import { DashboardPage } from "@/pages/dashboard-page"
+import { DashboardPage } from "@/pages/DashboardPage"
 import { PredictionsPage } from "@/pages/PredictionsPage"
 
 export const App = () => {

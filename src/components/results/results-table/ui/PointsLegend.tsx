@@ -13,7 +13,7 @@ export function PointsLegend() {
       <span className="inline-flex items-center px-3 py-1.5 border border-foreground/25 dark:border-white/40 rounded-full font-medium text-muted-foreground text-xs">
         Oczekuje na wynik
       </span>
-      <span className="inline-flex items-center px-3 py-1.5 border border-muted-foreground/20 rounded-full bg-muted/55 font-medium text-muted-foreground text-xs dark:border-white/15 dark:bg-muted/35">
+      <span className="inline-flex items-center bg-muted/55 dark:bg-muted/35 px-3 py-1.5 border border-muted-foreground/20 dark:border-white/15 rounded-full font-medium text-muted-foreground text-xs">
         Błędny typ (0 pkt)
       </span>
     </div>
