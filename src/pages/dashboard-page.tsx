@@ -1,7 +1,11 @@
 import { useState } from "react"
 
 import { ResultsPointsChart } from "@/components/results/results-points-chart"
-import { ResultsTable } from "@/components/results/results-table"
+import {
+  ResultsTable,
+  Section,
+  TitleAndPointsLegend,
+} from "@/components/results/results-table"
 import { appConfig } from "@/config/app.config"
 import { cn } from "@/lib/utils"
 
@@ -64,7 +68,10 @@ export function DashboardPage() {
               role="tabpanel"
               className="flex flex-col flex-1 min-h-0 overflow-hidden"
             >
-              <ResultsTable layout="fill" phaseId={dashboardPhaseId} />
+              <Section layout="fill">
+                <TitleAndPointsLegend />
+                <ResultsTable layout="fill" phaseId={dashboardPhaseId} />
+              </Section>
             </div>
           )}
         </>

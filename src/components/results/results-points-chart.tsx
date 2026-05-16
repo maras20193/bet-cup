@@ -9,7 +9,7 @@ import { groupStageMatchesWithDemoResults } from "@/data/matches/mock-official-r
 import { appConfig } from "@/config/app.config"
 import type { Match } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
-import { buildResultsTableModel } from "@/components/results/build-results-table-data"
+import { buildResultsTableModel } from "@/components/results/results-table"
 import {
   Card,
   CardContent,
