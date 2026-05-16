@@ -13,20 +13,19 @@ export type ResultsTableProps = {
   phaseId?: PhaseId
   matches?: readonly Match[]
   bundles?: readonly PlayerPredictionBundleInput[]
+  /** Wypełnia dostępną wysokość rodzica; scroll tylko w siatce tabeli. */
+  fillHeight?: boolean
 }
 
 export function ResultsTable({
   phaseId = "group-stage",
   matches = resultsTableDefaultMatches,
   bundles = resultsTableDefaultBundles,
+  fillHeight = false,
 }: ResultsTableProps) {
   const { table, colCount } = useResultsTable({ phaseId, matches, bundles })
 
   return (
-    <DataGrid
-      table={table}
-      colCount={colCount}
-      scrollContainerClass="overscroll-x-contain"
-    />
+    <DataGrid table={table} colCount={colCount} fillHeight={fillHeight} />
   )
 }

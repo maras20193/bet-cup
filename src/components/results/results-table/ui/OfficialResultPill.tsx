@@ -7,7 +7,7 @@ export type OfficialResultPillProps = {
 export function OfficialResultPill({ match }: OfficialResultPillProps) {
   if (match.result) {
     return (
-      <span className="inline-flex bg-white px-3 py-1 rounded-full font-semibold tabular-nums text-zinc-950 text-xs">
+      <span className="inline-flex rounded-full bg-muted px-3 py-1 text-xs font-semibold tabular-nums text-foreground ring-1 ring-border/50 dark:bg-white dark:text-zinc-950 dark:ring-0">
         {match.result.home}-{match.result.away}
       </span>
     )

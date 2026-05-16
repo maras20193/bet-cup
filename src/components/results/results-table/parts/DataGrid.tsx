@@ -13,23 +13,38 @@ import { cn } from "@/lib/utils"
 
 const MATCH_COL_WIDTH = "w-56 min-w-56 max-w-56"
 const RESULT_COL_WIDTH = "w-20 min-w-20 md:w-24 md:min-w-24"
-const STICKY_MATCH_LEFT = "left-0"
-const STICKY_RESULT_LEFT = "md:left-56"
+
+const stickyOpaqueBg =
+  "bg-card dark:bg-zinc-950 [tr:hover_&]:bg-card [tr:hover_&]:dark:bg-zinc-950"
+
+/** W light: border zamiast box-shadow; w dark: cień przy przewijaniu. */
+const stickyEdgeSeparator =
+  "border-r border-border/60 dark:border-r-0 dark:shadow-[4px_0_12px_-4px_rgba(0,0,0,0.65)]"
+
+const headerCellBottomBorder =
+  "border-b border-border/60 dark:border-white/10"
+
+/** Poniżej z-50 (header app + sheet nawigacji). Wewnątrz tabeli: header > body > group. */
+const zHeaderMatch = "z-[30]"
+const zHeaderResult = "z-[29]"
+const zHeaderPlayer = "z-[28]"
+const zBodyMatch = "z-[20]"
+const zBodyResultMd = "md:z-[19]"
+const zGroup = "z-[15]"
 
 const groupLabelCellClass = cn(
   MATCH_COL_WIDTH,
-  "sticky z-30 border-0 bg-muted py-2 font-heading font-semibold text-foreground text-sm tracking-tight dark:bg-zinc-900",
-  STICKY_MATCH_LEFT,
+  "sticky left-0 border-0 bg-muted py-2 font-heading font-semibold text-foreground text-sm tracking-tight dark:bg-zinc-900",
+  zGroup,
 )
 
 const groupRestCellClass =
-  "border-0 bg-muted/50 py-2 dark:bg-white/5"
+  "border-0 bg-muted py-2 dark:bg-zinc-900"
 
 const tableChromeClass = cn(
   "[&_[data-slot=table-container]]:border [&_[data-slot=table-container]]:border-border/60 dark:[&_[data-slot=table-container]]:border-white/10 [&_[data-slot=table-container]]:rounded-lg",
-  "[&_td]:border-0 [&_th]:border-0",
+  "[&_td]:border-0",
   "[&_tbody_tr]:border-b [&_tbody_tr]:border-border/50 dark:[&_tbody_tr]:border-white/10 [&_tbody_tr:last-child]:border-0",
-  "[&_thead_tr]:border-b [&_thead_tr]:border-border/60 dark:[&_thead_tr]:border-white/10",
 )
 
 function stickyCellClass(
@@ -37,33 +52,27 @@ function stickyCellClass(
   row: "header" | "body",
 ): string | undefined {
   if (columnId === "match") {
-    const base = cn(
-      MATCH_COL_WIDTH,
-      "sticky border-0 bg-card shadow-[4px_0_12px_-6px_rgba(0,0,0,0.2)] dark:bg-zinc-950 dark:shadow-[4px_0_12px_-6px_rgba(0,0,0,0.5)]",
-      STICKY_MATCH_LEFT,
-    )
+    const base = cn(MATCH_COL_WIDTH, stickyOpaqueBg, stickyEdgeSeparator)
     if (row === "header") {
-      return cn(base, "top-0 z-50")
+      return cn(base, "sticky top-0 left-0", zHeaderMatch)
     }
-    return cn(base, "z-30")
+    return cn(base, "sticky left-0", zBodyMatch)
   }
   if (columnId === "result") {
     const base = cn(
       RESULT_COL_WIDTH,
-      "shrink-0 border-0 text-center align-middle",
-      "md:sticky md:bg-card md:shadow-[4px_0_12px_-6px_rgba(0,0,0,0.2)] md:dark:bg-zinc-950 md:dark:shadow-[4px_0_12px_-6px_rgba(0,0,0,0.5)]",
-      STICKY_RESULT_LEFT,
+      "shrink-0 text-center align-middle",
+      stickyOpaqueBg,
+      stickyEdgeSeparator,
+      "md:sticky md:left-56",
     )
     if (row === "header") {
-      return cn(base, "md:top-0 md:z-50")
+      return cn(base, "sticky top-0", zHeaderResult)
     }
-    return cn(base, "md:z-30")
+    return cn(base, zBodyResultMd)
   }
   if (row === "header" && columnId.startsWith("player-")) {
-    return cn(
-      "top-0 z-40 sticky bg-card dark:bg-zinc-950 border-0",
-      "shadow-[0_1px_0_0_var(--border)] dark:shadow-[0_1px_0_0_rgba(255,255,255,0.12)]",
-    )
+    return cn("sticky top-0", zHeaderPlayer, stickyOpaqueBg)
   }
   return undefined
 }
@@ -72,16 +81,32 @@ export type DataGridProps = {
   table: TanstackTable<ResultsTableRow>
   colCount: number
   scrollContainerClass?: string
+  /** Scroll pionowy i poziomy w kontenerze tabeli zamiast na stronie. */
+  fillHeight?: boolean
 }
 
 export function DataGrid({
   table,
   colCount,
   scrollContainerClass,
+  fillHeight = false,
 }: DataGridProps) {
   return (
-    <div className={tableChromeClass}>
-      <Table containerClassName={scrollContainerClass}>
+    <div
+      className={cn(
+        tableChromeClass,
+        fillHeight && "flex min-h-0 flex-1 flex-col",
+      )}
+    >
+      <Table
+        className="w-max min-w-full border-separate border-spacing-0"
+        containerClassName={cn(
+          scrollContainerClass,
+          fillHeight
+            ? "min-h-0 flex-1 overflow-auto overscroll-contain"
+            : "overscroll-x-contain",
+        )}
+      >
         <TableHeader>
           {table.getHeaderGroups().map((hg) => (
             <TableRow key={hg.id} className="hover:bg-transparent border-0">
@@ -92,8 +117,9 @@ export function DataGrid({
                   <TableHead
                     key={header.id}
                     className={cn(
-                      "border-0 h-auto min-h-10 text-foreground align-middle",
+                      "h-auto min-h-10 border-x-0 border-t-0 text-foreground align-middle",
                       sticky,
+                      headerCellBottomBorder,
                       header.column.id === "result" && "px-1 md:px-2",
                       isPlayer &&
                         "min-w-[5rem] px-1 text-center md:min-w-[5.5rem] md:px-2",
