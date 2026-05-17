@@ -24,19 +24,19 @@ export type ScorePredictionFormProps = {
   phaseMatches: PhaseMatchBundle
   title: string
   initialScores?: Partial<Record<string, ScoreInputFields>>
-  devUserId?: string
+  devPredictionId?: string
 }
 
 export const ScorePredictionForm = ({
   phaseMatches,
   title,
   initialScores,
-  devUserId,
+  devPredictionId,
 }: ScorePredictionFormProps) => {
   const { form, formIdPrefix, sections, matchIndexById, onSubmit } =
     usePhaseScorePredictionForm(phaseMatches, {
       initialScores,
-      devUserId,
+      devPredictionId,
     })
 
   return (

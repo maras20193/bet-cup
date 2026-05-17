@@ -6,17 +6,16 @@ import {
 import { useMemo } from "react"
 
 import { appConfig } from "@/config/app.config"
-import { groupStageMatches } from "@/data/matches/group-stage"
 import {
   playerPredictionBundles,
   type PlayerPredictionBundleInput,
 } from "@/data/predictions"
-import type { Match } from "@/types/match"
-import type { PhaseId } from "@/types/phase"
+import { phaseMatchBundles } from "@/data/matches/phase-bundles"
+import { buildResultsPhaseSections } from "@/components/results/utils/resultsPhases"
 import { MatchLabel } from "@/components/results/results-table/parts/MatchLabel"
 import { PlayerPredictionCell } from "@/components/results/results-table/parts/PlayerPredictionCell"
 import {
-  buildResultsTableModel,
+  buildMultiPhaseResultsTableModel,
   type ResultsTableRow,
 } from "@/components/results/results-table/utils/buildResultsTableModel"
 import { MatchColumnHeader } from "@/components/results/results-table/ui/MatchColumnHeader"
@@ -25,36 +24,37 @@ import { PlayerColumnHeader } from "@/components/results/results-table/ui/Player
 import { ResultColumnHeader } from "@/components/results/results-table/ui/ResultColumnHeader"
 
 export type UseResultsTableArgs = {
-  phaseId: PhaseId
-  matches: readonly Match[]
-  bundles: readonly PlayerPredictionBundleInput[]
+  bundles?: readonly PlayerPredictionBundleInput[]
 }
 
 export function useResultsTable({
-  phaseId,
-  matches,
-  bundles,
-}: UseResultsTableArgs) {
+  bundles = resultsTableDefaultBundles,
+}: UseResultsTableArgs = {}) {
   const scoring = appConfig.scoring
 
+  const sections = useMemo(
+    () => buildResultsPhaseSections(appConfig, phaseMatchBundles),
+    [],
+  )
+
   const { rows, playerTotals } = useMemo(
-    () => buildResultsTableModel(matches, bundles, phaseId, scoring),
-    [matches, bundles, phaseId, scoring],
+    () => buildMultiPhaseResultsTableModel(sections, bundles, scoring),
+    [sections, bundles, scoring],
   )
 
   const columns = useMemo<ColumnDef<ResultsTableRow>[]>(() => {
     const playerCols: ColumnDef<ResultsTableRow>[] = bundles.map((b) => ({
-      id: `player-${b.userId}`,
+      id: `player-${b.playerId}`,
       header: () => (
         <PlayerColumnHeader
           displayName={b.displayName}
-          points={playerTotals[b.userId] ?? 0}
+          points={playerTotals[b.playerId] ?? 0}
         />
       ),
       cell: ({ row }) => {
         const r = row.original
         if (r.kind !== "match") return null
-        const cell = r.cellsByPlayerId[b.userId]
+        const cell = r.cellsByPlayerId[b.playerId]
         if (!cell) return null
         return <PlayerPredictionCell cell={cell} />
       },
@@ -92,8 +92,8 @@ export function useResultsTable({
     data: rows,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getRowId: (row, index) =>
-      row.kind === "group" ? `group-${index}-${row.groupLabel}` : row.match.id,
+    getRowId: (row) =>
+      row.kind === "group" ? `section-${row.sectionKey}` : row.match.id,
   })
 
   const colCount = table.getAllColumns().length
@@ -101,5 +101,4 @@ export function useResultsTable({
   return { table, colCount }
 }
 
-export const resultsTableDefaultMatches = groupStageMatches.matches
 export const resultsTableDefaultBundles = playerPredictionBundles

@@ -7,19 +7,38 @@ function isPhaseId(value: string): value is PhaseId {
   return allowedPhaseIds.has(value)
 }
 
+type PhasePredictionsFileRaw = PhasePredictions & {
+  userId?: string
+}
+
 export function parsePhasePredictionsFile(
-  file: PhasePredictions
+  file: PhasePredictionsFileRaw,
 ): PhasePredictions {
   if (!isPhaseId(file.phaseId)) {
     throw new Error(
-      `Invalid phaseId on predictions file: "${file.phaseId}" (userId=${file.userId})`
+      `Invalid phaseId on predictions file: "${file.phaseId}" (predictionId=${file.predictionId ?? file.userId})`,
     )
   }
-  return file
+
+  const predictionId = file.predictionId ?? file.userId
+  if (!predictionId) {
+    throw new Error(
+      `Missing predictionId on predictions file for phase "${file.phaseId}"`,
+    )
+  }
+
+  return {
+    predictionId,
+    displayName: file.displayName,
+    contactEmail: file.contactEmail,
+    phaseId: file.phaseId,
+    submittedAt: file.submittedAt,
+    predictions: file.predictions,
+  }
 }
 
 export function parsePlayerPhaseFiles(
-  files: readonly PhasePredictions[]
+  files: readonly PhasePredictionsFileRaw[],
 ): PhasePredictions[] {
   return files.map(parsePhasePredictionsFile)
 }

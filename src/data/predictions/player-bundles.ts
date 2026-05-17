@@ -14,34 +14,43 @@ function playerSlugFromPath(path: string): string | null {
   return match?.[1] ?? null
 }
 
+function displayNameFromPhaseFiles(
+  phaseFiles: readonly PhasePredictions[],
+): string {
+  const groupStage = phaseFiles.find((f) => f.phaseId === "group-stage")
+  if (groupStage) return groupStage.displayName
+
+  const earliest = [...phaseFiles].sort((a, b) =>
+    a.submittedAt.localeCompare(b.submittedAt),
+  )[0]
+  return earliest?.displayName ?? "Gracz"
+}
+
 function buildPlayerBundles(): PlayerPredictionBundleInput[] {
-  const phaseFilesBySlug = new Map<string, PhasePredictions[]>()
+  const phaseFilesByPlayerId = new Map<string, PhasePredictions[]>()
 
   for (const [path, file] of Object.entries(phaseFileModules)) {
-    const slug = playerSlugFromPath(path)
-    if (!slug) continue
+    const playerId = playerSlugFromPath(path)
+    if (!playerId) continue
 
     const parsed = parsePhasePredictionsFile(file)
-    const existing = phaseFilesBySlug.get(slug) ?? []
+    const existing = phaseFilesByPlayerId.get(playerId) ?? []
     existing.push(parsed)
-    phaseFilesBySlug.set(slug, existing)
+    phaseFilesByPlayerId.set(playerId, existing)
   }
 
   const bundles: PlayerPredictionBundleInput[] = []
 
-  for (const phaseFiles of phaseFilesBySlug.values()) {
-    const [first] = phaseFiles
-    if (!first) continue
-
+  for (const [playerId, phaseFiles] of phaseFilesByPlayerId) {
     bundles.push({
-      userId: first.userId,
-      displayName: first.displayName,
+      playerId,
+      displayName: displayNameFromPhaseFiles(phaseFiles),
       phaseFiles,
     })
   }
 
   return bundles.sort((a, b) =>
-    a.displayName.localeCompare(b.displayName, "pl")
+    a.displayName.localeCompare(b.displayName, "pl"),
   )
 }
 

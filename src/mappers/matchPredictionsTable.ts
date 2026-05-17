@@ -13,7 +13,7 @@ export type TeamCell = {
 } | null
 
 export type PlayerScorePredictionCell = {
-  userId: string
+  playerId: string
   displayName: string
   prediction: { home: number; away: number } | null
 }
@@ -27,7 +27,7 @@ export type MatchPredictionsTableRow = {
 }
 
 export type PlayerPredictionTableInput = {
-  userId: string
+  playerId: string
   displayName: string
   phaseFiles: readonly PhasePredictions[]
 }
@@ -39,7 +39,7 @@ function teamCell(teamId: TeamId | null): TeamCell {
 }
 
 function buildPredictionsByMatchId(
-  players: readonly PlayerPredictionTableInput[]
+  players: readonly PlayerPredictionTableInput[],
 ): Map<string, Map<string, { home: number; away: number }>> {
   const byMatchId = new Map<
     string,
@@ -50,12 +50,12 @@ function buildPredictionsByMatchId(
     for (const file of player.phaseFiles) {
       parsePhasePredictionsFile(file)
       for (const pred of file.predictions) {
-        let byUser = byMatchId.get(pred.matchId)
-        if (!byUser) {
-          byUser = new Map()
-          byMatchId.set(pred.matchId, byUser)
+        let byPlayer = byMatchId.get(pred.matchId)
+        if (!byPlayer) {
+          byPlayer = new Map()
+          byMatchId.set(pred.matchId, byPlayer)
         }
-        byUser.set(player.userId, { home: pred.home, away: pred.away })
+        byPlayer.set(player.playerId, { home: pred.home, away: pred.away })
       }
     }
   }
@@ -72,9 +72,9 @@ export function buildMatchPredictionsTableRows(options: {
   return options.matches.map((match) => {
     const rowPredictions = predictionsByMatchId.get(match.id)
     const players = options.players.map((p) => ({
-      userId: p.userId,
+      playerId: p.playerId,
       displayName: p.displayName,
-      prediction: rowPredictions?.get(p.userId) ?? null,
+      prediction: rowPredictions?.get(p.playerId) ?? null,
     }))
 
     return {

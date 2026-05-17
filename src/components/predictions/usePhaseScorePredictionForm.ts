@@ -18,7 +18,7 @@ export const usePhaseScorePredictionForm = (
   phaseMatches: PhaseMatchBundle,
   options?: {
     initialScores?: Partial<Record<string, ScoreInputFields>>
-    devUserId?: string
+    devPredictionId?: string
   }
 ) => {
   // Explicit external initialScores take priority; otherwise try to restore a
@@ -76,7 +76,7 @@ export const usePhaseScorePredictionForm = (
     )
 
     const payload: PhasePredictions = {
-      userId: options?.devUserId ?? crypto.randomUUID(),
+      predictionId: options?.devPredictionId ?? crypto.randomUUID(),
       displayName: values.displayName.trim(),
       contactEmail: values.email.trim(),
       phaseId: phaseMatches.phaseId,

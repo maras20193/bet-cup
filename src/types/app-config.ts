@@ -14,7 +14,6 @@ export type AppConfig = {
     PhaseId,
     {
       label: string
-      tableVisible: boolean
       formVisible: boolean
     }
   >

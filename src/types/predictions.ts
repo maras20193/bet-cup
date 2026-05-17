@@ -15,7 +15,7 @@ export type ScorePrediction = {
 }
 
 export type PhasePredictions = {
-  userId: string
+  predictionId: string
   displayName: string
 
   contactEmail?: string
@@ -25,7 +25,8 @@ export type PhasePredictions = {
 }
 
 export type PlayerPredictionBundleInput = {
-  userId: string
+  /** Folder slug under `src/data/predictions/` — stable key for results columns. */
+  playerId: string
   displayName: string
   phaseFiles: readonly PhasePredictions[]
 }
