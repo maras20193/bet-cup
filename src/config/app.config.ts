@@ -24,7 +24,7 @@ export const appConfig: AppConfig = {
 
     "round-of-32": {
       label: "1/16 finału",
-      formVisible: true,
+      formVisible: false,
     },
 
     "round-of-16": {
