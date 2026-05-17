@@ -91,6 +91,10 @@ export function DataGrid({
   scrollContainerClass,
   fillHeight = false,
 }: DataGridProps) {
+  const hasPlayerColumns = table
+    .getAllColumns()
+    .some((col) => col.id.startsWith("player-"))
+
   return (
     <div
       className={cn(
@@ -99,14 +103,24 @@ export function DataGrid({
       )}
     >
       <Table
-        className="w-max min-w-full border-separate border-spacing-0"
+        className={cn(
+          "border-separate border-spacing-0",
+          hasPlayerColumns ? "w-max min-w-full" : "w-max table-fixed",
+        )}
         containerClassName={cn(
           scrollContainerClass,
+          !hasPlayerColumns && "w-fit max-w-full",
           fillHeight
             ? "min-h-0 flex-1 overflow-auto overscroll-contain"
             : "overscroll-x-contain",
         )}
       >
+        {!hasPlayerColumns && (
+          <colgroup>
+            <col style={{ width: "14rem", maxWidth: "14rem" }} />
+            <col style={{ width: "6rem" }} />
+          </colgroup>
+        )}
         <TableHeader>
           {table.getHeaderGroups().map((hg) => (
             <TableRow key={hg.id} className="hover:bg-transparent border-0">
@@ -171,7 +185,12 @@ export function DataGrid({
                         isPlayer &&
                           "min-w-[5rem] px-1 text-center md:min-w-[5.5rem] md:px-2",
                         cell.column.id === "match" &&
-                          "max-w-56 py-2 whitespace-normal",
+                          cn(
+                            "py-2 whitespace-normal",
+                            hasPlayerColumns
+                              ? "max-w-56"
+                              : "overflow-hidden max-w-56",
+                          ),
                         cell.column.id === "result" && "px-1 py-2 md:px-2",
                       )}
                     >
