@@ -2,7 +2,10 @@ import { useMemo } from "react"
 import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts"
 
 import { groupStageMatches } from "@/data/matches/group-stage"
-import type { PlayerPredictionBundleInput } from "@/data/predictions"
+import {
+  playerPredictionBundles,
+  type PlayerPredictionBundleInput,
+} from "@/data/predictions"
 import { appConfig } from "@/config/app.config"
 import type { Match } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
@@ -43,7 +46,7 @@ export type ResultsPointsChartProps = {
 export function ResultsPointsChart({
   phaseId = "group-stage",
   matches = groupStageMatches.matches,
-  bundles = [],
+  bundles = playerPredictionBundles,
   className,
   fillHeight = false,
 }: ResultsPointsChartProps) {
