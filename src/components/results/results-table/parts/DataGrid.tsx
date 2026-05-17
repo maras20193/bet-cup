@@ -14,12 +14,19 @@ import { cn } from "@/lib/utils"
 const MATCH_COL_WIDTH = "w-56 min-w-56 max-w-56"
 const RESULT_COL_WIDTH = "w-20 min-w-20 md:w-24 md:min-w-24"
 
-const stickyOpaqueBg =
-  "bg-card dark:bg-zinc-950 [tr:hover_&]:bg-card [tr:hover_&]:dark:bg-zinc-950"
+const stickyOpaqueBgBase = "bg-card dark:bg-zinc-950"
 
-/** W light: border zamiast box-shadow; w dark: cień przy przewijaniu. */
-const stickyEdgeSeparator =
-  "border-r border-border/60 dark:border-r-0 dark:shadow-[4px_0_12px_-4px_rgba(0,0,0,0.65)]"
+/** Nagłówek: nieprzezroczyste tło także przy hover wiersza nagłówka. */
+const stickyOpaqueBgHeader = cn(
+  stickyOpaqueBgBase,
+  "[tr:hover_&]:bg-card [tr:hover_&]:dark:bg-zinc-950",
+)
+
+/** Tło hover na każdej komórce — tr:hover nie maluje się na td przy border-separate + sticky. */
+const dataRowHoverBg =
+  "group-hover/row:bg-muted/30 group-hover/row:dark:bg-white/[0.04]"
+
+const stickyEdgeSeparator = "border-r border-border/60 dark:border-r-0"
 
 const headerCellBottomBorder =
   "border-b border-border/60 dark:border-white/10"
@@ -51,8 +58,11 @@ function stickyCellClass(
   columnId: string,
   row: "header" | "body",
 ): string | undefined {
+  const stickyBg =
+    row === "header" ? stickyOpaqueBgHeader : stickyOpaqueBgBase
+
   if (columnId === "match") {
-    const base = cn(MATCH_COL_WIDTH, stickyOpaqueBg, stickyEdgeSeparator)
+    const base = cn(MATCH_COL_WIDTH, stickyBg, stickyEdgeSeparator)
     if (row === "header") {
       return cn(base, "sticky top-0 left-0", zHeaderMatch)
     }
@@ -62,7 +72,7 @@ function stickyCellClass(
     const base = cn(
       RESULT_COL_WIDTH,
       "shrink-0 text-center align-middle",
-      stickyOpaqueBg,
+      stickyBg,
       stickyEdgeSeparator,
       "md:sticky md:left-56",
     )
@@ -72,7 +82,7 @@ function stickyCellClass(
     return cn(base, zBodyResultMd)
   }
   if (row === "header" && columnId.startsWith("player-")) {
-    return cn("sticky top-0", zHeaderPlayer, stickyOpaqueBg)
+    return cn("sticky top-0", zHeaderPlayer, stickyOpaqueBgHeader)
   }
   return undefined
 }
@@ -171,7 +181,7 @@ export function DataGrid({
             return (
               <TableRow
                 key={row.id}
-                className="hover:bg-muted/30 dark:hover:bg-white/[0.04] border-0"
+                className="group/row hover:bg-transparent border-0"
               >
                 {row.getVisibleCells().map((cell) => {
                   const sticky = stickyCellClass(cell.column.id, "body")
@@ -181,6 +191,7 @@ export function DataGrid({
                       key={cell.id}
                       className={cn(
                         "border-0 align-middle",
+                        dataRowHoverBg,
                         sticky,
                         isPlayer &&
                           "min-w-[5rem] px-1 text-center md:min-w-[5.5rem] md:px-2",
