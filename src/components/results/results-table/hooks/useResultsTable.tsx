@@ -6,11 +6,8 @@ import {
 import { useMemo } from "react"
 
 import { appConfig } from "@/config/app.config"
-import {
-  demoPlayerPredictionBundles,
-  type PlayerPredictionBundleInput,
-} from "@/data/predictions"
-import { groupStageMatchesWithDemoResults } from "@/data/matches/mock-official-results"
+import { groupStageMatches } from "@/data/matches/group-stage"
+import type { PlayerPredictionBundleInput } from "@/data/predictions"
 import type { Match } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
 import { MatchLabel } from "@/components/results/results-table/parts/MatchLabel"
@@ -101,5 +98,6 @@ export function useResultsTable({
   return { table, colCount }
 }
 
-export const resultsTableDefaultMatches = groupStageMatchesWithDemoResults
-export const resultsTableDefaultBundles = demoPlayerPredictionBundles
+export const resultsTableDefaultMatches = groupStageMatches.matches
+export const resultsTableDefaultBundles: readonly PlayerPredictionBundleInput[] =
+  []

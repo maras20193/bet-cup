@@ -1,11 +1,8 @@
 import { useMemo } from "react"
 import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts"
 
-import {
-  demoPlayerPredictionBundles,
-  type PlayerPredictionBundleInput,
-} from "@/data/predictions"
-import { groupStageMatchesWithDemoResults } from "@/data/matches/mock-official-results"
+import { groupStageMatches } from "@/data/matches/group-stage"
+import type { PlayerPredictionBundleInput } from "@/data/predictions"
 import { appConfig } from "@/config/app.config"
 import type { Match } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
@@ -45,8 +42,8 @@ export type ResultsPointsChartProps = {
 
 export function ResultsPointsChart({
   phaseId = "group-stage",
-  matches = groupStageMatchesWithDemoResults,
-  bundles = demoPlayerPredictionBundles,
+  matches = groupStageMatches.matches,
+  bundles = [],
   className,
   fillHeight = false,
 }: ResultsPointsChartProps) {
@@ -67,6 +64,8 @@ export function ResultsPointsChart({
       })),
     [bundles, playerTotals],
   )
+
+  const hasPlayers = bundles.length > 0
 
   return (
     <Card
@@ -89,6 +88,12 @@ export function ResultsPointsChart({
           fillHeight && "flex min-h-0 flex-1 flex-col overflow-hidden pb-3"
         )}
       >
+        {!hasPlayers ? (
+          <p className="flex min-h-[200px] flex-1 items-center justify-center px-4 text-center text-sm text-muted-foreground">
+            Brak złożonych typów — wykres pojawi się po pierwszych predykcjach
+            graczy.
+          </p>
+        ) : (
         <ChartContainer
           config={chartConfig}
           className={cn(
@@ -131,6 +136,7 @@ export function ResultsPointsChart({
             </Bar>
           </BarChart>
         </ChartContainer>
+        )}
       </CardContent>
     </Card>
   )
