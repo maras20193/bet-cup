@@ -1,6 +1,8 @@
 import { Link } from "react-router"
 import { BarChart3Icon, ClipboardListIcon, TrophyIcon } from "lucide-react"
 
+import fifaLogoDark from "@/assets/fifa-2026-dark.svg"
+import fifaLogoLight from "@/assets/fifa-2026-light.svg"
 import { Button } from "@/components/ui/button"
 import { appConfig } from "@/config/app.config"
 import { mainPageLinks } from "@/config/navigation"
@@ -15,16 +17,29 @@ export function MainPage() {
   const { tournament } = appConfig
 
   return (
-    <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-8 py-8 text-center sm:py-12">
+    <div className="flex flex-col items-center gap-8 mx-auto py-8 sm:py-12 w-full max-w-lg text-center">
       <div className="flex flex-col items-center gap-4">
-        <div className="flex size-16 items-center justify-center rounded-2xl border border-border/60 bg-muted/30 ring-1 ring-border/40 dark:bg-white/5 dark:ring-white/10">
-          <TrophyIcon className="size-8 text-primary" aria-hidden />
+        <div className="flex justify-center items-center w-full max-w-44 sm:max-w-50">
+          <img
+            src={fifaLogoDark}
+            alt={`Logo ${tournament.name}`}
+            className="dark:hidden w-full h-auto"
+            width={228}
+            height={351}
+          />
+          <img
+            src={fifaLogoLight}
+            alt={`Logo ${tournament.name}`}
+            className="hidden dark:block w-full h-auto"
+            width={228}
+            height={351}
+          />
         </div>
         <div className="space-y-2">
-          <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground">
-            Bet Cup
+          <h1 className="font-heading font-semibold text-foreground text-3xl tracking-tight">
+            {tournament.name}
           </h1>
-          <p className="text-muted-foreground text-sm leading-relaxed sm:text-base">
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             {tournament.name} — typuj wyniki meczów, śledź punkty w tabeli i na
             wykresie. Wybierz sekcję poniżej lub skorzystaj z nawigacji u góry.
           </p>
@@ -32,7 +47,7 @@ export function MainPage() {
       </div>
 
       <nav
-        className="flex w-full flex-col gap-3"
+        className="flex flex-col gap-3 w-full"
         aria-label="Przejdź do sekcji aplikacji"
       >
         {mainPageLinks.map(({ to, label }) => {
@@ -42,7 +57,7 @@ export function MainPage() {
               key={to}
               variant="outline"
               size="lg"
-              className="h-11 w-full"
+              className="w-full h-11"
               asChild
             >
               <Link to={to}>
