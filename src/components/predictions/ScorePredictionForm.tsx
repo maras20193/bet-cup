@@ -79,7 +79,9 @@ export const ScorePredictionForm = ({
             ))}
           </CardContent>
           <CardFooter className="justify-end mt-6 px-4 pt-4 pb-6 sm:pb-7 border-t">
-            <Button type="submit">Wyślij typy</Button>
+            <Button type="submit" className="cursor-pointer">
+              Wyślij typy
+            </Button>
           </CardFooter>
         </form>
       </Form>

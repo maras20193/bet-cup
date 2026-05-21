@@ -1,11 +1,13 @@
-import { ResultsTable } from "@/components/results/results-table"
-import { TitleAndPointsLegend } from "@/components/results/results-table/ui/TitleAndPointsLegend"
-
-export function ResultsTablePage() {
-  return (
-    <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-hidden">
-      <TitleAndPointsLegend />
-      <ResultsTable fillHeight />
-    </div>
-  )
-}
+export function ResultsTablePage() {
+  return (
+    <div className="flex flex-col flex-1 gap-4 min-h-0 overflow-hidden">
+      <div className="space-y-1 shrink-0">
+        <h1 className="font-heading font-semibold text-foreground text-lg tracking-tight">
+          Tabela wyników
+        </h1>
+      </div>
+      {/* <PointsLegend />
+      <ResultsTable fillHeight /> */}
+    </div>
+  )
+}

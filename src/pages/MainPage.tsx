@@ -17,8 +17,8 @@ export function MainPage() {
   const { tournament } = appConfig
 
   return (
-    <div className="flex flex-col items-center gap-8 mx-auto py-8 sm:py-12 w-full max-w-lg text-center">
-      <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-6 mx-auto py-8 sm:py-12 w-full max-w-lg text-center">
+      <div className="flex flex-col items-center gap-6">
         <div className="flex justify-center items-center w-full max-w-44 sm:max-w-50">
           <img
             src={fifaLogoDark}
@@ -39,10 +39,6 @@ export function MainPage() {
           <h1 className="font-heading font-semibold text-foreground text-3xl tracking-tight">
             {tournament.name}
           </h1>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            {tournament.name} — typuj wyniki meczów, śledź punkty w tabeli i na
-            wykresie. Wybierz sekcję poniżej lub skorzystaj z nawigacji u góry.
-          </p>
         </div>
       </div>
 
