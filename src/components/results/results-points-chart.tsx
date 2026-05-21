@@ -33,6 +33,92 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
+type ChartBarData = {
+  name: string
+  points: number
+  fill: string
+}
+
+type PointsBarChartInnerProps = {
+  data: ChartBarData[]
+  horizontal: boolean
+}
+
+function PointsBarChartInner({ data, horizontal }: PointsBarChartInnerProps) {
+  return (
+    <BarChart
+      data={data}
+      layout={horizontal ? "vertical" : undefined}
+      margin={
+        horizontal
+          ? { left: 4, right: 12, top: 8, bottom: 4 }
+          : { left: 4, right: 8, top: 8, bottom: 4 }
+      }
+      barCategoryGap="18%"
+    >
+      <CartesianGrid
+        vertical={!horizontal}
+        horizontal={!horizontal}
+        strokeDasharray="4 4"
+      />
+      {horizontal ? (
+        <>
+          <XAxis
+            type="number"
+            tickLine={false}
+            tickMargin={8}
+            axisLine={false}
+            allowDecimals={false}
+            className="tabular-nums text-[11px]"
+          />
+          <YAxis
+            type="category"
+            dataKey="name"
+            tickLine={false}
+            tickMargin={8}
+            axisLine={false}
+            width={80}
+            interval={0}
+            className="text-[11px]"
+          />
+        </>
+      ) : (
+        <>
+          <XAxis
+            dataKey="name"
+            tickLine={false}
+            tickMargin={10}
+            axisLine={false}
+            interval={0}
+            className="text-[11px]"
+          />
+          <YAxis
+            tickLine={false}
+            axisLine={false}
+            tickMargin={8}
+            width={36}
+            allowDecimals={false}
+            className="tabular-nums text-[11px]"
+          />
+        </>
+      )}
+      <ChartTooltip
+        cursor={{ fill: "var(--muted)", fillOpacity: 0.45 }}
+        content={<ChartTooltipContent hideLabel />}
+      />
+      <Bar
+        dataKey="points"
+        radius={horizontal ? [0, 4, 4, 0] : [4, 4, 0, 0]}
+        maxBarSize={horizontal ? 40 : 56}
+      >
+        {data.map((d, i) => (
+          <Cell key={`${d.name}-${i}`} fill={d.fill} />
+        ))}
+      </Bar>
+    </BarChart>
+  )
+}
+
 export type ResultsPointsChartProps = {
   bundles?: readonly PlayerPredictionBundleInput[]
   className?: string
@@ -49,13 +135,13 @@ export function ResultsPointsChart({
 
   const sections = useMemo(
     () => buildResultsPhaseSections(appConfig, phaseMatchBundles),
-    [],
+    []
   )
 
   const playerTotals = useMemo(
     () =>
       buildMultiPhaseResultsTableModel(sections, bundles, scoring).playerTotals,
-    [sections, bundles, scoring],
+    [sections, bundles, scoring]
   )
 
   const data = useMemo(
@@ -65,80 +151,66 @@ export function ResultsPointsChart({
         points: playerTotals[b.playerId] ?? 0,
         fill: BAR_FILLS[i % BAR_FILLS.length],
       })),
-    [bundles, playerTotals],
+    [bundles, playerTotals]
   )
 
   const hasPlayers = bundles.length > 0
+  const mobileChartMinHeight = Math.max(200, bundles.length * 52 + 40)
 
   return (
     <Card
       className={cn(
-        "border-border/60 bg-muted/15 py-3 shadow-none ring-1 ring-border/40 dark:bg-white/3 dark:ring-white/10",
+        "bg-muted/15 dark:bg-white/3 shadow-none py-3 ring-border/40 border-border/60 ring-1 dark:ring-white/10",
         fillHeight && "min-h-0 flex-1",
-        className,
+        className
       )}
       size="sm"
     >
-      <CardHeader className="shrink-0 px-4 pb-0 group-data-[size=sm]/card:px-3">
-        <CardTitle className="text-sm">Punkty według gracza</CardTitle>
+      <CardHeader className="px-4 group-data-[size=sm]/card:px-3 pb-0 shrink-0">
+        <CardTitle className="text-sm">Wykres punktów</CardTitle>
         <CardDescription className="text-xs">
           Suma punktów ze wszystkich faz — każdy słupek to jedna osoba
         </CardDescription>
       </CardHeader>
       <CardContent
         className={cn(
-          "px-2 pt-2 pb-0 sm:px-3",
-          fillHeight && "flex min-h-0 flex-1 flex-col overflow-hidden pb-3",
+          "px-2 sm:px-3 pt-2 pb-0",
+          fillHeight && "flex min-h-0 flex-1 flex-col overflow-hidden pb-3"
         )}
       >
         {!hasPlayers ? (
-          <p className="flex min-h-[200px] flex-1 items-center justify-center px-4 text-center text-sm text-muted-foreground">
+          <p className="flex flex-1 justify-center items-center px-4 min-h-[200px] text-muted-foreground text-sm text-center">
             Brak złożonych typów — wykres pojawi się po pierwszych predykcjach
             graczy.
           </p>
         ) : (
-          <ChartContainer
-            config={chartConfig}
-            className={cn(
-              "aspect-auto w-full max-w-full",
-              fillHeight
-                ? "min-h-[200px] flex-1 min-w-0 basis-0"
-                : "h-[min(280px,45vh)] min-h-[200px]",
-            )}
-          >
-            <BarChart
-              data={data}
-              margin={{ left: 4, right: 8, top: 8, bottom: 4 }}
-              barCategoryGap="18%"
+          <>
+            <ChartContainer
+              config={chartConfig}
+              className={cn(
+                "w-full max-w-full aspect-auto md:hidden",
+                fillHeight
+                  ? "min-h-[200px] min-w-0 flex-1 basis-0"
+                  : "min-h-[200px]"
+              )}
+              style={
+                fillHeight ? undefined : { height: mobileChartMinHeight }
+              }
             >
-              <CartesianGrid vertical={false} strokeDasharray="4 4" />
-              <XAxis
-                dataKey="name"
-                tickLine={false}
-                tickMargin={10}
-                axisLine={false}
-                interval={0}
-                className="text-[11px]"
-              />
-              <YAxis
-                tickLine={false}
-                axisLine={false}
-                tickMargin={8}
-                width={36}
-                allowDecimals={false}
-                className="text-[11px] tabular-nums"
-              />
-              <ChartTooltip
-                cursor={{ fill: "var(--muted)", fillOpacity: 0.45 }}
-                content={<ChartTooltipContent hideLabel />}
-              />
-              <Bar dataKey="points" radius={[4, 4, 0, 0]} maxBarSize={56}>
-                {data.map((d, i) => (
-                  <Cell key={`${d.name}-${i}`} fill={d.fill} />
-                ))}
-              </Bar>
-            </BarChart>
-          </ChartContainer>
+              <PointsBarChartInner data={data} horizontal />
+            </ChartContainer>
+            <ChartContainer
+              config={chartConfig}
+              className={cn(
+                "hidden w-full max-w-full aspect-auto md:flex",
+                fillHeight
+                  ? "min-h-[200px] min-w-0 flex-1 basis-0"
+                  : "h-[min(280px,45vh)] min-h-[200px]"
+              )}
+            >
+              <PointsBarChartInner data={data} horizontal={false} />
+            </ChartContainer>
+          </>
         )}
       </CardContent>
     </Card>
