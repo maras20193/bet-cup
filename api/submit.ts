@@ -54,7 +54,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: "Invalid payload" })
   }
 
-  const slackRes = await fetch(webhookUrl, {
+  const slackRes = await fetch(webhookUrl.trim(), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(buildSlackWebhookBody(body)),
@@ -63,7 +63,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (!slackRes.ok) {
     const detail = await slackRes.text()
     console.error("Slack webhook failed", slackRes.status, detail)
-    return res.status(502).json({ error: "Slack delivery failed" })
+    return res.status(502).json({
+      error: "Slack delivery failed",
+      slackStatus: slackRes.status,
+    })
   }
 
   return res.status(200).json({ ok: true })

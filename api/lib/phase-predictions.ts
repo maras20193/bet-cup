@@ -69,38 +69,67 @@ const phaseLabels: Record<PhaseId, string> = {
   final: "Finał",
 }
 
-/** Slack incoming webhook body (variant 1: text + blocks with JSON). */
+/** Block Kit plain_text max length per section. */
+const SLACK_PLAIN_TEXT_MAX = 3000
+
+function plainTextSection(text: string) {
+  return {
+    type: "section" as const,
+    text: {
+      type: "plain_text" as const,
+      text: text.slice(0, SLACK_PLAIN_TEXT_MAX),
+      emoji: true,
+    },
+  }
+}
+
+/** Split long text into Slack-sized plain_text sections. */
+function chunkPlainTextSections(
+  body: string,
+  headerForFirst: string,
+  headerForRest: (part: number) => string,
+): ReturnType<typeof plainTextSection>[] {
+  const sections: ReturnType<typeof plainTextSection>[] = []
+  let offset = 0
+  let part = 1
+
+  while (offset < body.length) {
+    const header = part === 1 ? headerForFirst : headerForRest(part)
+    const maxBody = SLACK_PLAIN_TEXT_MAX - header.length
+    const slice = body.slice(offset, offset + maxBody)
+    sections.push(plainTextSection(header + slice))
+    offset += maxBody
+    part += 1
+  }
+
+  return sections
+}
+
+/** Slack incoming webhook body (plain_text blocks — avoids mrkdwn invalid_blocks). */
 export function buildSlackWebhookBody(payload: PhasePredictionsPayload) {
-  const json = JSON.stringify(payload, null, 2)
+  const json = JSON.stringify(payload)
   const phaseLabel = phaseLabels[payload.phaseId] ?? payload.phaseId
+  const displayName = payload.displayName.trim()
+  const email = payload.contactEmail?.trim() || "—"
 
-  const summary =
-    `*Nowe typy*\n` +
-    `• Gracz: *${payload.displayName.trim()}*\n` +
-    `• E-mail: ${payload.contactEmail?.trim() || "—"}\n` +
-    `• Faza: ${phaseLabel} (\`${payload.phaseId}\`)\n` +
-    `• ID: \`${payload.predictionId}\`\n` +
-    `• Wysłano: ${payload.submittedAt}\n` +
-    `• Meczów: ${payload.predictions.length}`
+  const summary = [
+    "Nowe typy",
+    `Gracz: ${displayName}`,
+    `E-mail: ${email}`,
+    `Faza: ${phaseLabel} (${payload.phaseId})`,
+    `ID: ${payload.predictionId}`,
+    `Wysłano: ${payload.submittedAt}`,
+    `Meczów: ${payload.predictions.length}`,
+  ].join("\n")
 
-  const maxJsonChars = 28_000
-  const jsonBlock =
-    json.length <= maxJsonChars
-      ? json
-      : `${json.slice(0, maxJsonChars)}\n… (ucięto — pełny JSON za długi dla Slacka)`
+  const jsonSections = chunkPlainTextSections(
+    json,
+    "JSON (skopiuj wszystkie części po kolei do jednego pliku):\n",
+    (part) => `JSON cd. (część ${part}):\n`,
+  )
 
   return {
-    text: `Nowe typy: ${payload.displayName.trim()} (${phaseLabel})`,
-    blocks: [
-      { type: "section", text: { type: "mrkdwn", text: summary } },
-      { type: "divider" },
-      {
-        type: "section",
-        text: {
-          type: "mrkdwn",
-          text: `*JSON (skopiuj do pliku w repo):*\n\`\`\`${jsonBlock}\`\`\``,
-        },
-      },
-    ],
+    text: `Nowe typy: ${displayName} (${phaseLabel})`,
+    blocks: [plainTextSection(summary), { type: "divider" as const }, ...jsonSections],
   }
 }
