@@ -3,7 +3,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node"
 import {
   buildSlackWebhookBody,
   validatePhasePredictionsPayload,
-} from "./lib/phase-predictions"
+} from "./lib/phase-predictions.js"
 
 function corsHeaders(origin: string | undefined): Record<string, string> {
   const allowed = process.env.ALLOWED_ORIGIN
