@@ -5,5 +5,4 @@ export const navItems = [
   { to: "/typowanie", label: "Typowanie", end: false as const },
 ] as const
 
-/** Linki z landing page (bez strony głównej). */
 export const mainPageLinks = navItems.filter((item) => item.to !== "/")

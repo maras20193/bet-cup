@@ -1,7 +1,5 @@
 export { ResultsTable } from "./ResultsTable"
 export type { ResultsTableProps } from "./ResultsTable"
-export { TitleAndPointsLegend } from "./ui/TitleAndPointsLegend"
-export type { TitleAndPointsLegendProps } from "./ui/TitleAndPointsLegend"
 export {
   buildResultsTableModel,
   buildMultiPhaseResultsTableModel,

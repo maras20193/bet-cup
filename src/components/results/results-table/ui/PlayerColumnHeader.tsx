@@ -8,11 +8,11 @@ export function PlayerColumnHeader({
   points,
 }: PlayerColumnHeaderProps) {
   return (
-    <div className="flex min-h-14 flex-col items-center justify-center gap-1 px-0.5 py-1 text-center leading-tight">
-      <span className="max-w-[6rem] truncate font-semibold text-sm">
+    <div className="flex flex-col justify-center items-center gap-1 px-0.5 py-1 min-h-14 text-center leading-tight">
+      <span className="max-w-[6rem] font-semibold text-sm truncate">
         {displayName}
       </span>
-      <span className="font-semibold tabular-nums text-base text-foreground tracking-tight">
+      <span className="font-semibold tabular-nums text-foreground text-base tracking-tight">
         {points}{" "}
         <span className="font-medium text-muted-foreground text-xs">pkt</span>
       </span>

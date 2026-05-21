@@ -8,7 +8,6 @@ import {
 
 export type ResultsTableProps = {
   bundles?: readonly PlayerPredictionBundleInput[]
-  /** Wypełnia dostępną wysokość rodzica; scroll tylko w siatce tabeli. */
   fillHeight?: boolean
 }
 
@@ -18,7 +17,5 @@ export function ResultsTable({
 }: ResultsTableProps) {
   const { table, colCount } = useResultsTable({ bundles })
 
-  return (
-    <DataGrid table={table} colCount={colCount} fillHeight={fillHeight} />
-  )
+  return <DataGrid table={table} colCount={colCount} fillHeight={fillHeight} />
 }
