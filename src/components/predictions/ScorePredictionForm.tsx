@@ -1,3 +1,10 @@
+import { CheckCircle2, CircleAlert } from "lucide-react"
+
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -33,11 +40,18 @@ export const ScorePredictionForm = ({
   initialScores,
   devPredictionId,
 }: ScorePredictionFormProps) => {
-  const { form, formIdPrefix, sections, matchIndexById, onSubmit } =
-    usePhaseScorePredictionForm(phaseMatches, {
-      initialScores,
-      devPredictionId,
-    })
+  const {
+    form,
+    formIdPrefix,
+    sections,
+    matchIndexById,
+    onSubmit,
+    isSubmitting,
+    submitFeedback,
+  } = usePhaseScorePredictionForm(phaseMatches, {
+    initialScores,
+    devPredictionId,
+  })
 
   return (
     <Card className="mx-auto w-full max-w-2xl overflow-visible">
@@ -78,10 +92,35 @@ export const ScorePredictionForm = ({
               </MatchGroupSection>
             ))}
           </CardContent>
-          <CardFooter className="justify-end mt-6 px-4 pt-4 pb-6 sm:pb-7 border-t">
-            <Button type="submit" className="cursor-pointer">
-              Wyślij typy
-            </Button>
+          <CardFooter className="mt-6 flex-col items-stretch gap-4 px-4 pt-4 pb-6 sm:pb-7 border-t">
+            {submitFeedback ? (
+              <Alert
+                variant={
+                  submitFeedback.kind === "error" ? "destructive" : "default"
+                }
+              >
+                {submitFeedback.kind === "success" ? (
+                  <CheckCircle2 />
+                ) : (
+                  <CircleAlert />
+                )}
+                <AlertTitle>
+                  {submitFeedback.kind === "success"
+                    ? "Wysłano"
+                    : "Błąd wysyłki"}
+                </AlertTitle>
+                <AlertDescription>{submitFeedback.message}</AlertDescription>
+              </Alert>
+            ) : null}
+            <div className="flex justify-end">
+              <Button
+                type="submit"
+                className="cursor-pointer"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Wysyłanie…" : "Wyślij typy"}
+              </Button>
+            </div>
           </CardFooter>
         </form>
       </Form>

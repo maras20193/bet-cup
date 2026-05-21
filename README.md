@@ -13,7 +13,7 @@ Prosta aplikacja webowa do obstawiania meczów Mistrzostw Świata / Europy w zam
 
 - 📊 **Tabela wyników** z podziałem na etapy turnieju i kolorowaniem trafień.
 - 📈 **Wykres słupkowy** sumarycznych punktów graczy.
-- 📝 **Formularz typowania** z auto-zapisem draftu i kopiowaniem JSON do schowka.
+- 📝 **Formularz typowania** z auto-zapisem draftu i wysyłką na Slack (Vercel API).
 - ⚙️ **Globalny config** punktacji, flag widoczności etapów i kolorów UI.
 - 📱 **Responsywny interfejs** (mobile-first).
 
@@ -23,6 +23,7 @@ Prosta aplikacja webowa do obstawiania meczów Mistrzostw Świata / Europy w zam
 - Stack technologiczny: `docs/TECH_STACK.md`
 - Plan prac (MVP + backlog): `docs/TODO.md`
 - Format danych (TS + JSON typów): `docs/JSON_FORMAT_PROPOSALS.md`
+- Slack + Vercel: `docs/SLACK_VERCEL_SETUP.md`
 
 ## Założenia techniczne
 
@@ -32,12 +33,15 @@ Prosta aplikacja webowa do obstawiania meczów Mistrzostw Świata / Europy w zam
 - Organizator ręcznie edytuje te pliki w repozytorium.
 - Na start obsługujemy jeden turniej.
 
-## Planowane uruchamianie projektu
+## Uruchamianie
 
 ```bash
 npm install
-npm run dev
+npm run dev          # sam frontend (bez /api)
+npm run dev:vercel   # frontend + POST /api/submit (Slack)
 ```
+
+Wysyłka typów: skonfiguruj Slack i zmienne na Vercel — `docs/SLACK_VERCEL_SETUP.md`.
 
 ## Status
 

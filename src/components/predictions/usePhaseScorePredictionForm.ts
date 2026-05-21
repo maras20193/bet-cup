@@ -1,5 +1,7 @@
-import { useMemo } from "react"
+import { useMemo, useState } from "react"
 import { useForm } from "react-hook-form"
+
+import { submitPhasePredictions } from "@/lib/submitPhasePredictions"
 
 import { usePhasePredictionDraftPersistence } from "@/components/predictions/usePhasePredictionDraftPersistence"
 import { buildPhasePredictionDefaultValues } from "@/components/predictions/utils/buildPhasePredictionDefaultValues"
@@ -65,7 +67,15 @@ export const usePhaseScorePredictionForm = (
 
   const formIdPrefix = `phase-${phaseMatches.phaseId}`
 
-  const onSubmit = (values: PhasePredictionFormValues) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitFeedback, setSubmitFeedback] = useState<{
+    kind: "success" | "error"
+    message: string
+  } | null>(null)
+
+  const onSubmit = async (values: PhasePredictionFormValues) => {
+    setSubmitFeedback(null)
+
     const predictions: ScorePrediction[] = values.matchScores.map(
       (row, i) => {
         const m = phaseMatches.matches[i]
@@ -84,11 +94,34 @@ export const usePhaseScorePredictionForm = (
       predictions,
     }
 
-    console.log(JSON.stringify(payload, null, 2))
-
-    clearDraft()
-    form.reset(buildPhasePredictionDefaultValues(phaseMatches))
+    setIsSubmitting(true)
+    try {
+      await submitPhasePredictions(payload)
+      clearDraft()
+      form.reset(buildPhasePredictionDefaultValues(phaseMatches))
+      setSubmitFeedback({
+        kind: "success",
+        message:
+          "Typy zostały wysłane. Organizator dostanie je na Slacku — dziękujemy!",
+      })
+    } catch (err) {
+      const message =
+        err instanceof Error
+          ? err.message
+          : "Nie udało się wysłać typów. Spróbuj ponownie za chwilę."
+      setSubmitFeedback({ kind: "error", message })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
-  return { form, formIdPrefix, sections, matchIndexById, onSubmit }
+  return {
+    form,
+    formIdPrefix,
+    sections,
+    matchIndexById,
+    onSubmit,
+    isSubmitting,
+    submitFeedback,
+  }
 }
