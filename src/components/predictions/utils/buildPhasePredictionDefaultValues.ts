@@ -10,7 +10,6 @@ export const buildPhasePredictionDefaultValues = (
 ): PhasePredictionFormValues => {
   return {
     displayName: "",
-    email: "",
     matchScores: phaseMatches.matches.map((m) => ({
       matchId: m.id,
       home: initialScores?.[m.id]?.home ?? "",

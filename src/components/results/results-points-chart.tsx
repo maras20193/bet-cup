@@ -2,10 +2,8 @@ import { useMemo } from "react"
 import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts"
 
 import { appConfig } from "@/config/app.config"
-import {
-  playerPredictionBundles,
-  type PlayerPredictionBundleInput,
-} from "@/data/predictions"
+import { playerPredictionBundles } from "@/data/player-bundles"
+import type { PlayerPredictionBundleInput } from "@/types/predictions"
 import { phaseMatchBundles } from "@/data/matches/phase-bundles"
 import { buildResultsPhaseSections } from "@/components/results/utils/resultsPhases"
 import { buildMultiPhaseResultsTableModel } from "@/components/results/results-table"

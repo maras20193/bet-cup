@@ -30,7 +30,6 @@ export function parsePhasePredictionsFile(
   return {
     predictionId,
     displayName: file.displayName,
-    contactEmail: file.contactEmail,
     phaseId: file.phaseId,
     submittedAt: file.submittedAt,
     predictions: file.predictions,

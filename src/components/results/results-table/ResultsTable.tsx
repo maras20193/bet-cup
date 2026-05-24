@@ -1,4 +1,4 @@
-import type { PlayerPredictionBundleInput } from "@/data/predictions"
+import type { PlayerPredictionBundleInput } from "@/types/predictions"
 
 import { DataGrid } from "@/components/results/results-table/parts/DataGrid"
 import {

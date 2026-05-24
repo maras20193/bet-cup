@@ -22,10 +22,7 @@ import type { PhaseMatchBundle } from "@/types/phase-matches"
 import type { ScoreInputFields } from "@/types/predictions"
 
 export type { PhasePredictionFormValues } from "@/types/predictions"
-export {
-  PREDICTOR_DISPLAY_NAME_MAX,
-  PREDICTOR_EMAIL_MAX,
-} from "@/components/predictions/utils/scorePredictionFormConstants"
+export { PREDICTOR_DISPLAY_NAME_MAX } from "@/components/predictions/utils/scorePredictionFormConstants"
 
 export type ScorePredictionFormProps = {
   phaseMatches: PhaseMatchBundle

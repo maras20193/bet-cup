@@ -4,13 +4,16 @@ import type {
 } from "@/types/predictions"
 import { parsePhasePredictionsFile } from "@/mappers/predictions"
 
-const phaseFileModules = import.meta.glob<PhasePredictions>("./*/*.json", {
-  eager: true,
-  import: "default",
-})
+const phaseFileModules = import.meta.glob<PhasePredictions>(
+  "./predictions/*/*.json",
+  {
+    eager: true,
+    import: "default",
+  },
+)
 
 function playerSlugFromPath(path: string): string | null {
-  const match = /^\.\/([^/]+)\/.+\.json$/.exec(path)
+  const match = /^\.\/predictions\/([^/]+)\/.+\.json$/.exec(path)
   return match?.[1] ?? null
 }
 

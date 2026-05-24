@@ -76,19 +76,16 @@ export const usePhaseScorePredictionForm = (
   const onSubmit = async (values: PhasePredictionFormValues) => {
     setSubmitFeedback(null)
 
-    const predictions: ScorePrediction[] = values.matchScores.map(
-      (row, i) => {
-        const m = phaseMatches.matches[i]
-        const home = parseScore(row.home)
-        const away = parseScore(row.away)
-        return { matchId: m.id, home: home!, away: away! }
-      }
-    )
+    const predictions: ScorePrediction[] = values.matchScores.map((row, i) => {
+      const m = phaseMatches.matches[i]
+      const home = parseScore(row.home)
+      const away = parseScore(row.away)
+      return { matchId: m.id, home: home!, away: away! }
+    })
 
     const payload: PhasePredictions = {
       predictionId: options?.devPredictionId ?? crypto.randomUUID(),
       displayName: values.displayName.trim(),
-      contactEmail: values.email.trim(),
       phaseId: phaseMatches.phaseId,
       submittedAt: new Date().toISOString(),
       predictions,
@@ -101,8 +98,7 @@ export const usePhaseScorePredictionForm = (
       form.reset(buildPhasePredictionDefaultValues(phaseMatches))
       setSubmitFeedback({
         kind: "success",
-        message:
-          "Typy zostały wysłane. Organizator dostanie je na Slacku — dziękujemy!",
+        message: "Typy zostały wysłane. Wkrótce zobaczysz je na stronie.",
       })
     } catch (err) {
       const message =

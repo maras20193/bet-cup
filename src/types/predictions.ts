@@ -4,7 +4,6 @@ export type ScoreInputFields = { home: string; away: string }
 
 export type PhasePredictionFormValues = {
   displayName: string
-  email: string
   matchScores: { matchId: string; home: string; away: string }[]
 }
 
@@ -17,8 +16,6 @@ export type ScorePrediction = {
 export type PhasePredictions = {
   predictionId: string
   displayName: string
-
-  contactEmail?: string
   phaseId: PhaseId
   submittedAt: string
   predictions: ScorePrediction[]

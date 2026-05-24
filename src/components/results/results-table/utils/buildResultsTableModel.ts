@@ -2,7 +2,7 @@ import { scorePrediction } from "@/lib/scoring"
 import type { Match } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
 import type { ScorePrediction } from "@/types/predictions"
-import type { PlayerPredictionBundleInput } from "@/data/predictions"
+import type { PlayerPredictionBundleInput } from "@/types/predictions"
 
 export type PlayerMatchCell = {
   prediction: { home: number; away: number } | null

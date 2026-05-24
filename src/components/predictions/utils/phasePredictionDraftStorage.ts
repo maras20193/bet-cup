@@ -44,7 +44,6 @@ const isValidEnvelope = (
   if (!isPlainObject(raw.values)) return false
   const v = raw.values
   if (typeof v.displayName !== "string") return false
-  if (typeof v.email !== "string") return false
   if (!Array.isArray(v.matchScores)) return false
   return v.matchScores.every(isScoreRow)
 }
@@ -79,7 +78,6 @@ export const loadPhasePredictionDraft = (
 
   return {
     displayName: parsed.values.displayName,
-    email: parsed.values.email,
     matchScores: expectedMatchIds.map((matchId) => {
       const saved = savedScoresById.get(matchId)
       return {

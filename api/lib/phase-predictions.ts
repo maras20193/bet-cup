@@ -15,7 +15,6 @@ const allowedPhaseIds = new Set<string>(phaseIds)
 export type PhasePredictionsPayload = {
   predictionId: string
   displayName: string
-  contactEmail?: string
   phaseId: PhaseId
   submittedAt: string
   predictions: { matchId: string; home: number; away: number }[]
@@ -36,8 +35,6 @@ export function validatePhasePredictionsPayload(
   if (typeof p.displayName !== "string" || !p.displayName.trim()) return false
   if (typeof p.phaseId !== "string" || !isPhaseId(p.phaseId)) return false
   if (typeof p.submittedAt !== "string" || !p.submittedAt.trim()) return false
-  if (p.contactEmail !== undefined && typeof p.contactEmail !== "string")
-    return false
   if (!Array.isArray(p.predictions) || p.predictions.length === 0) return false
 
   for (const row of p.predictions) {
@@ -110,12 +107,10 @@ export function buildSlackWebhookBody(payload: PhasePredictionsPayload) {
   const json = JSON.stringify(payload)
   const phaseLabel = phaseLabels[payload.phaseId] ?? payload.phaseId
   const displayName = payload.displayName.trim()
-  const email = payload.contactEmail?.trim() || "—"
 
   const summary = [
     "Nowe typy",
     `Gracz: ${displayName}`,
-    `E-mail: ${email}`,
     `Faza: ${phaseLabel} (${payload.phaseId})`,
     `ID: ${payload.predictionId}`,
     `Wysłano: ${payload.submittedAt}`,
