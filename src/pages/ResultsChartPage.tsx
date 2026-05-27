@@ -1,3 +1,5 @@
+import { ResultsPointsChart } from "@/components/results/results-points-chart"
+
 export function ResultsChartPage() {
   return (
     <div className="flex flex-col flex-1 gap-4 min-h-0 overflow-hidden">
@@ -6,7 +8,7 @@ export function ResultsChartPage() {
           Wykres punktów
         </h1>
       </div>
-      {/* <ResultsPointsChart fillHeight /> */}
+      <ResultsPointsChart fillHeight />
     </div>
   )
 }

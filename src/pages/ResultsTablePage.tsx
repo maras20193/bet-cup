@@ -1,3 +1,6 @@
+import { ResultsTable } from "@/components/results/results-table"
+import { PointsLegend } from "@/components/results/results-table/ui/PointsLegend"
+
 export function ResultsTablePage() {
   return (
     <div className="flex flex-col flex-1 gap-4 min-h-0 overflow-hidden">
@@ -6,8 +9,8 @@ export function ResultsTablePage() {
           Tabela wyników
         </h1>
       </div>
-      {/* <PointsLegend />
-      <ResultsTable fillHeight /> */}
+      <PointsLegend />
+      <ResultsTable fillHeight />
     </div>
   )
 }
