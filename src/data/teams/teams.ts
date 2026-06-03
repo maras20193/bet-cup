@@ -21,6 +21,7 @@ export const teams = {
   GHANA: { code: "gh", name: "Ghana", flag: "🇬🇭" },
   HAITI: { code: "ht", name: "Haiti", flag: "🇭🇹" },
   IRAN: { code: "ir", name: "Iran", flag: "🇮🇷" },
+  IVORY_COAST: { code: "ci", name: "Wybrzeże Kości Słoniowej", flag: "🇨🇮" },
   IRAQ: { code: "iq", name: "Irak", flag: "🇮🇶" },
   JAPAN: { code: "jp", name: "Japonia", flag: "🇯🇵" },
   JORDAN: { code: "jo", name: "Jordania", flag: "🇯🇴" },

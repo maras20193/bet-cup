@@ -11,7 +11,7 @@ export const groupStageGroupEMatches = [
   {
     id: "gs-e-002",
     groupId: "E",
-    homeId: "WALES",
+    homeId: "IVORY_COAST",
     awayId: "ECUADOR",
     result: null,
   },
@@ -19,7 +19,7 @@ export const groupStageGroupEMatches = [
     id: "gs-e-003",
     groupId: "E",
     homeId: "GERMANY",
-    awayId: "WALES",
+    awayId: "IVORY_COAST",
     result: null,
   },
   {
@@ -33,7 +33,7 @@ export const groupStageGroupEMatches = [
     id: "gs-e-005",
     groupId: "E",
     homeId: "CURACAO",
-    awayId: "WALES",
+    awayId: "IVORY_COAST",
     result: null,
   },
   {
