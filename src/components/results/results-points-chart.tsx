@@ -151,7 +151,7 @@ export function ResultsPointsChart({
   return (
     <Card
       className={cn(
-        "flex flex-col flex-1 gap-0 bg-muted/15 dark:bg-white/3 shadow-none py-2 ring-border/40 border-border/60 ring-1 dark:ring-white/10 min-h-0",
+        "flex flex-col flex-1 gap-0 bg-muted/15 bg-red-400 dark:bg-white/3 shadow-none py-2 ring-border/40 border-border/60 ring-1 dark:ring-white/10 min-h-0",
         className
       )}
       size="sm"
@@ -166,7 +166,7 @@ export function ResultsPointsChart({
           <div className="flex-1 min-h-0 [-webkit-overflow-scrolling:touch] overflow-x-auto">
             <ChartContainer
               config={chartConfig}
-              className="[&_.recharts-xAxis_.recharts-cartesian-axis-tick_text]:fill-foreground h-full min-h-0 aspect-auto"
+              className="bg-blue-700 [&_.recharts-xAxis_.recharts-cartesian-axis-tick_text]:fill-foreground h-full min-h-0 aspect-auto"
               style={{
                 width: chartWidth,
                 minWidth: chartWidth,
