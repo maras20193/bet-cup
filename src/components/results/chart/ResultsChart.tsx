@@ -9,6 +9,8 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart"
+import { CustomLabel } from "@/components/results/chart/CustomLabel"
+import { chartDataSource } from "@/components/results/chart/chartDataSource"
 import { useChartBarLayout } from "@/components/results/chart/useChartBarLayout"
 
 const BAR_FILLS = ["#3CAC3B", "#2A398D", "#E61D25"] as const
@@ -18,33 +20,6 @@ type ChartBarData = {
   points: number
   fill: string
 }
-
-const chartDataSource = [
-  { month: "Kasia", points: 186 },
-  { month: "KKrzys", points: 305 },
-  { month: "Lukasz M", points: 237 },
-  { month: "Dlugie nazwisko", points: 73 },
-  { month: "May", points: 209 },
-  { month: "June", points: 214 },
-  { month: "111January", points: 186 },
-  { month: "111February", points: 305 },
-  { month: "111March", points: 237 },
-  { month: "111April", points: 73 },
-  { month: "111May", points: 209 },
-  { month: "111June", points: 214 },
-  { month: "22January", points: 186 },
-  { month: "22February", points: 305 },
-  { month: "22March", points: 237 },
-  { month: "22April", points: 73 },
-  { month: "22May", points: 209 },
-  { month: "22June", points: 214 },
-  { month: "3322January", points: 186 },
-  { month: "3322February", points: 305 },
-  { month: "3322March", points: 237 },
-  { month: "3322April", points: 73 },
-  { month: "3322May", points: 209 },
-  { month: "3322June", points: 214 },
-] as const
 
 const chartConfig = {
   points: {
@@ -82,7 +57,7 @@ export const ResultsChart = () => {
           accessibilityLayer={false}
           data={chartData}
           margin={{
-            top: 20,
+            top: 50,
             bottom: 20,
           }}
           height={200}
@@ -92,7 +67,7 @@ export const ResultsChart = () => {
           <XAxis
             dataKey="month"
             tickLine={false}
-            tickMargin={10}
+            // tickMargin={10}
             axisLine={false}
             interval={0}
             angle={-90}
@@ -100,7 +75,7 @@ export const ResultsChart = () => {
             height={100}
             tick={{
               fill: "var(--foreground)",
-              fontSize: 14,
+              fontSize: 16,
               fontWeight: 400,
             }}
           />
@@ -116,11 +91,12 @@ export const ResultsChart = () => {
             }}
           >
             <LabelList
-              dataKey="points"
+              // dataKey="points"
               position="top"
-              offset={8}
-              className="fill-foreground"
-              style={{ fontSize: 14, fontWeight: 600 }}
+              // offset={8}
+              // className="fill-foreground"
+              // style={{ fontSize: 14, fontWeight: 600 }}
+              content={CustomLabel}
             />
           </Bar>
         </BarChart>
