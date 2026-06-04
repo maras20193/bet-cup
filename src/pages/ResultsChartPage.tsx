@@ -8,7 +8,7 @@ export function ResultsChartPage() {
           Wykres punktów
         </h1>
       </div>
-      <ResultsPointsChart fillHeight />
+      <ResultsPointsChart />
     </div>
   )
 }
