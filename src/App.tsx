@@ -4,6 +4,7 @@ import { AppShell } from "@/components/layout/app-shell"
 import { MainPage } from "@/pages/MainPage"
 import { PredictionsPage } from "@/pages/PredictionsPage"
 import { ResultsChartPage } from "@/pages/ResultsChartPage"
+import { RankingPage } from "@/pages/RankingPage"
 import { ResultsTablePage } from "@/pages/ResultsTablePage"
 
 export const App = () => {
@@ -13,6 +14,7 @@ export const App = () => {
         <Route index element={<MainPage />} />
         <Route path="tabela" element={<ResultsTablePage />} />
         <Route path="wykres" element={<ResultsChartPage />} />
+        <Route path="ranking" element={<RankingPage />} />
         <Route path="typowanie" element={<PredictionsPage />} />
       </Route>
     </Routes>

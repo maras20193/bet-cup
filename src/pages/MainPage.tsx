@@ -1,5 +1,10 @@
 import { Link } from "react-router"
-import { BarChart3Icon, ClipboardListIcon, TrophyIcon } from "lucide-react"
+import {
+  BarChart3Icon,
+  ClipboardListIcon,
+  ListOrderedIcon,
+  TrophyIcon,
+} from "lucide-react"
 
 import fifaLogoDark from "@/assets/fifa-2026-dark.svg"
 import fifaLogoLight from "@/assets/fifa-2026-light.svg"
@@ -10,6 +15,7 @@ import { mainPageLinks } from "@/config/navigation"
 const linkIcons = {
   "/tabela": ClipboardListIcon,
   "/wykres": BarChart3Icon,
+  "/ranking": ListOrderedIcon,
   "/typowanie": TrophyIcon,
 } as const
 
