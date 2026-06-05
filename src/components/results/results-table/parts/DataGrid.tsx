@@ -23,9 +23,12 @@ const stickyOpaqueBgHeader = cn(
   "[tr:hover_&]:bg-card [tr:hover_&]:dark:bg-zinc-950"
 )
 
+/** Nieprzezroczyste tło komórek — półprzezroczysty hover prześwieca przy scrollu poziomym. */
+const dataRowCellBg = stickyOpaqueBgBase
+
 /** Tło hover na każdej komórce — tr:hover nie maluje się na td przy border-separate + sticky. */
 const dataRowHoverBg =
-  "group-hover/row:bg-muted/30 group-hover/row:dark:bg-white/[0.04]"
+  "group-hover/row:bg-muted group-hover/row:dark:bg-zinc-900"
 
 const stickyEdgeSeparator = "border-r border-border/60 dark:border-r-0"
 
@@ -182,7 +185,7 @@ export function DataGrid({
             return (
               <TableRow
                 key={row.id}
-                className="group/row hover:bg-transparent border-0"
+                className="group/row hover:bg-transparent data-[state=selected]:bg-transparent has-aria-expanded:bg-transparent border-0"
               >
                 {row.getVisibleCells().map((cell) => {
                   const sticky = stickyCellClass(cell.column.id, "body")
@@ -192,6 +195,7 @@ export function DataGrid({
                       key={cell.id}
                       className={cn(
                         "border-0 align-middle",
+                        dataRowCellBg,
                         dataRowHoverBg,
                         sticky,
                         isPlayer &&
