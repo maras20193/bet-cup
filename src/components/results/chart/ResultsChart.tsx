@@ -62,7 +62,7 @@ export const ResultsChart = () => {
             accessibilityLayer={false}
             data={chartData}
             margin={{
-              top: 50,
+              top: 70,
               bottom: 20,
             }}
             barCategoryGap={barGap}

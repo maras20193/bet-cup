@@ -1,11 +1,11 @@
 export const chartDataSource = [
   { month: "Kasia", points: 186 },
-  { month: "KKrzys", points: 315 },
+  { month: "KKrzys", points: 320 },
   { month: "Lukasz M", points: 237 },
   { month: "Dlugie nazwisko", points: 73 },
   { month: "May", points: 209 },
   { month: "June", points: 214 },
-  { month: "111January", points: 237 },
+  { month: "111January", points: 240 },
   { month: "111February", points: 305 },
   { month: "111March", points: 237 },
   { month: "111April", points: 73 },
