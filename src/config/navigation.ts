@@ -7,3 +7,9 @@ export const navItems = [
 ] as const
 
 export const mainPageLinks = navItems.filter((item) => item.to !== "/")
+
+const breadcrumbNavItems = navItems.filter((item) => item.to !== "/")
+
+export function getBreadcrumbLabel(pathname: string): string | undefined {
+  return breadcrumbNavItems.find((item) => item.to === pathname)?.label
+}
