@@ -37,7 +37,7 @@ export const ResultsChart = () => {
     []
   )
 
-  const { containerRef, minChartWidth, barSize, barGap } = useChartBarLayout(
+  const { containerRef, chartWidth, barSize, barGap } = useChartBarLayout(
     chartData.length
   )
 
@@ -46,61 +46,66 @@ export const ResultsChart = () => {
       ref={containerRef}
       className="flex flex-col flex-1 min-h-0 [-webkit-overflow-scrolling:touch] overflow-x-auto"
     >
-      <ChartContainer
-        config={chartConfig}
-        className="[&_.recharts-surface]:outline-none [&_.recharts-wrapper]:outline-none [&_*:focus]:outline-none [&_svg]:outline-none h-full min-h-0 aspect-auto"
-        style={{
-          minWidth: minChartWidth,
-        }}
+      <div
+        className="mx-auto h-full shrink-0"
+        style={{ width: chartWidth, minWidth: chartWidth }}
       >
-        <BarChart
-          accessibilityLayer={false}
-          data={chartData}
-          margin={{
-            top: 50,
-            bottom: 20,
+        <ChartContainer
+          config={chartConfig}
+          className="[&_.recharts-surface]:outline-none [&_.recharts-wrapper]:outline-none [&_*:focus]:outline-none [&_svg]:outline-none h-full min-h-0 aspect-auto"
+          style={{
+            width: chartWidth,
+            minWidth: chartWidth,
           }}
-          height={200}
-          barCategoryGap={barGap}
         >
-          <CartesianGrid vertical={false} horizontal={true} />
-          <XAxis
-            dataKey="month"
-            tickLine={false}
-            // tickMargin={10}
-            axisLine={false}
-            interval={0}
-            angle={-90}
-            textAnchor="end"
-            height={100}
-            tick={{
-              fill: "var(--foreground)",
-              fontSize: 16,
-              fontWeight: 400,
+          <BarChart
+            accessibilityLayer={false}
+            data={chartData}
+            margin={{
+              top: 50,
+              bottom: 20,
             }}
-          />
-          <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
-          <Bar
-            dataKey="points"
-            radius={[4, 4, 0, 0]}
-            maxBarSize={barSize}
-            activeBar={{
-              fillOpacity: 0.85,
-              stroke: "var(--foreground)",
-              strokeWidth: 1,
-            }}
+            barCategoryGap={barGap}
           >
-            <LabelList
-              // dataKey="points"
-              position="top"
-              // offset={8}
-              // className="fill-foreground"
-              // style={{ fontSize: 14, fontWeight: 600 }}
-              content={CustomLabel}
+            <CartesianGrid vertical={false} horizontal={true} />
+            <XAxis
+              dataKey="month"
+              tickLine={false}
+              // tickMargin={10}
+              axisLine={false}
+              interval={0}
+              angle={-90}
+              textAnchor="end"
+              height={100}
+              tick={{
+                fill: "var(--foreground)",
+                fontSize: 16,
+                fontWeight: 400,
+              }}
             />
-          </Bar>
-        </BarChart>
-      </ChartContainer>
+            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <Bar
+              dataKey="points"
+              radius={[4, 4, 0, 0]}
+              maxBarSize={barSize}
+              activeBar={{
+                fillOpacity: 0.85,
+                stroke: "var(--foreground)",
+                strokeWidth: 1,
+              }}
+            >
+              <LabelList
+                // dataKey="points"
+                position="top"
+                // offset={8}
+                // className="fill-foreground"
+                // style={{ fontSize: 14, fontWeight: 600 }}
+                content={CustomLabel}
+              />
+            </Bar>
+          </BarChart>
+        </ChartContainer>
+      </div>
     </div>
   )
 }
