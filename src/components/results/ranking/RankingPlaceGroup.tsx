@@ -52,7 +52,7 @@ export const RankingPlaceGroup = ({ group }: RankingPlaceGroupProps) => {
   return (
     <Card
       className={cn(
-        "relative ring-2 overflow-hidden md:gap-3 md:py-3",
+        "relative md:gap-3 md:py-3 ring-2 min-w-[360px] overflow-hidden",
         getPlaceRingClass(place)
       )}
     >
@@ -65,12 +65,12 @@ export const RankingPlaceGroup = ({ group }: RankingPlaceGroupProps) => {
           )}
         />
       )}
-      <CardHeader className="z-10 relative flex flex-row justify-between items-center gap-2 pb-2 md:px-3 md:pb-1.5">
-        <CardTitle className="flex flex-row items-center gap-2 text-lg md:text-base">
+      <CardHeader className="z-10 relative flex flex-row justify-between items-center gap-2 md:px-3 pb-2 md:pb-1.5">
+        <CardTitle className="flex flex-row items-center gap-2 md:text-base text-lg">
           <PlaceIcon place={place} />
           Miejsce {place}
         </CardTitle>
-        <p className="tabular-nums text-muted-foreground text-base md:text-sm shrink-0">
+        <p className="tabular-nums text-muted-foreground md:text-sm text-base shrink-0">
           {points} pkt
         </p>
       </CardHeader>
@@ -79,7 +79,10 @@ export const RankingPlaceGroup = ({ group }: RankingPlaceGroupProps) => {
           <RankingPlayerRow key={player.name} player={player} />
         ))}
         {players.length > 1 && (
-          <Badge variant="outline" className="self-end p-4 md:p-2 text-sm md:text-xs">
+          <Badge
+            variant="outline"
+            className="self-end p-4 md:p-2 md:text-xs text-sm"
+          >
             Remis · {getTieLabel(players.length)}
           </Badge>
         )}
