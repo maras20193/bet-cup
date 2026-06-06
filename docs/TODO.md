@@ -12,16 +12,16 @@
 - [x] 8. Zbudować layout aplikacji (sidebar + widoki: `Wyniki`, `Typowanie`).
 - [x] 9. Zaimplementować tabelę wyników z sekcjami etapów i kolorowaniem komórek.
 - [x] 10. Dodać lokalną mapę kodów krajów -> flagi (na start emoji).
-- [ ] 11. Zbudować wykres słupkowy punktów (`Recharts`).
-- [ ] 12. Zbudować formularz typowania (`react-hook-form` + `zod`).
-- [ ] 13. Dodać auto-zapis draftu formularza do `localStorage` (debounce + restore).
-- [ ] 14. Dodać akcję submit: wygenerowanie i kopiowanie JSON do schowka.
-- [ ] 15. Po submit czyścić draft i pokazać status powodzenia.
-- [ ] 16. Dodać obsługę flag `tableVisible` / `formVisible` dla etapów.
-- [ ] 17. Wdrożyć tryb jasny/ciemny.
-- [ ] 18. Dopracować responsywność tabeli (łatwe przewijanie i czytelność na mobile).
-- [ ] 19. Dodać podstawowe testy logiki punktacji i mapowania danych.
-- [ ] 20. Wdrożyć aplikację na `Vercel`.
+- [x] 11. Zbudować wykres słupkowy punktów (`Recharts`).
+- [x] 12. Zbudować formularz typowania (`react-hook-form` + `zod`).
+- [x] 13. Dodać auto-zapis draftu formularza do `localStorage` (debounce + restore).
+- [x] 14. Dodać akcję submit: wygenerowanie i kopiowanie JSON do schowka.
+- [x] 15. Po submit czyścić draft i pokazać status powodzenia.
+- [x] 16. Dodać obsługę flag `tableVisible` / `formVisible` dla etapów.
+- [x] 17. Wdrożyć tryb jasny/ciemny.
+- [x] 18. Dopracować responsywność tabeli (łatwe przewijanie i czytelność na mobile).
+- [x] 19. Dodać podstawowe testy logiki punktacji i mapowania danych.
+- [x] 20. Wdrożyć aplikację na `Vercel`.
 
 ## Backlog (po MVP)
 
