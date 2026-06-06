@@ -10,12 +10,12 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart"
 import { CustomLabel } from "@/components/results/chart/CustomLabel"
-import { chartDataSource } from "@/components/results/chart/chartDataSource"
 import { useChartBarLayout } from "@/components/results/chart/useChartBarLayout"
+import { useCompetitionResults } from "@/components/results/hooks/useCompetitionResults"
 import { appConfig } from "@/config/app.config"
 
 type ChartBarData = {
-  month: string
+  name: string
   points: number
   fill: string
 }
@@ -27,13 +27,16 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export const ResultsChart = () => {
+  const { playerScores } = useCompetitionResults()
+
   const chartData = useMemo<ChartBarData[]>(
     () =>
-      chartDataSource.map((row, i) => ({
-        ...row,
+      playerScores.map((row, i) => ({
+        name: row.name,
+        points: row.points,
         fill: appConfig.ui.colors.chart[i % appConfig.ui.colors.chart.length],
       })),
-    []
+    [playerScores],
   )
 
   const { containerRef, chartWidth, barSize, barGap } = useChartBarLayout(
@@ -68,7 +71,7 @@ export const ResultsChart = () => {
           >
             <CartesianGrid vertical={false} horizontal={true} />
             <XAxis
-              dataKey="month"
+              dataKey="name"
               tickLine={false}
               // tickMargin={10}
               axisLine={false}
@@ -94,12 +97,13 @@ export const ResultsChart = () => {
               }}
             >
               <LabelList
-                // dataKey="points"
                 position="top"
-                // offset={8}
-                // className="fill-foreground"
-                // style={{ fontSize: 14, fontWeight: 600 }}
-                content={CustomLabel}
+                content={(props) => (
+                  <CustomLabel
+                    {...props}
+                    name={chartData[props.index ?? 0]?.name ?? ""}
+                  />
+                )}
               />
             </Bar>
           </BarChart>
