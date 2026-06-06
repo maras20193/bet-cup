@@ -30,14 +30,16 @@ const getPlaceInnerGradientClass = (place: number): string | null => {
 }
 
 const PlaceIcon = ({ place }: { place: number }) => {
+  const iconClass = "size-7 md:size-5 shrink-0"
+
   if (place === 1) {
-    return <TrophyIcon className="size-7 text-amber-400 shrink-0" />
+    return <TrophyIcon className={cn(iconClass, "text-amber-400")} />
   }
   if (place === 2) {
-    return <MedalIcon className="size-7 text-slate-400 shrink-0" />
+    return <MedalIcon className={cn(iconClass, "text-slate-400")} />
   }
   if (place <= 3) {
-    return <MedalIcon className="size-7 text-amber-700 shrink-0" />
+    return <MedalIcon className={cn(iconClass, "text-amber-700")} />
   }
   return null
 }
@@ -50,7 +52,7 @@ export const RankingPlaceGroup = ({ group }: RankingPlaceGroupProps) => {
   return (
     <Card
       className={cn(
-        "relative ring-2 overflow-hidden shrink-0",
+        "relative ring-2 overflow-hidden md:gap-3 md:py-3",
         getPlaceRingClass(place)
       )}
     >
@@ -63,21 +65,21 @@ export const RankingPlaceGroup = ({ group }: RankingPlaceGroupProps) => {
           )}
         />
       )}
-      <CardHeader className="z-10 relative flex flex-row justify-between items-center gap-2 pb-2">
-        <CardTitle className="flex flex-row items-center gap-2 text-lg">
+      <CardHeader className="z-10 relative flex flex-row justify-between items-center gap-2 pb-2 md:px-3 md:pb-1.5">
+        <CardTitle className="flex flex-row items-center gap-2 text-lg md:text-base">
           <PlaceIcon place={place} />
           Miejsce {place}
         </CardTitle>
-        <p className="tabular-nums text-muted-foreground text-base shrink-0">
+        <p className="tabular-nums text-muted-foreground text-base md:text-sm shrink-0">
           {points} pkt
         </p>
       </CardHeader>
-      <CardContent className="z-10 relative flex flex-col gap-3">
+      <CardContent className="z-10 relative flex flex-col gap-3 md:gap-2 md:px-3">
         {players.map((player) => (
           <RankingPlayerRow key={player.name} player={player} />
         ))}
         {players.length > 1 && (
-          <Badge variant="outline" className="self-end p-4 text-sm">
+          <Badge variant="outline" className="self-end p-4 md:p-2 text-sm md:text-xs">
             Remis · {getTieLabel(players.length)}
           </Badge>
         )}

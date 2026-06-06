@@ -4,10 +4,10 @@ import { AppHeader } from "@/components/layout/app-header"
 
 export function AppShell() {
   return (
-    <div className="flex h-svh min-h-0 flex-col overflow-hidden bg-background text-foreground">
+    <div className="flex flex-col bg-background mx-auto max-w-[2400px] h-svh min-h-0 overflow-hidden text-foreground">
       <AppHeader />
-      <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
-        <div className="flex min-h-0 w-full flex-1 flex-col overflow-x-hidden overflow-y-auto px-4 py-6 sm:px-6 lg:px-8">
+      <main className="flex flex-col flex-1 min-h-0 overflow-hidden">
+        <div className="flex flex-col flex-1 pt-6 w-full min-h-0 overflow-hidden">
           <Outlet />
         </div>
       </main>

@@ -11,10 +11,11 @@ const getAvatarFallback = (name: string): string =>
 
 export const RankingPlayerRow = ({ player }: RankingPlayerRowProps) => {
   return (
-    <div className="flex flex-row items-center gap-3 min-w-0">
+    <div className="flex flex-row items-center gap-3 md:gap-2 min-w-0">
       <CustomAvatar
         seed={player.name}
         fallback={getAvatarFallback(player.name)}
+        className="md:size-7"
       />
       <EllipsisWithTooltip
         titleText={player.name}

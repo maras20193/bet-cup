@@ -17,7 +17,7 @@ export const ResultsRanking = () => {
   )
 
   return (
-    <div className="flex flex-col flex-1 gap-5 p-2 min-h-0 [-webkit-overflow-scrolling:touch] overflow-y-auto">
+    <div className="gap-4 md:gap-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mx-auto mt-1 max-w-[1400px]">
       {ranking.map((group) => (
         <RankingPlaceGroup key={group.place} group={group} />
       ))}
