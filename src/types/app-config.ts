@@ -19,9 +19,11 @@ export type AppConfig = {
   >
   ui: {
     colors: {
-      exactHitBg: string
-      outcomeHitBg: string
-      missBg: string
+      scores: {
+        exactScorePoints: string
+        outcomePoints: string
+      }
+      chart: string[]
     }
   }
 }

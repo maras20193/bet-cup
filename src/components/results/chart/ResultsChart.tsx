@@ -12,8 +12,7 @@ import {
 import { CustomLabel } from "@/components/results/chart/CustomLabel"
 import { chartDataSource } from "@/components/results/chart/chartDataSource"
 import { useChartBarLayout } from "@/components/results/chart/useChartBarLayout"
-
-const BAR_FILLS = ["#3CAC3B", "#2A398D", "#E61D25"] as const
+import { appConfig } from "@/config/app.config"
 
 type ChartBarData = {
   month: string
@@ -32,7 +31,7 @@ export const ResultsChart = () => {
     () =>
       chartDataSource.map((row, i) => ({
         ...row,
-        fill: BAR_FILLS[i % BAR_FILLS.length],
+        fill: appConfig.ui.colors.chart[i % appConfig.ui.colors.chart.length],
       })),
     []
   )

@@ -48,9 +48,11 @@ export const appConfig: AppConfig = {
   },
   ui: {
     colors: {
-      exactHitBg: "#16a34a",
-      outcomeHitBg: "#2563eb",
-      missBg: "#111827",
+      scores: {
+        exactScorePoints: "#3CAC3B",
+        outcomePoints: "#2A398D",
+      },
+      chart: ["#3CAC3B", "#2A398D", "#E61D25"],
     },
   },
 }
