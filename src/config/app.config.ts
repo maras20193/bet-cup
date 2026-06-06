@@ -10,7 +10,8 @@ export const appConfig: AppConfig = {
   tournament: {
     id: "world-cup-2026",
     name: "World Cup 2026",
-    status: "in-progress",
+    status: "not-started",
+    // status: "in-progress",
   },
   scoring: {
     exactScorePoints: 5,
