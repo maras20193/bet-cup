@@ -1,23 +1,10 @@
 import { Link } from "react-router"
-import {
-  BarChart3Icon,
-  ClipboardListIcon,
-  ListOrderedIcon,
-  TrophyIcon,
-} from "lucide-react"
 
 import fifaLogoDark from "@/assets/fifa-2026-dark.svg"
 import fifaLogoLight from "@/assets/fifa-2026-light.svg"
 import { Button } from "@/components/ui/button"
 import { appConfig } from "@/config/app.config"
-import { mainPageLinks } from "@/config/navigation"
-
-const linkIcons = {
-  "/tabela": ClipboardListIcon,
-  "/wykres": BarChart3Icon,
-  "/ranking": ListOrderedIcon,
-  "/typowanie": TrophyIcon,
-} as const
+import { mainPageLinks, navLinkIcons } from "@/config/navigation"
 
 export function MainPage() {
   const { tournament } = appConfig
@@ -53,7 +40,7 @@ export function MainPage() {
         aria-label="Przejdź do sekcji aplikacji"
       >
         {mainPageLinks.map(({ to, label }) => {
-          const Icon = linkIcons[to]
+          const Icon = navLinkIcons[to]
           return (
             <Button
               key={to}
