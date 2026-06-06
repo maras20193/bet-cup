@@ -1,3 +1,5 @@
+import { CustomAvatar } from "@/components/shared/CustomAvatar"
+
 export type PlayerColumnHeaderProps = {
   displayName: string
   points: number
@@ -8,7 +10,11 @@ export function PlayerColumnHeader({
   points,
 }: PlayerColumnHeaderProps) {
   return (
-    <div className="flex flex-col justify-center items-center gap-1 px-0.5 py-1 min-h-14 text-center leading-tight">
+    <div className="flex flex-col justify-center items-center gap-1 px-0.5 pt-2 min-h-14 text-center leading-tight">
+      <CustomAvatar
+        seed={displayName}
+        fallback={displayName.slice(0, 2).toUpperCase()}
+      />
       <span className="max-w-[6rem] font-semibold text-sm truncate">
         {displayName}
       </span>

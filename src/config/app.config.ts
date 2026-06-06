@@ -1,15 +1,16 @@
-import type { AppConfig } from "@/types/app-config"
+import type { AppConfig, TournamentStatus } from "@/types/app-config"
 
 import { phaseIds, type PhaseId } from "@/types/phase"
 
 export { phaseIds, type PhaseId }
 
-export type { AppConfig }
+export type { AppConfig, TournamentStatus }
 
 export const appConfig: AppConfig = {
   tournament: {
     id: "world-cup-2026",
     name: "World Cup 2026",
+    status: "in-progress",
   },
   scoring: {
     exactScorePoints: 5,
@@ -48,9 +49,11 @@ export const appConfig: AppConfig = {
   },
   ui: {
     colors: {
-      exactHitBg: "#16a34a",
-      outcomeHitBg: "#2563eb",
-      missBg: "#111827",
+      scores: {
+        exactScorePoints: "#3CAC3B",
+        outcomePoints: "#2A398D",
+      },
+      chart: ["#3CAC3B", "#2A398D", "#E61D25"],
     },
   },
 }

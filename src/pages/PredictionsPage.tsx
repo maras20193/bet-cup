@@ -15,12 +15,6 @@ export const PredictionsPage = () => {
 
   return (
     <div className="space-y-6 pb-6 w-full">
-      <div className="space-y-2">
-        <h1 className="font-heading font-semibold text-foreground text-lg tracking-tight">
-          Typowanie{" "}
-        </h1>
-      </div>
-
       <PredictionInstructionsCard
         exactScorePoints={exactScorePoints}
         outcomePoints={outcomePoints}
