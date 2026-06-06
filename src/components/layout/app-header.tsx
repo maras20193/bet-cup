@@ -10,6 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { ModeToggle } from "@/components/mode-toggle"
 import { navItems, navLinkIcons } from "@/config/navigation"
 import { cn } from "@/lib/utils"
 
@@ -53,52 +54,56 @@ export function AppHeader() {
           </nav>
         </div>
 
-        <div className="md:hidden flex items-center shrink-0">
-          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-            <SheetTrigger asChild>
-              <MenuIcon className="size-7" />
-            </SheetTrigger>
-            <SheetContent
-              side="right"
-              showCloseButton={false}
-              className="gap-0 p-0 w-[min(100%,20rem)]"
-            >
-              <SheetHeader className="flex flex-row justify-between items-center px-4 py-0 border-border border-b h-16">
-                <SheetTitle className="m-0 font-heading">Bet Cup</SheetTitle>
-                <SheetClose asChild>
-                  <XIcon className="size-7" />
-                </SheetClose>
-              </SheetHeader>
-              <nav
-                className="flex flex-col gap-1 p-4 pt-2"
-                aria-label="Menu mobilne"
-              >
-                {navItems.map(({ to, label, end }) => {
-                  const Icon = navLinkIcons[to]
+        <div className="flex items-center gap-3 shrink-0">
+          <ModeToggle />
 
-                  return (
-                    <NavLink
-                      key={to}
-                      to={to}
-                      end={end}
-                      className={({ isActive }) =>
-                        cn(
-                          "flex items-center gap-2 px-3 py-2.5 rounded-md font-medium text-sm transition-colors",
-                          isActive
-                            ? "bg-muted text-foreground"
-                            : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-                        )
-                      }
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <Icon />
-                      {label}
-                    </NavLink>
-                  )
-                })}
-              </nav>
-            </SheetContent>
-          </Sheet>
+          <div className="md:hidden">
+            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+              <SheetTrigger asChild>
+                <MenuIcon className="size-7" />
+              </SheetTrigger>
+              <SheetContent
+                side="right"
+                showCloseButton={false}
+                className="gap-0 p-0 w-[min(100%,20rem)]"
+              >
+                <SheetHeader className="flex flex-row justify-between items-center px-4 py-0 border-border border-b h-16">
+                  <SheetTitle className="m-0 font-heading">Bet Cup</SheetTitle>
+                  <SheetClose asChild>
+                    <XIcon className="size-7" />
+                  </SheetClose>
+                </SheetHeader>
+                <nav
+                  className="flex flex-col gap-1 p-4 pt-2"
+                  aria-label="Menu mobilne"
+                >
+                  {navItems.map(({ to, label, end }) => {
+                    const Icon = navLinkIcons[to]
+
+                    return (
+                      <NavLink
+                        key={to}
+                        to={to}
+                        end={end}
+                        className={({ isActive }) =>
+                          cn(
+                            "flex items-center gap-2 px-3 py-2.5 rounded-md font-medium text-sm transition-colors",
+                            isActive
+                              ? "bg-muted text-foreground"
+                              : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                          )
+                        }
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <Icon />
+                        {label}
+                      </NavLink>
+                    )
+                  })}
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
