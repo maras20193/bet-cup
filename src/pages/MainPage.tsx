@@ -50,7 +50,7 @@ export function MainPage() {
               asChild
             >
               <Link to={to}>
-                <Icon />
+                <Icon className="size-5" />
                 {label}
               </Link>
             </Button>
