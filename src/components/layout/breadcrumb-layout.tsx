@@ -1,17 +1,17 @@
 import { Outlet, useLocation } from "react-router"
 
 import { AppBreadcrumb } from "@/components/layout/app-breadcrumb"
+import { TournamentNotStartedNotice } from "@/components/tournament/TournamentNotStartedNotice"
+import { routes } from "@/config/routes"
+import { isTournamentNotStarted } from "@/lib/tournamentStatus"
 import { cn } from "@/lib/utils"
-
-const TABLE_PATH = "/tabela"
-const FULL_BLEED_PATHS = new Set([TABLE_PATH, "/wykres"])
 
 const pagePadding = "px-4 sm:px-6 lg:px-8"
 
 export function BreadcrumbLayout() {
   const { pathname } = useLocation()
-  const isTablePage = pathname === TABLE_PATH
-  const isFullBleedPage = FULL_BLEED_PATHS.has(pathname)
+  const showNotice =
+    isTournamentNotStarted() && pathname !== routes.predictions
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-4">
@@ -20,19 +20,11 @@ export function BreadcrumbLayout() {
       </div>
       <div
         className={cn(
-          "flex min-h-0 flex-1 flex-col",
-          isTablePage
-            ? "overflow-hidden"
-            : "overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch]"
+          "flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain [-webkit-overflow-scrolling:touch]",
+          pagePadding,
         )}
       >
-        {isFullBleedPage ? (
-          <Outlet />
-        ) : (
-          <div className={pagePadding}>
-            <Outlet />
-          </div>
-        )}
+        {showNotice ? <TournamentNotStartedNotice /> : <Outlet />}
       </div>
     </div>
   )

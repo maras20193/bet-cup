@@ -1,9 +1,12 @@
 import type { PhaseId } from "./phase"
 
+export type TournamentStatus = "not-started" | "in-progress" | "finished"
+
 export type AppConfig = {
   tournament: {
     id: string
     name: string
+    status: TournamentStatus
   }
   scoring: {
     exactScorePoints: number

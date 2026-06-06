@@ -1,15 +1,16 @@
-import type { AppConfig } from "@/types/app-config"
+import type { AppConfig, TournamentStatus } from "@/types/app-config"
 
 import { phaseIds, type PhaseId } from "@/types/phase"
 
 export { phaseIds, type PhaseId }
 
-export type { AppConfig }
+export type { AppConfig, TournamentStatus }
 
 export const appConfig: AppConfig = {
   tournament: {
     id: "world-cup-2026",
     name: "World Cup 2026",
+    status: "not-started",
   },
   scoring: {
     exactScorePoints: 5,
