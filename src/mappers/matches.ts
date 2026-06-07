@@ -5,10 +5,10 @@ import { roundOf32Matches } from "@/data/matches/knockout/round-of-32"
 import { roundOf4Matches } from "@/data/matches/knockout/round-of-4"
 import { roundOf8Matches } from "@/data/matches/knockout/round-of-8"
 import { thirdPlaceMatch } from "@/data/matches/knockout/third-place"
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
 
-export type MatchWithPhase = Match & { phaseId: PhaseId }
+export type MatchWithPhase = MatchDefinition & { phaseId: PhaseId }
 
 const matchPhaseBlocks = [
   groupStageMatches,

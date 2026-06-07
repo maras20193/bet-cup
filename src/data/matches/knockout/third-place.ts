@@ -1,4 +1,4 @@
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 
 export const thirdPlaceMatch = {
   phaseId: "third-place" as const,
@@ -10,7 +10,6 @@ export const thirdPlaceMatch = {
       awayId: null,
       homeSlot: "Przegrany półfinału 1",
       awaySlot: "Przegrany półfinału 2",
-      result: null,
     },
-  ] satisfies Match[],
+  ] satisfies MatchDefinition[],
 }

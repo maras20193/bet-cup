@@ -81,7 +81,7 @@ export function buildMatchPredictionsTableRows(options: {
       match,
       homeTeam: teamCell(match.homeId),
       awayTeam: teamCell(match.awayId),
-      result: match.result,
+      result: null,
       players,
     }
   })

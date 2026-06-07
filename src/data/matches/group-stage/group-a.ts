@@ -1,4 +1,4 @@
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 
 export const groupStageGroupAMatches = [
   {
@@ -6,41 +6,35 @@ export const groupStageGroupAMatches = [
     groupId: "A",
     homeId: "MEXICO",
     awayId: "SOUTH_AFRICA",
-    result: null,
   },
   {
     id: "gs-a-002",
     groupId: "A",
     homeId: "SOUTH_KOREA",
     awayId: "CZECHIA",
-    result: null,
   },
   {
     id: "gs-a-003",
     groupId: "A",
     homeId: "MEXICO",
     awayId: "SOUTH_KOREA",
-    result: null,
   },
   {
     id: "gs-a-004",
     groupId: "A",
     homeId: "SOUTH_AFRICA",
     awayId: "SOUTH_KOREA",
-    result: null,
   },
   {
     id: "gs-a-005",
     groupId: "A",
     homeId: "CZECHIA",
     awayId: "MEXICO",
-    result: null,
   },
   {
     id: "gs-a-006",
     groupId: "A",
     homeId: "CZECHIA",
     awayId: "SOUTH_AFRICA",
-    result: null,
   },
-] as const satisfies readonly Match[]
+] as const satisfies readonly MatchDefinition[]

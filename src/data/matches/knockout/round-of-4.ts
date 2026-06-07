@@ -1,4 +1,4 @@
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 
 export const roundOf4Matches = {
   phaseId: "round-of-4" as const,
@@ -10,7 +10,6 @@ export const roundOf4Matches = {
       awayId: null,
       homeSlot: "#1 (ćwierćfinał)",
       awaySlot: "#2 (ćwierćfinał)",
-      result: null,
     },
     {
       id: "r4-002",
@@ -19,7 +18,6 @@ export const roundOf4Matches = {
       awayId: null,
       homeSlot: "#3 (ćwierćfinał)",
       awaySlot: "#4 (ćwierćfinał)",
-      result: null,
     },
-  ] satisfies Match[],
+  ] satisfies MatchDefinition[],
 }

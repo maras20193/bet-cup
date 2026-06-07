@@ -1,6 +1,6 @@
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 
-export type { Match }
+export type { MatchDefinition }
 
 import { groupStageGroupAMatches } from "./group-a"
 import { groupStageGroupBMatches } from "./group-b"
@@ -43,7 +43,7 @@ export const groupStageAllMatches = [
   ...groupStageGroupJMatches,
   ...groupStageGroupKMatches,
   ...groupStageGroupLMatches,
-] satisfies readonly Match[]
+] satisfies readonly MatchDefinition[]
 
 export const groupStageMatches = {
   phaseId: "group-stage" as const,

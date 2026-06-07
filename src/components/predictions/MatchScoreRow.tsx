@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input"
 import { TeamLabelWithFlag } from "@/components/shared/TeamLabelWithFlag"
 import { teams } from "@/data/teams/teams"
 import { cn } from "@/lib/utils"
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 import type { PhasePredictionFormValues } from "@/types/predictions"
 
 import {
@@ -17,7 +17,7 @@ const scoreInputClass =
   "h-8 w-11 min-w-0 shrink-0 px-1 text-center text-sm tabular-nums [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
 
 export type MatchScoreRowProps = {
-  match: Match
+  match: MatchDefinition
   rowIndex: number
   formIdPrefix: string
   register: UseFormRegister<PhasePredictionFormValues>

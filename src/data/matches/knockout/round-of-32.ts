@@ -1,4 +1,4 @@
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 
 export const roundOf32Matches = {
   phaseId: "round-of-32" as const,
@@ -10,7 +10,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "2A",
       awaySlot: "2B",
-      result: null,
     },
     {
       id: "r32-002",
@@ -19,7 +18,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1C",
       awaySlot: "2F",
-      result: null,
     },
     {
       id: "r32-003",
@@ -28,7 +26,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1E",
       awaySlot: "3 z ABCDF",
-      result: null,
     },
     {
       id: "r32-004",
@@ -37,7 +34,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1F",
       awaySlot: "2C",
-      result: null,
     },
     {
       id: "r32-005",
@@ -46,7 +42,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "2E",
       awaySlot: "2I",
-      result: null,
     },
     {
       id: "r32-006",
@@ -55,7 +50,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1I",
       awaySlot: "3 z CDFGH",
-      result: null,
     },
     {
       id: "r32-007",
@@ -64,7 +58,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1A",
       awaySlot: "3 z CEFHI",
-      result: null,
     },
     {
       id: "r32-008",
@@ -73,7 +66,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1L",
       awaySlot: "3 z EHIJK",
-      result: null,
     },
     {
       id: "r32-009",
@@ -82,7 +74,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1G",
       awaySlot: "3 z AEHIJ",
-      result: null,
     },
     {
       id: "r32-010",
@@ -91,7 +82,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1D",
       awaySlot: "3 z BEFIJ",
-      result: null,
     },
     {
       id: "r32-011",
@@ -100,7 +90,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1H",
       awaySlot: "2J",
-      result: null,
     },
     {
       id: "r32-012",
@@ -109,7 +98,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "2K",
       awaySlot: "2L",
-      result: null,
     },
     {
       id: "r32-013",
@@ -118,7 +106,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1B",
       awaySlot: "3 z EFGIJ",
-      result: null,
     },
     {
       id: "r32-014",
@@ -127,7 +114,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "2D",
       awaySlot: "2G",
-      result: null,
     },
     {
       id: "r32-015",
@@ -136,7 +122,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1J",
       awaySlot: "2H",
-      result: null,
     },
     {
       id: "r32-016",
@@ -145,7 +130,6 @@ export const roundOf32Matches = {
       awayId: null,
       homeSlot: "1K",
       awaySlot: "3 z DEIJL",
-      result: null,
     },
-  ] satisfies Match[],
+  ] satisfies MatchDefinition[],
 }

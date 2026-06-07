@@ -1,15 +1,15 @@
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 
 export type MatchDisplaySection = {
   key: string
   label: string | null
-  matches: Match[]
+  matches: MatchDefinition[]
 }
 
 export const groupMatchesForDisplay = (
-  matches: readonly Match[]
+  matches: readonly MatchDefinition[]
 ): MatchDisplaySection[] => {
-  const entries = new Map<string, Match[]>()
+  const entries = new Map<string, MatchDefinition[]>()
   for (const m of matches) {
     const key = m.groupId ?? "__knockout"
     const list = entries.get(key)

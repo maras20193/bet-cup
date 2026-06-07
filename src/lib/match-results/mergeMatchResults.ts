@@ -1,14 +1,17 @@
 import type { PhaseId } from "@/types/phase"
-import type { PhaseMatchBundle } from "@/types/phase-matches"
+import type {
+  MergedPhaseMatchBundle,
+  PhaseMatchBundle,
+} from "@/types/phase-matches"
 
 import { rowToMatchResult } from "./rowToMatchResult"
 import type { MatchResultRow } from "./types"
 
-export function mergeMatchResults<T extends Record<PhaseId, PhaseMatchBundle>>(
-  bundles: T,
+export function mergeMatchResults(
+  bundles: Record<PhaseId, PhaseMatchBundle>,
   resultsByMatchId: ReadonlyMap<string, MatchResultRow>,
-): T {
-  const merged = {} as T
+): Record<PhaseId, MergedPhaseMatchBundle> {
+  const merged = {} as Record<PhaseId, MergedPhaseMatchBundle>
 
   for (const phaseId of Object.keys(bundles) as PhaseId[]) {
     const bundle = bundles[phaseId]

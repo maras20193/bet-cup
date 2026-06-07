@@ -1,4 +1,4 @@
-import type { Match } from "@/types/match"
+import type { MatchDefinition } from "@/types/match"
 
 export const roundOf16Matches = {
   phaseId: "round-of-16" as const,
@@ -10,7 +10,6 @@ export const roundOf16Matches = {
       awayId: null,
       homeSlot: "2A / 2B",
       awaySlot: "1F / 2C",
-      result: null,
     },
     {
       id: "r16-002",
@@ -19,7 +18,6 @@ export const roundOf16Matches = {
       awayId: null,
       homeSlot: "1E / 3ABCDF",
       awaySlot: "1I / 3CDFGH",
-      result: null,
     },
     {
       id: "r16-003",
@@ -28,7 +26,6 @@ export const roundOf16Matches = {
       awayId: null,
       homeSlot: "1C / 2F",
       awaySlot: "2E / 2I",
-      result: null,
     },
     {
       id: "r16-004",
@@ -37,7 +34,6 @@ export const roundOf16Matches = {
       awayId: null,
       homeSlot: "1A / 3CEFHI",
       awaySlot: "1L / 3EHIJK",
-      result: null,
     },
     {
       id: "r16-005",
@@ -46,7 +42,6 @@ export const roundOf16Matches = {
       awayId: null,
       homeSlot: "2K / 2L",
       awaySlot: "1H / 2J",
-      result: null,
     },
     {
       id: "r16-006",
@@ -55,7 +50,6 @@ export const roundOf16Matches = {
       awayId: null,
       homeSlot: "1D / 3BEFIJ",
       awaySlot: "1G / 3AEHIJ",
-      result: null,
     },
     {
       id: "r16-007",
@@ -64,7 +58,6 @@ export const roundOf16Matches = {
       awayId: null,
       homeSlot: "1J / 2H",
       awaySlot: "2D / 2G",
-      result: null,
     },
     {
       id: "r16-008",
@@ -73,7 +66,6 @@ export const roundOf16Matches = {
       awayId: null,
       homeSlot: "1B / 3EFGIJ",
       awaySlot: "1K / 3DEIJL",
-      result: null,
     },
-  ] satisfies Match[],
+  ] satisfies MatchDefinition[],
 }

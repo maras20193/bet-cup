@@ -21,12 +21,15 @@ export const groupIds = [
 
 export type GroupId = (typeof groupIds)[number]
 
-export type Match = {
+export type MatchDefinition = {
   id: string
   groupId: GroupId | null
   homeId: TeamId | null
   awayId: TeamId | null
   homeSlot?: string
   awaySlot?: string
+}
+
+export type Match = MatchDefinition & {
   result: MatchResult
 }
