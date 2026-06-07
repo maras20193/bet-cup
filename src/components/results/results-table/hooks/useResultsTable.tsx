@@ -8,8 +8,8 @@ import { useMemo } from "react"
 import { appConfig } from "@/config/app.config"
 import { playerPredictionBundles } from "@/data/player-bundles"
 import type { PlayerPredictionBundleInput } from "@/types/predictions"
-import { phaseMatchBundles } from "@/data/matches/phase-bundles"
 import { buildResultsPhaseSections } from "@/components/results/utils/resultsPhases"
+import { useMergedPhaseMatchBundles } from "@/hooks/useMergedPhaseMatchBundles"
 import { MatchLabel } from "@/components/results/results-table/parts/MatchLabel"
 import { PlayerPredictionCell } from "@/components/results/results-table/parts/PlayerPredictionCell"
 import {
@@ -29,10 +29,11 @@ export function useResultsTable({
   bundles = resultsTableDefaultBundles,
 }: UseResultsTableArgs = {}) {
   const scoring = appConfig.scoring
+  const { mergedBundles, isLoading, error } = useMergedPhaseMatchBundles()
 
   const sections = useMemo(
-    () => buildResultsPhaseSections(appConfig, phaseMatchBundles),
-    [],
+    () => buildResultsPhaseSections(appConfig, mergedBundles),
+    [mergedBundles],
   )
 
   const { rows, playerTotals } = useMemo(
@@ -96,7 +97,7 @@ export function useResultsTable({
 
   const colCount = table.getAllColumns().length
 
-  return { table, colCount }
+  return { table, colCount, isLoading, error }
 }
 
 export const resultsTableDefaultBundles = playerPredictionBundles

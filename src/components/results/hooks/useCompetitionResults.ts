@@ -3,8 +3,8 @@ import { useMemo } from "react"
 import { buildResultsPhaseSections } from "@/components/results/utils/resultsPhases"
 import { buildMultiPhaseResultsTableModel } from "@/components/results/results-table/utils/buildResultsTableModel"
 import { appConfig } from "@/config/app.config"
-import { phaseMatchBundles } from "@/data/matches/phase-bundles"
 import { playerPredictionBundles } from "@/data/player-bundles"
+import { useMergedPhaseMatchBundles } from "@/hooks/useMergedPhaseMatchBundles"
 import {
   buildCompetitionRanking,
   type RankingGroup,
@@ -25,10 +25,11 @@ export function useCompetitionResults({
   bundles = playerPredictionBundles,
 }: UseCompetitionResultsArgs = {}) {
   const scoring = appConfig.scoring
+  const { mergedBundles } = useMergedPhaseMatchBundles()
 
   const sections = useMemo(
-    () => buildResultsPhaseSections(appConfig, phaseMatchBundles),
-    [],
+    () => buildResultsPhaseSections(appConfig, mergedBundles),
+    [mergedBundles],
   )
 
   const playerScores = useMemo<PlayerScore[]>(() => {
