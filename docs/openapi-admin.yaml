@@ -1,0 +1,187 @@
+openapi: 3.1.0
+info:
+  title: Bet Cup Admin API
+  description: |
+    Public read endpoints for teams and matches; protected write for match results.
+    ChatGPT uses listTeams + listMatches to pick matchId, then updateMatchResult.
+  version: 1.0.0
+servers:
+  - url: https://YOUR_APP.vercel.app
+    description: Production (replace with your Vercel URL)
+
+paths:
+  /api/admin/teams:
+    get:
+      operationId: listTeams
+      summary: List all tournament teams
+      description: Returns official team IDs and Polish names from the app schedule.
+      security: []
+      responses:
+        "200":
+          description: Team catalog
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Team"
+
+  /api/admin/matches:
+    get:
+      operationId: listMatches
+      summary: List all tournament matches
+      description: |
+        Full schedule (~104 matches) with phase, group, team names or knockout slots.
+        Use this before every result update to resolve the correct matchId.
+      security: []
+      responses:
+        "200":
+          description: Match catalog
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MatchListResponse"
+
+  /api/admin/match-result:
+    post:
+      operationId: updateMatchResult
+      summary: Update match result in Supabase
+      description: |
+        Writes home/away score for a known matchId. Does not resolve team names —
+        the client must send the correct matchId from listMatches.
+      security:
+        - AdminSecret: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateMatchResultRequest"
+      responses:
+        "200":
+          description: Result saved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateMatchResultResponse"
+        "400":
+          description: Invalid payload
+        "401":
+          description: Missing or wrong X-Admin-Secret
+        "404":
+          description: Unknown matchId or no row in database
+
+components:
+  securitySchemes:
+    AdminSecret:
+      type: apiKey
+      in: header
+      name: X-Admin-Secret
+
+  schemas:
+    Team:
+      type: object
+      required: [teamId, name]
+      properties:
+        teamId:
+          type: string
+          example: FRANCE
+        name:
+          type: string
+          example: Francja
+
+    Match:
+      type: object
+      required:
+        - matchId
+        - phaseId
+        - phaseLabel
+        - groupId
+        - homeTeamId
+        - awayTeamId
+        - homeName
+        - awayName
+        - homeSlot
+        - awaySlot
+        - hasAssignedTeams
+      properties:
+        matchId:
+          type: string
+          example: gs-i-001
+        phaseId:
+          type: string
+          example: group-stage
+        phaseLabel:
+          type: string
+          example: Faza grupowa
+        groupId:
+          type: string
+          nullable: true
+          example: I
+        homeTeamId:
+          type: string
+          nullable: true
+        awayTeamId:
+          type: string
+          nullable: true
+        homeName:
+          type: string
+          nullable: true
+          example: Francja
+        awayName:
+          type: string
+          nullable: true
+          example: Senegal
+        homeSlot:
+          type: string
+          nullable: true
+        awaySlot:
+          type: string
+          nullable: true
+        hasAssignedTeams:
+          type: boolean
+          description: false when knockout match still has placeholder slots only
+
+    MatchListResponse:
+      type: object
+      required: [tournamentId, matches]
+      properties:
+        tournamentId:
+          type: string
+          example: world-cup-2026
+        matches:
+          type: array
+          items:
+            $ref: "#/components/schemas/Match"
+
+    UpdateMatchResultRequest:
+      type: object
+      required: [matchId, home, away]
+      properties:
+        matchId:
+          type: string
+          example: r16-003
+        home:
+          type: integer
+          minimum: 0
+          example: 2
+        away:
+          type: integer
+          minimum: 0
+          example: 2
+
+    UpdateMatchResultResponse:
+      type: object
+      required: [ok, matchId, home, away, tournamentId]
+      properties:
+        ok:
+          type: boolean
+          example: true
+        matchId:
+          type: string
+        home:
+          type: integer
+        away:
+          type: integer
+        tournamentId:
+          type: string

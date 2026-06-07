@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:vercel": "vercel dev",
-    "build": "tsc -b && vite build",
+    "dev:vercel": "npm run api:catalog && npx vercel dev",
+    "api:catalog": "tsx scripts/generate-api-catalog.ts",
+    "build": "npm run api:catalog && tsc -b && vite build",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
