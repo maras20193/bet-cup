@@ -25,7 +25,7 @@ export function useCompetitionResults({
   bundles = playerPredictionBundles,
 }: UseCompetitionResultsArgs = {}) {
   const scoring = appConfig.scoring
-  const { mergedBundles } = useMergedPhaseMatchBundles()
+  const { mergedBundles, isLoading, error } = useMergedPhaseMatchBundles()
 
   const sections = useMemo(
     () => buildResultsPhaseSections(appConfig, mergedBundles),
@@ -54,5 +54,5 @@ export function useCompetitionResults({
     [playerScores],
   )
 
-  return { playerScores, ranking }
+  return { playerScores, ranking, isLoading, error }
 }
