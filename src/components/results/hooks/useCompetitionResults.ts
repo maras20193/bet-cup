@@ -39,16 +39,11 @@ export function useCompetitionResults({
       scoring,
     )
 
-    return bundles
-      .map((b) => ({
-        playerId: b.playerId,
-        name: b.displayName,
-        points: playerTotals[b.playerId] ?? 0,
-      }))
-      .sort(
-        (a, b) =>
-          b.points - a.points || a.name.localeCompare(b.name, "pl"),
-      )
+    return bundles.map((b) => ({
+      playerId: b.playerId,
+      name: b.displayName,
+      points: playerTotals[b.playerId] ?? 0,
+    }))
   }, [sections, bundles, scoring])
 
   const ranking = useMemo<RankingGroup[]>(
