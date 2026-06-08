@@ -1,7 +1,7 @@
-const DICEBEAR_VERSION = "10.x"
-const DICEBEAR_STYLE = "fun-emoji"
+import { appConfig } from "@/config/app.config"
 
 export const getPlayerAvatarUrl = (seed: string): string => {
+  const { dicebearVersion, dicebearStyle } = appConfig.ui.avatars
   const params = new URLSearchParams({ seed })
-  return `https://api.dicebear.com/${DICEBEAR_VERSION}/${DICEBEAR_STYLE}/svg?${params}`
+  return `https://api.dicebear.com/${dicebearVersion}/${dicebearStyle}/svg?${params}`
 }

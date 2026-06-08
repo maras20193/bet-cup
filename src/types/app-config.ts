@@ -21,6 +21,10 @@ export type AppConfig = {
     }
   >
   ui: {
+    avatars: {
+      dicebearVersion: string
+      dicebearStyle: string
+    }
     colors: {
       scores: {
         exactScorePoints: string

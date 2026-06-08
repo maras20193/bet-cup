@@ -49,6 +49,10 @@ export const appConfig: AppConfig = {
     },
   },
   ui: {
+    avatars: {
+      dicebearVersion: "10.x",
+      dicebearStyle: "fun-emoji",
+    },
     colors: {
       scores: {
         exactScorePoints: "#3CAC3B",
