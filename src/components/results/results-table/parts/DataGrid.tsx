@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { ResultColumnSkeleton } from "@/components/results/results-table/parts/ResultsTableMainColumnSkeleton"
 import type { ResultsTableRow } from "@/components/results/results-table/utils/buildResultsTableModel"
 import { cn } from "@/lib/utils"
 
@@ -94,6 +95,7 @@ export type DataGridProps = {
   scrollContainerClass?: string
   /** Scroll pionowy i poziomy w kontenerze tabeli zamiast na stronie. */
   fillHeight?: boolean
+  isLoading?: boolean
 }
 
 export function DataGrid({
@@ -101,6 +103,7 @@ export function DataGrid({
   colCount,
   scrollContainerClass,
   fillHeight = false,
+  isLoading = false,
 }: DataGridProps) {
   const hasPlayerColumns = table
     .getAllColumns()
@@ -210,9 +213,15 @@ export function DataGrid({
                         cell.column.id === "result" && "px-1 py-2 md:px-2"
                       )}
                     >
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
+                      {isLoading &&
+                      original.kind === "match" &&
+                      cell.column.id === "result" ? (
+                        <ResultColumnSkeleton />
+                      ) : (
+                        flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )
                       )}
                     </TableCell>
                   )

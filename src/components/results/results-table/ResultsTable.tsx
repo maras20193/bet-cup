@@ -16,7 +16,7 @@ export function ResultsTable({
   bundles = resultsTableDefaultBundles,
   fillHeight = false,
 }: ResultsTableProps) {
-  const { table, colCount, error } = useResultsTable({ bundles })
+  const { table, colCount, isLoading, error } = useResultsTable({ bundles })
 
   return (
     <div className="flex flex-col flex-1 gap-2 min-h-0">
@@ -28,7 +28,12 @@ export function ResultsTable({
           </AlertDescription>
         </Alert>
       ) : null}
-      <DataGrid table={table} colCount={colCount} fillHeight={fillHeight} />
+      <DataGrid
+        table={table}
+        colCount={colCount}
+        fillHeight={fillHeight}
+        isLoading={isLoading}
+      />
     </div>
   )
 }
