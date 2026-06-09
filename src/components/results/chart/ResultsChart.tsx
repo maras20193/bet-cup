@@ -36,7 +36,7 @@ export const ResultsChart = () => {
         points: row.points,
         fill: appConfig.ui.colors.chart[i % appConfig.ui.colors.chart.length],
       })),
-    [playerScores],
+    [playerScores]
   )
 
   const { containerRef, chartWidth, barSize, barGap } = useChartBarLayout(
@@ -77,12 +77,14 @@ export const ResultsChart = () => {
               axisLine={false}
               interval={0}
               angle={-90}
-              textAnchor="end"
-              height={100}
+              textAnchor="start"
+              // height={10}
               tick={{
                 fill: "var(--foreground)",
                 fontSize: 16,
                 fontWeight: 400,
+                dy: -12,
+                dx: -6,
               }}
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
