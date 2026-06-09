@@ -26,6 +26,13 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
+const MAX_AXIS_LABEL_LENGTH = 10
+
+const truncateAxisLabel = (value: string) =>
+  value.length > MAX_AXIS_LABEL_LENGTH
+    ? `${value.slice(0, MAX_AXIS_LABEL_LENGTH)}…`
+    : value
+
 export const ResultsChart = () => {
   const { playerScores } = useCompetitionResults()
 
@@ -72,18 +79,19 @@ export const ResultsChart = () => {
             <CartesianGrid vertical={false} horizontal={true} />
             <XAxis
               dataKey="name"
+              tickFormatter={truncateAxisLabel}
               tickLine={false}
               // tickMargin={10}
               axisLine={false}
               interval={0}
               angle={-90}
-              textAnchor="start"
-              // height={10}
+              textAnchor="end"
+              height={100}
               tick={{
                 fill: "var(--foreground)",
                 fontSize: 16,
                 fontWeight: 400,
-                dy: -12,
+                // dy: -12,
                 dx: -6,
               }}
             />
