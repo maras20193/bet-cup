@@ -21,7 +21,7 @@ export const appConfig: AppConfig = {
   phases: {
     "group-stage": {
       label: "Faza grupowa",
-      formVisible: true,
+      formVisible: false,
     },
     "round-of-32": {
       label: "1/16 finału",
