@@ -23,12 +23,14 @@ export function MatchLabel({ match }: MatchLabelProps) {
   return (
     <div
       className={cn(
-        "items-center gap-x-1.5 grid w-full max-w-full text-sm leading-tight",
-        "grid-cols-[minmax(0,1fr)_1.75rem_auto_1.75rem_minmax(0,1fr)]",
+        "items-center gap-x-1 grid w-full max-w-full text-sm leading-tight",
+        "grid-cols-[minmax(0,1fr)_1.5rem_auto_1.5rem_minmax(0,1fr)]",
+        "md:gap-x-1.5 md:grid-cols-[minmax(0,1fr)_1.75rem_auto_1.75rem_minmax(0,1fr)]",
       )}
     >
       <TeamLabelWithFlag
         label={home ? home.name : homeLabel}
+        compactLabel={home?.shortCode}
         titleText={homeTitle}
         flagCode={home?.code}
         layout="label-flag"
@@ -40,6 +42,7 @@ export function MatchLabel({ match }: MatchLabelProps) {
       </span>
       <TeamLabelWithFlag
         label={away ? away.name : awayLabel}
+        compactLabel={away?.shortCode}
         titleText={awayTitle}
         flagCode={away?.code}
         layout="flag-label"

@@ -8,8 +8,8 @@ import { parsePhasePredictionsFile } from "./predictions"
 export type TeamCell = {
   id: TeamId
   code: string
+  shortCode: string
   name: string
-  flag: string
 } | null
 
 export type PlayerScorePredictionCell = {

@@ -13,7 +13,7 @@ import type { ResultsTableRow } from "@/components/results/results-table/utils/b
 import { cn } from "@/lib/utils"
 
 const MATCH_COL_WIDTH =
-  "w-56 min-w-56 max-w-56 md:w-72 md:min-w-72 md:max-w-72"
+  "w-40 min-w-40 max-w-40 md:w-72 md:min-w-72 md:max-w-72"
 const RESULT_COL_WIDTH = "w-20 min-w-20 md:w-24 md:min-w-24"
 
 const stickyOpaqueBgBase = "bg-card dark:bg-zinc-950"
@@ -131,8 +131,8 @@ export function DataGrid({
       >
         {!hasPlayerColumns && (
           <colgroup>
-            <col style={{ width: "14rem", maxWidth: "14rem" }} />
-            <col style={{ width: "6rem" }} />
+            <col />
+            <col />
           </colgroup>
         )}
         <TableHeader>
@@ -207,8 +207,8 @@ export function DataGrid({
                           cn(
                             "py-2 whitespace-normal",
                             hasPlayerColumns
-                              ? "max-w-56 md:max-w-72"
-                              : "max-w-56 overflow-hidden md:max-w-72"
+                              ? "max-w-40 md:max-w-72"
+                              : "max-w-40 overflow-hidden md:max-w-72"
                           ),
                         cell.column.id === "result" && "px-1 py-2 md:px-2"
                       )}

@@ -31,6 +31,8 @@ const tapTriggerClass =
 export type EllipsisWithTooltipProps = {
   titleText: string
   className?: string
+  /** On touch devices, always open a popover on tap (not only when truncated). */
+  tapToReveal?: boolean
   children: ReactNode
 }
 
@@ -39,6 +41,7 @@ const truncatedTextClass = "block w-full min-w-0 truncate"
 export const EllipsisWithTooltip = ({
   titleText,
   className,
+  tapToReveal = false,
   children,
 }: EllipsisWithTooltipProps) => {
   const touchUi = useTouchTapUi()
@@ -62,12 +65,16 @@ export const EllipsisWithTooltip = ({
   }, [touchUi, children, titleText])
 
   const truncatedLabel = (
-    <span ref={textRef} className={cn(truncatedTextClass, className)} aria-hidden>
+    <span
+      ref={textRef}
+      className={cn(truncatedTextClass, className)}
+      aria-hidden
+    >
       {children}
     </span>
   )
 
-  if (touchUi && overflowing) {
+  if (touchUi && (overflowing || tapToReveal)) {
     return (
       <Popover>
         <PopoverTrigger
@@ -80,7 +87,7 @@ export const EllipsisWithTooltip = ({
         <PopoverContent
           side="top"
           align="center"
-          className="w-max max-w-[min(20rem,calc(100vw-2rem))] px-3 py-2 text-sm font-medium"
+          className="px-3 py-2 w-max max-w-[min(20rem,calc(100vw-2rem))] font-medium text-sm"
           onOpenAutoFocus={(e) => e.preventDefault()}
         >
           {titleText}
@@ -93,7 +100,7 @@ export const EllipsisWithTooltip = ({
     <span
       ref={textRef}
       className={cn(truncatedTextClass, className)}
-      title={!touchUi && overflowing ? titleText : undefined}
+      title={!touchUi && (overflowing || tapToReveal) ? titleText : undefined}
     >
       {children}
     </span>

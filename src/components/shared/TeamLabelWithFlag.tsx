@@ -8,12 +8,10 @@ export type TeamLabelWithFlagLayout = "label-flag" | "flag-label"
 export type TeamLabelWithFlagProps = {
   label: string
   titleText: string
+  compactLabel?: string
   flagCode?: string | null
-  /** `label-flag`: nazwa, potem flaga (np. gospodarz w formularzu). `flag-label`: flaga, potem nazwa (np. gość). */
   layout: TeamLabelWithFlagLayout
-  /** Znana drużyna — pełny kolor tekstu; slot TBD — stonowany. */
   teamResolved: boolean
-  className?: string
   ellipsisClassName?: string
 }
 
@@ -26,10 +24,10 @@ const FlagSlot = ({ flagCode }: { flagCode?: string | null }) => (
 export const TeamLabelWithFlag = ({
   label,
   titleText,
+  compactLabel,
   flagCode,
   layout,
   teamResolved,
-  className,
   ellipsisClassName,
 }: TeamLabelWithFlagProps) => {
   const textTone = teamResolved ? "text-foreground" : "text-muted-foreground"
@@ -38,30 +36,46 @@ export const TeamLabelWithFlag = ({
       ? "justify-self-end font-medium text-right"
       : "justify-self-start font-medium text-left"
 
-  const ellipsis = (
-    <EllipsisWithTooltip
-      titleText={titleText}
-      className={cn(align, textTone, ellipsisClassName)}
-    >
-      {label}
-    </EllipsisWithTooltip>
-  )
+  const textClass = cn(align, textTone, ellipsisClassName)
+
+  const ellipsis =
+    compactLabel != null ? (
+      <>
+        <EllipsisWithTooltip
+          titleText={titleText}
+          tapToReveal
+          className={cn(textClass, "md:hidden")}
+        >
+          {compactLabel}
+        </EllipsisWithTooltip>
+        <EllipsisWithTooltip
+          titleText={titleText}
+          className={cn(textClass, "hidden md:block")}
+        >
+          {label}
+        </EllipsisWithTooltip>
+      </>
+    ) : (
+      <EllipsisWithTooltip titleText={titleText} className={textClass}>
+        {label}
+      </EllipsisWithTooltip>
+    )
 
   const flag = <FlagSlot flagCode={flagCode} />
 
   if (layout === "label-flag") {
     return (
-      <div className={cn("contents min-w-0 *:min-w-0", className)}>
+      <>
         {ellipsis}
         {flag}
-      </div>
+      </>
     )
   }
 
   return (
-    <div className={cn("contents min-w-0 *:min-w-0", className)}>
+    <>
       {flag}
       {ellipsis}
-    </div>
+    </>
   )
 }
