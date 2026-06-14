@@ -6,6 +6,7 @@ import {
   useResultsTable,
   resultsTableDefaultBundles,
 } from "@/components/results/results-table/hooks/useResultsTable"
+import { UpcomingMatchesStrip } from "@/components/results/upcoming-matches/UpcomingMatchesStrip"
 
 export type ResultsTableProps = {
   bundles?: readonly PlayerPredictionBundleInput[]
@@ -28,6 +29,7 @@ export function ResultsTable({
           </AlertDescription>
         </Alert>
       ) : null}
+      <UpcomingMatchesStrip bundles={bundles} />
       <DataGrid
         table={table}
         colCount={colCount}

@@ -19,6 +19,7 @@ export function mergeMatchResults(
       ...bundle,
       matches: bundle.matches.map((match) => ({
         ...match,
+        kickoffAt: match.kickoffAt!,
         result: rowToMatchResult(resultsByMatchId.get(match.id)),
       })),
     }

@@ -28,8 +28,10 @@ export type MatchDefinition = {
   awayId: TeamId | null
   homeSlot?: string
   awaySlot?: string
+  kickoffAt?: string
 }
 
 export type Match = MatchDefinition & {
   result: MatchResult
+  kickoffAt: string
 }
