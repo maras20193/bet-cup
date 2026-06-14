@@ -10,6 +10,7 @@ import { playerPredictionBundles } from "@/data/player-bundles"
 import type { PlayerPredictionBundleInput } from "@/types/predictions"
 import { buildResultsPhaseSections } from "@/components/results/utils/resultsPhases"
 import { useMergedPhaseMatchBundles } from "@/hooks/useMergedPhaseMatchBundles"
+import { MatchDetailModal } from "@/components/results/results-table/parts/MatchDetailModal"
 import { MatchLabel } from "@/components/results/results-table/parts/MatchLabel"
 import { PlayerPredictionCell } from "@/components/results/results-table/parts/PlayerPredictionCell"
 import {
@@ -66,7 +67,16 @@ export function useResultsTable({
         cell: ({ row }) => {
           const r = row.original
           if (r.kind !== "match") return null
-          return <MatchLabel match={r.match} />
+          return (
+            <MatchDetailModal row={r} bundles={bundles}>
+              <button
+                type="button"
+                className="block w-full min-w-0 cursor-pointer rounded-sm border-0 bg-transparent p-0 text-left font-inherit text-inherit outline-none focus-visible:ring-2 focus-visible:ring-ring/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              >
+                <MatchLabel match={r.match} />
+              </button>
+            </MatchDetailModal>
+          )
         },
       },
       {

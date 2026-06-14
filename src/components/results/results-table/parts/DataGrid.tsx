@@ -188,43 +188,44 @@ export function DataGrid({
             return (
               <TableRow
                 key={row.id}
-                className="group/row hover:bg-transparent data-[state=selected]:bg-transparent has-aria-expanded:bg-transparent border-0"
+                className="group/row border-0 hover:bg-transparent data-[state=selected]:bg-transparent has-aria-expanded:bg-transparent"
               >
                 {row.getVisibleCells().map((cell) => {
-                  const sticky = stickyCellClass(cell.column.id, "body")
-                  const isPlayer = cell.column.id.startsWith("player-")
-                  return (
-                    <TableCell
-                      key={cell.id}
-                      className={cn(
-                        "border-0 align-middle",
-                        dataRowCellBg,
-                        dataRowHoverBg,
-                        sticky,
-                        isPlayer &&
-                          "min-w-[5rem] px-1 text-center md:min-w-[5.5rem] md:px-2",
-                        cell.column.id === "match" &&
-                          cn(
-                            "py-2 whitespace-normal",
-                            hasPlayerColumns
-                              ? "max-w-40 md:max-w-72"
-                              : "max-w-40 overflow-hidden md:max-w-72"
-                          ),
-                        cell.column.id === "result" && "px-1 py-2 md:px-2"
-                      )}
-                    >
-                      {isLoading &&
-                      original.kind === "match" &&
-                      cell.column.id === "result" ? (
-                        <ResultColumnSkeleton />
-                      ) : (
-                        flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext(),
-                        )
-                      )}
-                    </TableCell>
-                  )
+                    const sticky = stickyCellClass(cell.column.id, "body")
+                    const isPlayer = cell.column.id.startsWith("player-")
+                    return (
+                      <TableCell
+                        key={cell.id}
+                        className={cn(
+                          "border-0 align-middle",
+                          dataRowCellBg,
+                          dataRowHoverBg,
+                          sticky,
+                          isPlayer &&
+                            "min-w-[5rem] px-1 text-center md:min-w-[5.5rem] md:px-2",
+                          cell.column.id === "match" &&
+                            cn(
+                              "py-2 whitespace-normal",
+                              hasPlayerColumns
+                                ? "max-w-40 md:max-w-72"
+                                : "max-w-40 overflow-hidden md:max-w-72",
+                              "cursor-pointer",
+                            ),
+                          cell.column.id === "result" && "px-1 py-2 md:px-2"
+                        )}
+                      >
+                        {isLoading &&
+                        original.kind === "match" &&
+                        cell.column.id === "result" ? (
+                          <ResultColumnSkeleton />
+                        ) : (
+                          flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext(),
+                          )
+                        )}
+                      </TableCell>
+                    )
                 })}
               </TableRow>
             )

@@ -11,9 +11,11 @@ function teamPair(match: Match) {
 
 export type MatchLabelProps = {
   match: Match
+  /** Pełne nazwy + układ jak na desktopie w tabeli (np. nagłówek modala). */
+  fullNames?: boolean
 }
 
-export function MatchLabel({ match }: MatchLabelProps) {
+export function MatchLabel({ match, fullNames = false }: MatchLabelProps) {
   const { home, away } = teamPair(match)
   const homeLabel = home?.name ?? match.homeSlot ?? "—"
   const awayLabel = away?.name ?? match.awaySlot ?? "—"
@@ -23,14 +25,18 @@ export function MatchLabel({ match }: MatchLabelProps) {
   return (
     <div
       className={cn(
-        "items-center gap-x-1 grid w-full max-w-full text-sm leading-tight",
-        "grid-cols-[minmax(0,1fr)_1.5rem_auto_1.5rem_minmax(0,1fr)]",
-        "md:gap-x-1.5 md:grid-cols-[minmax(0,1fr)_1.75rem_auto_1.75rem_minmax(0,1fr)]",
+        "items-center grid w-full max-w-full text-sm leading-tight",
+        fullNames
+          ? "grid-cols-[minmax(0,1fr)_1.75rem_auto_1.75rem_minmax(0,1fr)] gap-x-1.5"
+          : cn(
+              "gap-x-1 grid-cols-[minmax(0,1fr)_1.5rem_auto_1.5rem_minmax(0,1fr)]",
+              "md:gap-x-1.5 md:grid-cols-[minmax(0,1fr)_1.75rem_auto_1.75rem_minmax(0,1fr)]",
+            ),
       )}
     >
       <TeamLabelWithFlag
         label={home ? home.name : homeLabel}
-        compactLabel={home?.shortCode}
+        compactLabel={fullNames ? undefined : home?.shortCode}
         titleText={homeTitle}
         flagCode={home?.code}
         layout="label-flag"
@@ -42,7 +48,7 @@ export function MatchLabel({ match }: MatchLabelProps) {
       </span>
       <TeamLabelWithFlag
         label={away ? away.name : awayLabel}
-        compactLabel={away?.shortCode}
+        compactLabel={fullNames ? undefined : away?.shortCode}
         titleText={awayTitle}
         flagCode={away?.code}
         layout="flag-label"

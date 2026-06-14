@@ -41,13 +41,7 @@ export const TeamLabelWithFlag = ({
   const ellipsis =
     compactLabel != null ? (
       <>
-        <EllipsisWithTooltip
-          titleText={titleText}
-          tapToReveal
-          className={cn(textClass, "md:hidden")}
-        >
-          {compactLabel}
-        </EllipsisWithTooltip>
+        <span className={cn(textClass, "md:hidden")}>{compactLabel}</span>
         <EllipsisWithTooltip
           titleText={titleText}
           className={cn(textClass, "hidden md:block")}
