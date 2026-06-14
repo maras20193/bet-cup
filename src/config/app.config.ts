@@ -55,10 +55,23 @@ export const appConfig: AppConfig = {
     },
     colors: {
       scores: {
-        exactScorePoints: "#3CAC3B",
-        outcomePoints: "#2A398D",
+        exactScorePoints: "#00C752",
+        outcomePoints: "#304FFF",
       },
-      chart: ["#3CAC3B", "#2A398D", "#E61D25"],
+      chart: [
+        "#004D40",
+        "#64FEDA",
+        "#6100E9",
+        "#AFEA00",
+        "#FF3D00",
+        "#304FFF",
+        "#B288FD",
+        "#D40100",
+        "#741311",
+        "#2196F3",
+        "#00C752",
+        "#E81F63",
+      ],
     },
   },
 }
