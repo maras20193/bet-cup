@@ -1,0 +1,24 @@
+{
+  "predictionId": "60e24dce-9d43-47eb-a840-b654e667f239",
+  "displayName": "Kinder",
+  "phaseId": "round-of-32",
+  "submittedAt": "2026-06-28T08:25:06.151Z",
+  "predictions": [
+    { "matchId": "r32-001", "home": 1, "away": 0 },
+    { "matchId": "r32-002", "home": 1, "away": 2 },
+    { "matchId": "r32-003", "home": 2, "away": 0 },
+    { "matchId": "r32-004", "home": 2, "away": 0 },
+    { "matchId": "r32-005", "home": 1, "away": 2 },
+    { "matchId": "r32-006", "home": 3, "away": 0 },
+    { "matchId": "r32-007", "home": 1, "away": 0 },
+    { "matchId": "r32-008", "home": 2, "away": 1 },
+    { "matchId": "r32-009", "home": 1, "away": 1 },
+    { "matchId": "r32-010", "home": 2, "away": 0 },
+    { "matchId": "r32-011", "home": 2, "away": 0 },
+    { "matchId": "r32-012", "home": 1, "away": 1 },
+    { "matchId": "r32-013", "home": 1, "away": 0 },
+    { "matchId": "r32-014", "home": 1, "away": 2 },
+    { "matchId": "r32-015", "home": 3, "away": 0 },
+    { "matchId": "r32-016", "home": 1, "away": 2 }
+  ]
+}

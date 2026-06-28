@@ -1,0 +1,24 @@
+{
+  "predictionId": "232d2540-bf32-4402-a38a-689f44a3711b",
+  "displayName": "Iziaa",
+  "phaseId": "round-of-32",
+  "submittedAt": "2026-06-28T15:47:12.488Z",
+  "predictions": [
+    { "matchId": "r32-001", "home": 0, "away": 2 },
+    { "matchId": "r32-002", "home": 2, "away": 1 },
+    { "matchId": "r32-003", "home": 2, "away": 1 },
+    { "matchId": "r32-004", "home": 2, "away": 1 },
+    { "matchId": "r32-005", "home": 1, "away": 2 },
+    { "matchId": "r32-006", "home": 3, "away": 1 },
+    { "matchId": "r32-007", "home": 2, "away": 1 },
+    { "matchId": "r32-008", "home": 3, "away": 0 },
+    { "matchId": "r32-009", "home": 2, "away": 1 },
+    { "matchId": "r32-010", "home": 1, "away": 1 },
+    { "matchId": "r32-011", "home": 2, "away": 0 },
+    { "matchId": "r32-012", "home": 2, "away": 1 },
+    { "matchId": "r32-013", "home": 2, "away": 1 },
+    { "matchId": "r32-014", "home": 1, "away": 1 },
+    { "matchId": "r32-015", "home": 3, "away": 0 },
+    { "matchId": "r32-016", "home": 2, "away": 0 }
+  ]
+}

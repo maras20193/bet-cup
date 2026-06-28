@@ -1,0 +1,24 @@
+{
+  "predictionId": "fdde075b-8a1e-4bc6-8fdf-7e77d4de7abb",
+  "displayName": "Radek Zet",
+  "phaseId": "round-of-32",
+  "submittedAt": "2026-06-28T10:41:05.628Z",
+  "predictions": [
+    { "matchId": "r32-001", "home": 1, "away": 1 },
+    { "matchId": "r32-002", "home": 3, "away": 1 },
+    { "matchId": "r32-003", "home": 1, "away": 1 },
+    { "matchId": "r32-004", "home": 0, "away": 1 },
+    { "matchId": "r32-005", "home": 0, "away": 2 },
+    { "matchId": "r32-006", "home": 3, "away": 1 },
+    { "matchId": "r32-007", "home": 2, "away": 1 },
+    { "matchId": "r32-008", "home": 1, "away": 1 },
+    { "matchId": "r32-009", "home": 2, "away": 1 },
+    { "matchId": "r32-010", "home": 0, "away": 1 },
+    { "matchId": "r32-011", "home": 1, "away": 1 },
+    { "matchId": "r32-012", "home": 2, "away": 1 },
+    { "matchId": "r32-013", "home": 0, "away": 1 },
+    { "matchId": "r32-014", "home": 0, "away": 2 },
+    { "matchId": "r32-015", "home": 3, "away": 0 },
+    { "matchId": "r32-016", "home": 1, "away": 2 }
+  ]
+}
