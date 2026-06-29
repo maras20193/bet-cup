@@ -1,0 +1,23 @@
+{
+  "predictionId": "0f3f1068-8b90-4d24-bd2b-0e6d13dd12ff",
+  "displayName": "Ejsi",
+  "phaseId": "round-of-32",
+  "submittedAt": "2026-06-28T19:15:47.713Z",
+  "predictions": [
+    { "matchId": "r32-002", "home": 2, "away": 2 },
+    { "matchId": "r32-003", "home": 2, "away": 2 },
+    { "matchId": "r32-004", "home": 2, "away": 2 },
+    { "matchId": "r32-005", "home": 2, "away": 2 },
+    { "matchId": "r32-006", "home": 2, "away": 2 },
+    { "matchId": "r32-007", "home": 2, "away": 2 },
+    { "matchId": "r32-008", "home": 2, "away": 2 },
+    { "matchId": "r32-009", "home": 2, "away": 2 },
+    { "matchId": "r32-010", "home": 2, "away": 2 },
+    { "matchId": "r32-011", "home": 2, "away": 2 },
+    { "matchId": "r32-012", "home": 2, "away": 2 },
+    { "matchId": "r32-013", "home": 2, "away": 2 },
+    { "matchId": "r32-014", "home": 2, "away": 2 },
+    { "matchId": "r32-015", "home": 2, "away": 2 },
+    { "matchId": "r32-016", "home": 2, "away": 2 }
+  ]
+}
