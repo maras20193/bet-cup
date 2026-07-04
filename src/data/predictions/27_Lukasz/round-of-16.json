@@ -1,0 +1,16 @@
+{
+  "predictionId": "c7bb4eaf-8e49-426c-88c5-72844ffd0d8b",
+  "displayName": "Łukasz",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T15:18:18.285Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 0, "away": 2 },
+    { "matchId": "r16-002", "home": 0, "away": 3 },
+    { "matchId": "r16-003", "home": 2, "away": 1 },
+    { "matchId": "r16-004", "home": 2, "away": 1 },
+    { "matchId": "r16-005", "home": 1, "away": 2 },
+    { "matchId": "r16-006", "home": 3, "away": 2 },
+    { "matchId": "r16-007", "home": 3, "away": 1 },
+    { "matchId": "r16-008", "home": 1, "away": 1 }
+  ]
+}

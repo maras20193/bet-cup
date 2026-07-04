@@ -1,0 +1,16 @@
+{
+  "predictionId": "b69df5cb-664c-4347-81ab-98249df8f5ea",
+  "displayName": "Madeline",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T08:37:56.317Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 0, "away": 2 },
+    { "matchId": "r16-002", "home": 1, "away": 2 },
+    { "matchId": "r16-003", "home": 1, "away": 0 },
+    { "matchId": "r16-004", "home": 1, "away": 1 },
+    { "matchId": "r16-005", "home": 0, "away": 1 },
+    { "matchId": "r16-006", "home": 2, "away": 1 },
+    { "matchId": "r16-007", "home": 2, "away": 1 },
+    { "matchId": "r16-008", "home": 2, "away": 3 }
+  ]
+}

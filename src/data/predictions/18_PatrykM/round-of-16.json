@@ -1,0 +1,16 @@
+{
+  "predictionId": "72b46e17-b496-4c51-9f93-82004d7ee6ea",
+  "displayName": "Patryk m",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T12:59:36.798Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 1, "away": 2 },
+    { "matchId": "r16-002", "home": 1, "away": 1 },
+    { "matchId": "r16-003", "home": 1, "away": 1 },
+    { "matchId": "r16-004", "home": 0, "away": 2 },
+    { "matchId": "r16-005", "home": 1, "away": 1 },
+    { "matchId": "r16-006", "home": 2, "away": 0 },
+    { "matchId": "r16-007", "home": 3, "away": 1 },
+    { "matchId": "r16-008", "home": 0, "away": 2 }
+  ]
+}

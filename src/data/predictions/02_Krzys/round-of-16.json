@@ -1,0 +1,16 @@
+{
+  "predictionId": "43c4acb5-d357-4cae-97d2-44c2fc1e362a",
+  "displayName": "Krzyś",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T09:24:26.510Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 1, "away": 1 },
+    { "matchId": "r16-002", "home": 1, "away": 3 },
+    { "matchId": "r16-003", "home": 2, "away": 1 },
+    { "matchId": "r16-004", "home": 2, "away": 1 },
+    { "matchId": "r16-005", "home": 1, "away": 2 },
+    { "matchId": "r16-006", "home": 2, "away": 1 },
+    { "matchId": "r16-007", "home": 2, "away": 1 },
+    { "matchId": "r16-008", "home": 1, "away": 2 }
+  ]
+}

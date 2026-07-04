@@ -1,0 +1,16 @@
+{
+  "predictionId": "135b27ae-a42b-4ba6-8f69-5e6e0bb1399d",
+  "displayName": "Samol",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T15:39:05.275Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 1, "away": 2 },
+    { "matchId": "r16-002", "home": 0, "away": 3 },
+    { "matchId": "r16-003", "home": 2, "away": 1 },
+    { "matchId": "r16-004", "home": 0, "away": 1 },
+    { "matchId": "r16-005", "home": 2, "away": 1 },
+    { "matchId": "r16-006", "home": 1, "away": 2 },
+    { "matchId": "r16-007", "home": 2, "away": 1 },
+    { "matchId": "r16-008", "home": 1, "away": 2 }
+  ]
+}

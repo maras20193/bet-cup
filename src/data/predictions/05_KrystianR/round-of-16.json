@@ -1,0 +1,16 @@
+{
+  "predictionId": "6acb151b-05ce-4ebe-964a-8f9c20991769",
+  "displayName": "Krystian R.",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T07:48:31.931Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 0, "away": 2 },
+    { "matchId": "r16-002", "home": 0, "away": 2 },
+    { "matchId": "r16-003", "home": 2, "away": 0 },
+    { "matchId": "r16-004", "home": 0, "away": 1 },
+    { "matchId": "r16-005", "home": 2, "away": 3 },
+    { "matchId": "r16-006", "home": 1, "away": 2 },
+    { "matchId": "r16-007", "home": 2, "away": 0 },
+    { "matchId": "r16-008", "home": 1, "away": 3 }
+  ]
+}

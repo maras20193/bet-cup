@@ -1,0 +1,16 @@
+{
+  "predictionId": "ddbf84e7-2c16-4402-bdc3-6a6125232377",
+  "displayName": "Wirus",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T12:25:25.611Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 0, "away": 2 },
+    { "matchId": "r16-002", "home": 0, "away": 3 },
+    { "matchId": "r16-003", "home": 2, "away": 1 },
+    { "matchId": "r16-004", "home": 1, "away": 1 },
+    { "matchId": "r16-005", "home": 2, "away": 1 },
+    { "matchId": "r16-006", "home": 1, "away": 2 },
+    { "matchId": "r16-007", "home": 3, "away": 1 },
+    { "matchId": "r16-008", "home": 2, "away": 2 }
+  ]
+}

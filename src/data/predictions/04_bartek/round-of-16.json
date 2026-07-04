@@ -1,0 +1,16 @@
+{
+  "predictionId": "c975cce9-8092-4da3-be27-3952012010e6",
+  "displayName": "Bartek",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T13:02:10.334Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 1, "away": 2 },
+    { "matchId": "r16-002", "home": 1, "away": 3 },
+    { "matchId": "r16-003", "home": 3, "away": 2 },
+    { "matchId": "r16-004", "home": 2, "away": 0 },
+    { "matchId": "r16-005", "home": 1, "away": 2 },
+    { "matchId": "r16-006", "home": 1, "away": 1 },
+    { "matchId": "r16-007", "home": 3, "away": 1 },
+    { "matchId": "r16-008", "home": 0, "away": 2 }
+  ]
+}

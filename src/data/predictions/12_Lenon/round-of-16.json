@@ -1,0 +1,16 @@
+{
+  "predictionId": "1b476971-dde1-4775-9c63-f246d49d5068",
+  "displayName": "Lenon",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T05:27:21.675Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 1, "away": 2 },
+    { "matchId": "r16-002", "home": 1, "away": 3 },
+    { "matchId": "r16-003", "home": 2, "away": 2 },
+    { "matchId": "r16-004", "home": 2, "away": 3 },
+    { "matchId": "r16-005", "home": 1, "away": 1 },
+    { "matchId": "r16-006", "home": 2, "away": 1 },
+    { "matchId": "r16-007", "home": 3, "away": 1 },
+    { "matchId": "r16-008", "home": 3, "away": 3 }
+  ]
+}

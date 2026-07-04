@@ -1,0 +1,16 @@
+{
+  "predictionId": "37674de2-a372-459d-aa2f-ce214e11e93b",
+  "displayName": "Mateusz Fortunski",
+  "phaseId": "round-of-16",
+  "submittedAt": "2026-07-04T14:11:58.637Z",
+  "predictions": [
+    { "matchId": "r16-001", "home": 0, "away": 1 },
+    { "matchId": "r16-002", "home": 1, "away": 3 },
+    { "matchId": "r16-003", "home": 1, "away": 2 },
+    { "matchId": "r16-004", "home": 2, "away": 0 },
+    { "matchId": "r16-005", "home": 1, "away": 2 },
+    { "matchId": "r16-006", "home": 2, "away": 1 },
+    { "matchId": "r16-007", "home": 2, "away": 0 },
+    { "matchId": "r16-008", "home": 1, "away": 2 }
+  ]
+}
