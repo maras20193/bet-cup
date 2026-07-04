@@ -25,11 +25,11 @@ export const appConfig: AppConfig = {
     },
     "round-of-32": {
       label: "1/16 finału",
-      formVisible: true,
+      formVisible: false,
     },
     "round-of-16": {
       label: "1/8 finału",
-      formVisible: false,
+      formVisible: true,
     },
     "round-of-8": {
       label: "Ćwierćfinały",
