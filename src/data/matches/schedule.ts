@@ -138,10 +138,10 @@ const matchKickoffsById = {
   "r16-008": utc(7, 20, 0, 7), // 1B/3EFGIJ – 1K/3DEIJL
 
   // Ćwierćfinały
-  "r8-001": utc(9, 20, 0, 7), // #1 – #2
-  "r8-002": utc(10, 19, 0, 7), // #5 – #6
-  "r8-003": utc(11, 21, 0, 7), // #3 – #4
-  "r8-004": utc(12, 1, 0, 7), // #7 – #8
+  "r8-001": utc(9, 20, 0, 7), // Francja – Maroko
+  "r8-002": utc(10, 19, 0, 7), // Hiszpania – Belgia
+  "r8-003": utc(11, 21, 0, 7), // Norwegia – Anglia
+  "r8-004": utc(12, 1, 0, 7), // Argentyna – Szwajcaria
 
   // Półfinały
   "r4-001": utc(14, 19, 0, 7), // #1 – #2
