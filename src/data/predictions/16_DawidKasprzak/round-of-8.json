@@ -1,0 +1,12 @@
+{
+  "predictionId": "0018caea-dd8f-4ab7-853c-4da1cee36ab2",
+  "displayName": "Dawid Kasprzak",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T14:40:36.399Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 3, "away": 1 },
+    { "matchId": "r8-002", "home": 2, "away": 1 },
+    { "matchId": "r8-003", "home": 2, "away": 2 },
+    { "matchId": "r8-004", "home": 2, "away": 1 }
+  ]
+}

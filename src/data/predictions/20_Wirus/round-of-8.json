@@ -1,0 +1,12 @@
+{
+  "predictionId": "4e665637-567c-4a8a-a093-df77f0ac07de",
+  "displayName": "Wirus",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T17:02:27.707Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 2 },
+    { "matchId": "r8-002", "home": 2, "away": 1 },
+    { "matchId": "r8-003", "home": 1, "away": 3 },
+    { "matchId": "r8-004", "home": 1, "away": 2 }
+  ]
+}

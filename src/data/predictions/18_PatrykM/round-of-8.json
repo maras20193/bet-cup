@@ -1,0 +1,12 @@
+{
+  "predictionId": "72245128-6dcb-4ce5-80f7-7938f4800d8b",
+  "displayName": "Patryk M",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T15:57:35.768Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 2 },
+    { "matchId": "r8-002", "home": 2, "away": 1 },
+    { "matchId": "r8-003", "home": 1, "away": 1 },
+    { "matchId": "r8-004", "home": 3, "away": 1 }
+  ]
+}

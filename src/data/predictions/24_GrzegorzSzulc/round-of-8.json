@@ -1,0 +1,12 @@
+{
+  "predictionId": "ee865da2-fd13-443f-8ac8-f0a9aab99445",
+  "displayName": "Grzegorz",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-08T18:38:28.838Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 3, "away": 2 },
+    { "matchId": "r8-002", "home": 3, "away": 2 },
+    { "matchId": "r8-003", "home": 1, "away": 2 },
+    { "matchId": "r8-004", "home": 3, "away": 0 }
+  ]
+}

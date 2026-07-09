@@ -1,0 +1,12 @@
+{
+  "predictionId": "1e1a9fe8-878a-4403-9b8e-f67eb4ca6ce1",
+  "displayName": "Izulaa",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T19:36:42.313Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 0 },
+    { "matchId": "r8-002", "home": 2, "away": 1 },
+    { "matchId": "r8-003", "home": 1, "away": 2 },
+    { "matchId": "r8-004", "home": 2, "away": 0 }
+  ]
+}

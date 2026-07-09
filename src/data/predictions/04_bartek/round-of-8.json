@@ -1,0 +1,12 @@
+{
+  "predictionId": "266a156a-4fe6-419d-b922-ee589f25cb91",
+  "displayName": "Bartek",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-08T15:42:07.581Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 0 },
+    { "matchId": "r8-002", "home": 3, "away": 2 },
+    { "matchId": "r8-003", "home": 2, "away": 2 },
+    { "matchId": "r8-004", "home": 3, "away": 0 }
+  ]
+}

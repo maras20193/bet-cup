@@ -1,0 +1,12 @@
+{
+  "predictionId": "9a5d0451-b952-4042-a0bb-4c60aa9177e9",
+  "displayName": "Samol",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T16:45:53.629Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 0 },
+    { "matchId": "r8-002", "home": 2, "away": 1 },
+    { "matchId": "r8-003", "home": 1, "away": 2 },
+    { "matchId": "r8-004", "home": 2, "away": 1 }
+  ]
+}

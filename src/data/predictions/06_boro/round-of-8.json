@@ -1,0 +1,12 @@
+{
+  "predictionId": "8edec641-bb96-47d7-9741-e00e40e12905",
+  "displayName": "Boro",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-08T16:55:26.883Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 0 },
+    { "matchId": "r8-002", "home": 1, "away": 1 },
+    { "matchId": "r8-003", "home": 2, "away": 1 },
+    { "matchId": "r8-004", "home": 2, "away": 1 }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "predictionId": "83846c32-d1b6-4603-9640-d19d91d64fb4",
+  "displayName": "Roksi Bukmacherka",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T18:26:42.033Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 1 },
+    { "matchId": "r8-002", "home": 1, "away": 1 },
+    { "matchId": "r8-003", "home": 1, "away": 2 },
+    { "matchId": "r8-004", "home": 2, "away": 1 }
+  ]
+}

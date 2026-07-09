@@ -1,0 +1,12 @@
+{
+  "predictionId": "2740af10-3e93-472c-999d-1e4d75bbb471",
+  "displayName": "Mekambe",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-08T14:54:01.710Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 4, "away": 1 },
+    { "matchId": "r8-002", "home": 2, "away": 2 },
+    { "matchId": "r8-003", "home": 1, "away": 1 },
+    { "matchId": "r8-004", "home": 3, "away": 1 }
+  ]
+}

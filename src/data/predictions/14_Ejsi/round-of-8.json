@@ -1,0 +1,12 @@
+{
+  "predictionId": "cc512f07-1a37-49dd-809e-a33a4e8a907e",
+  "displayName": "Ejsi",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-08T12:03:05.610Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 3 },
+    { "matchId": "r8-002", "home": 2, "away": 0 },
+    { "matchId": "r8-003", "home": 3, "away": 1 },
+    { "matchId": "r8-004", "home": 4, "away": 0 }
+  ]
+}

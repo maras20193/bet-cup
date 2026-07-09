@@ -1,0 +1,12 @@
+{
+  "predictionId": "5eef0098-c832-4b07-90de-72089caede90",
+  "displayName": "Raficza",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T14:29:45.993Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 3, "away": 2 },
+    { "matchId": "r8-002", "home": 2, "away": 2 },
+    { "matchId": "r8-003", "home": 2, "away": 1 },
+    { "matchId": "r8-004", "home": 1, "away": 0 }
+  ]
+}

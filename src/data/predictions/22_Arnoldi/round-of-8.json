@@ -1,0 +1,12 @@
+{
+  "predictionId": "42d887b8-0421-453c-9fa7-4df1b9729732",
+  "displayName": "Arni",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T19:16:03.264Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 2 },
+    { "matchId": "r8-002", "home": 2, "away": 0 },
+    { "matchId": "r8-003", "home": 1, "away": 1 },
+    { "matchId": "r8-004", "home": 2, "away": 0 }
+  ]
+}

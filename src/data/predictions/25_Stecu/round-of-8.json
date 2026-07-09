@@ -1,0 +1,12 @@
+{
+  "predictionId": "186fc8d2-7018-4766-89aa-fb33706636dd",
+  "displayName": "Stecu",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T08:15:25.914Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 1 },
+    { "matchId": "r8-002", "home": 2, "away": 0 },
+    { "matchId": "r8-003", "home": 2, "away": 1 },
+    { "matchId": "r8-004", "home": 2, "away": 1 }
+  ]
+}

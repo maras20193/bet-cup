@@ -1,0 +1,12 @@
+{
+  "predictionId": "61b5c137-460a-47f6-8498-3d8560d9f276",
+  "displayName": "Typowy seba",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-08T19:13:23.951Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 1 },
+    { "matchId": "r8-002", "home": 2, "away": 1 },
+    { "matchId": "r8-003", "home": 2, "away": 3 },
+    { "matchId": "r8-004", "home": 2, "away": 0 }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "predictionId": "efddaec1-ee14-4552-b4e5-3bcd2ca2a324",
+  "displayName": "Madeline",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T18:27:40.567Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 2 },
+    { "matchId": "r8-002", "home": 1, "away": 0 },
+    { "matchId": "r8-003", "home": 1, "away": 2 },
+    { "matchId": "r8-004", "home": 2, "away": 0 }
+  ]
+}

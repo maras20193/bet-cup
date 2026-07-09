@@ -1,0 +1,12 @@
+{
+  "predictionId": "25d6f45d-bad4-4e55-b98f-d1bb423b06a2",
+  "displayName": "Krzyś",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T13:15:30.746Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 1 },
+    { "matchId": "r8-002", "home": 2, "away": 2 },
+    { "matchId": "r8-003", "home": 3, "away": 2 },
+    { "matchId": "r8-004", "home": 2, "away": 1 }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "predictionId": "76381405-1b96-4922-a15d-938110cfe086",
+  "displayName": "Kasia M",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T13:02:40.912Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 1, "away": 2 },
+    { "matchId": "r8-002", "home": 2, "away": 0 },
+    { "matchId": "r8-003", "home": 3, "away": 2 },
+    { "matchId": "r8-004", "home": 1, "away": 2 }
+  ]
+}

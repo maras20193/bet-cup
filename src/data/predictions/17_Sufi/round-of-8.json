@@ -1,0 +1,12 @@
+{
+  "predictionId": "bc5d2a1c-565f-4451-a066-a1955bc724ff",
+  "displayName": "Mateusz Fortunski",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T11:37:06.310Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 2, "away": 0 },
+    { "matchId": "r8-002", "home": 2, "away": 1 },
+    { "matchId": "r8-003", "home": 2, "away": 1 },
+    { "matchId": "r8-004", "home": 3, "away": 1 }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "predictionId": "f0fde945-7575-4ed6-a7a5-bb1e9231f958",
+  "displayName": "Łukasz",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-09T18:26:52.396Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 3, "away": 1 },
+    { "matchId": "r8-002", "home": 3, "away": 2 },
+    { "matchId": "r8-003", "home": 3, "away": 2 },
+    { "matchId": "r8-004", "home": 1, "away": 2 }
+  ]
+}

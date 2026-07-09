@@ -1,0 +1,12 @@
+{
+  "predictionId": "c2c48215-a49d-4e75-b6a2-a70403386f5e",
+  "displayName": "PiechotAnia",
+  "phaseId": "round-of-8",
+  "submittedAt": "2026-07-08T15:43:45.767Z",
+  "predictions": [
+    { "matchId": "r8-001", "home": 3, "away": 1 },
+    { "matchId": "r8-002", "home": 2, "away": 1 },
+    { "matchId": "r8-003", "home": 1, "away": 1 },
+    { "matchId": "r8-004", "home": 2, "away": 0 }
+  ]
+}
