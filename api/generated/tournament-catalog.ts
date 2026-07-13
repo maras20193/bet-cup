@@ -1529,26 +1529,26 @@ export const matchCatalog: readonly ApiMatchCatalogEntry[] = [
     "phaseId": "round-of-4",
     "phaseLabel": "Półfinały",
     "groupId": null,
-    "homeTeamId": null,
-    "awayTeamId": null,
-    "homeName": null,
-    "awayName": null,
+    "homeTeamId": "FRANCE",
+    "awayTeamId": "SPAIN",
+    "homeName": "Francja",
+    "awayName": "Hiszpania",
     "homeSlot": "#1 (ćwierćfinał)",
     "awaySlot": "#2 (ćwierćfinał)",
-    "hasAssignedTeams": false
+    "hasAssignedTeams": true
   },
   {
     "matchId": "r4-002",
     "phaseId": "round-of-4",
     "phaseLabel": "Półfinały",
     "groupId": null,
-    "homeTeamId": null,
-    "awayTeamId": null,
-    "homeName": null,
-    "awayName": null,
+    "homeTeamId": "ENGLAND",
+    "awayTeamId": "ARGENTINA",
+    "homeName": "Anglia",
+    "awayName": "Argentyna",
     "homeSlot": "#3 (ćwierćfinał)",
     "awaySlot": "#4 (ćwierćfinał)",
-    "hasAssignedTeams": false
+    "hasAssignedTeams": true
   },
   {
     "matchId": "third-001",

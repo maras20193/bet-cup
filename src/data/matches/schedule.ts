@@ -144,8 +144,8 @@ const matchKickoffsById = {
   "r8-004": utc(12, 1, 0, 7), // Argentyna – Szwajcaria
 
   // Półfinały
-  "r4-001": utc(14, 19, 0, 7), // #1 – #2
-  "r4-002": utc(15, 19, 0, 7), // #3 – #4
+  "r4-001": utc(14, 19, 0, 7), // Francja – Hiszpania
+  "r4-002": utc(15, 19, 0, 7), // Anglia – Argentyna
 
   // Mecz o 3. miejsce
   "third-001": utc(18, 21, 0, 7),

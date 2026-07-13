@@ -37,7 +37,7 @@ export const appConfig: AppConfig = {
     },
     "round-of-4": {
       label: "Półfinały",
-      formVisible: false,
+      formVisible: true,
     },
     "third-place": {
       label: "Mecz o 3. miejsce",
