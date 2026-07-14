@@ -1,0 +1,10 @@
+{
+  "predictionId": "e406fa21-6cb0-4f3f-8773-e19442206a72",
+  "displayName": "Mateusz Foruński",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-14T05:24:24.563Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 0 },
+    { "matchId": "r4-002", "home": 2, "away": 2 }
+  ]
+}

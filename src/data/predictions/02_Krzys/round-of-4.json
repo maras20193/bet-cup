@@ -1,0 +1,10 @@
+{
+  "predictionId": "8c56971b-c8b3-455f-8dbe-d4501ec9e2e3",
+  "displayName": "Krzyś",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T06:06:37.352Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 1 },
+    { "matchId": "r4-002", "home": 2, "away": 1 }
+  ]
+}

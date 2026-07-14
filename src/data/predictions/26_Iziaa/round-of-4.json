@@ -1,0 +1,10 @@
+{
+  "predictionId": "b7e0153c-8ee8-46de-bd4b-1cb589aae1d8",
+  "displayName": "Izulka",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-14T17:57:57.127Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 1 },
+    { "matchId": "r4-002", "home": 1, "away": 2 }
+  ]
+}

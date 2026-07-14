@@ -1,0 +1,10 @@
+{
+  "predictionId": "9280b9c0-b2cc-448d-9f14-06d7d6ca2246",
+  "displayName": "Radek Zet",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-14T18:33:27.649Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 1, "away": 1 },
+    { "matchId": "r4-002", "home": 1, "away": 2 }
+  ]
+}

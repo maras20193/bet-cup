@@ -1,0 +1,10 @@
+{
+  "predictionId": "dc5d0ffb-0957-455f-a655-bc014123b109",
+  "displayName": "Piotr Sefeld",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T13:09:13.079Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 0 },
+    { "matchId": "r4-002", "home": 3, "away": 2 }
+  ]
+}

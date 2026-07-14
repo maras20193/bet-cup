@@ -1,0 +1,10 @@
+{
+  "predictionId": "fb64f6ef-bd60-4b22-bbad-96048b6d97f2",
+  "displayName": "Dawid Kasprzak",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-14T12:54:23.178Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 3, "away": 1 },
+    { "matchId": "r4-002", "home": 3, "away": 2 }
+  ]
+}

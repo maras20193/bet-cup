@@ -1,0 +1,10 @@
+{
+  "predictionId": "0ce5ae54-709f-4333-bb72-2ce055e44baf",
+  "displayName": "Kinder",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T08:06:30.605Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 1 },
+    { "matchId": "r4-002", "home": 2, "away": 1 }
+  ]
+}

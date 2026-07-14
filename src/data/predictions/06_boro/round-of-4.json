@@ -1,0 +1,10 @@
+{
+  "predictionId": "a803ba0e-9e07-4fbb-9dae-4989976756aa",
+  "displayName": "Boro",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T07:40:41.571Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 1, "away": 2 },
+    { "matchId": "r4-002", "home": 2, "away": 1 }
+  ]
+}

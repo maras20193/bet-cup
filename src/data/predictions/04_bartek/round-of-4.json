@@ -1,0 +1,10 @@
+{
+  "predictionId": "71d798cb-0e9d-4245-8d5f-763656340f58",
+  "displayName": "Bartek",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T10:20:33.234Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 1 },
+    { "matchId": "r4-002", "home": 1, "away": 2 }
+  ]
+}

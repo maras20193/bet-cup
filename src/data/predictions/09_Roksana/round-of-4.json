@@ -1,0 +1,10 @@
+{
+  "predictionId": "88f7ae5f-f512-4fb0-a085-43136ac7bcb6",
+  "displayName": "Roksi Bukmacherka",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T06:26:54.798Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 1 },
+    { "matchId": "r4-002", "home": 1, "away": 2 }
+  ]
+}

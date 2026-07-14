@@ -1,0 +1,10 @@
+{
+  "predictionId": "7b3ccac6-beaa-4023-aa5c-26acf08fb635",
+  "displayName": "Patryk M",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-14T18:04:01.154Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 1 },
+    { "matchId": "r4-002", "home": 1, "away": 1 }
+  ]
+}

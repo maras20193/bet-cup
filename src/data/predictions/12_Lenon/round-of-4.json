@@ -1,0 +1,10 @@
+{
+  "predictionId": "db25e87d-ccdb-48f9-8f82-daa9f0f8387a",
+  "displayName": "Lenon",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T06:15:28.180Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 2 },
+    { "matchId": "r4-002", "home": 1, "away": 2 }
+  ]
+}

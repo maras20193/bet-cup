@@ -1,0 +1,10 @@
+{
+  "predictionId": "81e38cf4-44ed-4a70-adaa-43d3a42104ba",
+  "displayName": "Łukasz",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T11:28:15.245Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 1 },
+    { "matchId": "r4-002", "home": 2, "away": 1 }
+  ]
+}

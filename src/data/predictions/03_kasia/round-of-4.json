@@ -1,0 +1,10 @@
+{
+  "predictionId": "460fc5c8-bb9e-459f-b606-e4f6c85689ac",
+  "displayName": "Kasia M",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T18:38:29.482Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 3 },
+    { "matchId": "r4-002", "home": 2, "away": 1 }
+  ]
+}

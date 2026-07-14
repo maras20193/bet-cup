@@ -1,0 +1,10 @@
+{
+  "predictionId": "95d96c36-1846-4147-a823-1949ca3288da",
+  "displayName": "arturro",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T16:44:39.782Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 0, "away": 2 },
+    { "matchId": "r4-002", "home": 2, "away": 0 }
+  ]
+}

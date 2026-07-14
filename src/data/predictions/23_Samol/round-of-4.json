@@ -1,0 +1,10 @@
+{
+  "predictionId": "7ace3829-f9ba-4a8c-a98d-5d82f4dba9cb",
+  "displayName": "Samol",
+  "phaseId": "round-of-4",
+  "submittedAt": "2026-07-13T17:15:57.947Z",
+  "predictions": [
+    { "matchId": "r4-001", "home": 2, "away": 1 },
+    { "matchId": "r4-002", "home": 2, "away": 1 }
+  ]
+}
