@@ -1,10 +1,9 @@
 import { groupStageMatches } from "@/data/matches/group-stage"
-import { finalMatch } from "@/data/matches/knockout/final"
+import { finalsStageMatches } from "@/data/matches/knockout/finals-stage"
 import { roundOf16Matches } from "@/data/matches/knockout/round-of-16"
 import { roundOf32Matches } from "@/data/matches/knockout/round-of-32"
 import { roundOf4Matches } from "@/data/matches/knockout/round-of-4"
 import { roundOf8Matches } from "@/data/matches/knockout/round-of-8"
-import { thirdPlaceMatch } from "@/data/matches/knockout/third-place"
 import type { MatchDefinition } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
 
@@ -16,8 +15,7 @@ const matchPhaseBlocks = [
   roundOf16Matches,
   roundOf8Matches,
   roundOf4Matches,
-  thirdPlaceMatch,
-  finalMatch,
+  finalsStageMatches,
 ] as const
 
 export function buildAllMatches(): MatchWithPhase[] {

@@ -1,3 +1,4 @@
+import { finalsStageMatchLabels } from "@/data/matches/knockout/finals-stage"
 import { scorePrediction } from "@/lib/scoring"
 import type { Match } from "@/types/match"
 import type { PhaseId } from "@/types/phase"
@@ -132,6 +133,19 @@ function appendKnockoutPhaseRows(
   scoring: { exactScorePoints: number; outcomePoints: number },
   playerTotals: Record<string, number>,
 ): ResultsTableRow[] {
+  if (phaseId === "finals-stage") {
+    const rows: ResultsTableRow[] = []
+    for (const match of matches) {
+      rows.push({
+        kind: "group",
+        sectionKey: `${phaseId}-${match.id}`,
+        groupLabel: finalsStageMatchLabels[match.id] ?? phaseLabel,
+      })
+      rows.push(appendMatchRow(match, perPlayerMaps, scoring, playerTotals))
+    }
+    return rows
+  }
+
   const rows: ResultsTableRow[] = [
     {
       kind: "group",

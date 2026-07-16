@@ -1,4 +1,6 @@
+import { finalsStageMatchLabels } from "@/data/matches/knockout/finals-stage"
 import type { MatchDefinition } from "@/types/match"
+import type { PhaseId } from "@/types/phase"
 
 export type MatchDisplaySection = {
   key: string
@@ -7,8 +9,17 @@ export type MatchDisplaySection = {
 }
 
 export const groupMatchesForDisplay = (
-  matches: readonly MatchDefinition[]
+  matches: readonly MatchDefinition[],
+  phaseId?: PhaseId,
 ): MatchDisplaySection[] => {
+  if (phaseId === "finals-stage") {
+    return matches.map((match) => ({
+      key: match.id,
+      label: finalsStageMatchLabels[match.id] ?? null,
+      matches: [match],
+    }))
+  }
+
   const entries = new Map<string, MatchDefinition[]>()
   for (const m of matches) {
     const key = m.groupId ?? "__knockout"

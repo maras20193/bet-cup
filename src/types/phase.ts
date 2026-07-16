@@ -4,8 +4,7 @@ export const phaseIds = [
   "round-of-16",
   "round-of-8",
   "round-of-4",
-  "third-place",
-  "final",
+  "finals-stage",
 ] as const
 
 export type PhaseId = (typeof phaseIds)[number]

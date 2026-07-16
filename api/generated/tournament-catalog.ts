@@ -1552,29 +1552,29 @@ export const matchCatalog: readonly ApiMatchCatalogEntry[] = [
   },
   {
     "matchId": "third-001",
-    "phaseId": "third-place",
-    "phaseLabel": "Mecz o 3. miejsce",
+    "phaseId": "finals-stage",
+    "phaseLabel": "Finał i mecz o 3. miejsce",
     "groupId": null,
-    "homeTeamId": null,
-    "awayTeamId": null,
-    "homeName": null,
-    "awayName": null,
+    "homeTeamId": "FRANCE",
+    "awayTeamId": "ENGLAND",
+    "homeName": "Francja",
+    "awayName": "Anglia",
     "homeSlot": "Przegrany półfinału 1",
     "awaySlot": "Przegrany półfinału 2",
-    "hasAssignedTeams": false
+    "hasAssignedTeams": true
   },
   {
     "matchId": "final-001",
-    "phaseId": "final",
-    "phaseLabel": "Finał",
+    "phaseId": "finals-stage",
+    "phaseLabel": "Finał i mecz o 3. miejsce",
     "groupId": null,
-    "homeTeamId": null,
-    "awayTeamId": null,
-    "homeName": null,
-    "awayName": null,
+    "homeTeamId": "SPAIN",
+    "awayTeamId": "ARGENTINA",
+    "homeName": "Hiszpania",
+    "awayName": "Argentyna",
     "homeSlot": "Zwycięzca półfinału 1",
     "awaySlot": "Zwycięzca półfinału 2",
-    "hasAssignedTeams": false
+    "hasAssignedTeams": true
   }
 ] as const
 

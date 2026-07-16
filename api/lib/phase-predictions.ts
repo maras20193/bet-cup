@@ -4,8 +4,7 @@ const phaseIds = [
   "round-of-16",
   "round-of-8",
   "round-of-4",
-  "third-place",
-  "final",
+  "finals-stage",
 ] as const
 
 type PhaseId = (typeof phaseIds)[number]
@@ -62,8 +61,7 @@ const phaseLabels: Record<PhaseId, string> = {
   "round-of-16": "1/8 finału",
   "round-of-8": "Ćwierćfinały",
   "round-of-4": "Półfinały",
-  "third-place": "Mecz o 3. miejsce",
-  final: "Finał",
+  "finals-stage": "Finał i mecz o 3. miejsce",
 }
 
 /** Block Kit plain_text max length per section. */

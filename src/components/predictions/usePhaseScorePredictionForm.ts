@@ -55,8 +55,8 @@ export const usePhaseScorePredictionForm = (
   })
 
   const sections = useMemo(
-    () => groupMatchesForDisplay(phaseMatches.matches),
-    [phaseMatches.matches]
+    () => groupMatchesForDisplay(phaseMatches.matches, phaseMatches.phaseId),
+    [phaseMatches.matches, phaseMatches.phaseId]
   )
 
   const matchIndexById = useMemo(() => {
