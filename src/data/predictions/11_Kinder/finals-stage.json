@@ -1,0 +1,10 @@
+{
+  "predictionId": "33af909a-5a75-4e4d-a224-a1ec27a4d432",
+  "displayName": "Kinder",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-17T07:20:48.365Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 3, "away": 2 },
+    { "matchId": "final-001", "home": 3, "away": 2 }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "predictionId": "3d323170-3f81-4286-817f-995cd7f247fb",
+  "displayName": "Bartek",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-17T14:34:47.168Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 0 },
+    { "matchId": "final-001", "home": 3, "away": 2 }
+  ]
+}

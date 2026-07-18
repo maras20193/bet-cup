@@ -1,0 +1,10 @@
+{
+  "predictionId": "58bb0f65-341c-4e61-8e54-d04f3c7f6f23",
+  "displayName": "Lenon",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-17T12:56:24.621Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 3, "away": 2 },
+    { "matchId": "final-001", "home": 1, "away": 0 }
+  ]
+}

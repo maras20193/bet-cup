@@ -1,0 +1,10 @@
+{
+  "predictionId": "39df818b-9ec7-4972-8d10-a4ddcd248203",
+  "displayName": "Raficza",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T20:06:07.062Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 3, "away": 2 },
+    { "matchId": "final-001", "home": 1, "away": 1 }
+  ]
+}

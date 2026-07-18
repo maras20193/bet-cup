@@ -1,0 +1,10 @@
+{
+  "predictionId": "3041bf1d-7f2f-4e93-ac70-7874e99a490e",
+  "displayName": "Typowy seba",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T06:12:50.263Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 1 },
+    { "matchId": "final-001", "home": 1, "away": 2 }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "predictionId": "939d6722-a11a-4d6b-ac89-554363d3368c",
+  "displayName": "Samol",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-17T14:12:01.174Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 1 },
+    { "matchId": "final-001", "home": 2, "away": 1 }
+  ]
+}

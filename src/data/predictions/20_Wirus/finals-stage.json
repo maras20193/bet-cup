@@ -1,0 +1,10 @@
+{
+  "predictionId": "b957a6ab-dec9-436f-9a77-b519df8d3d3b",
+  "displayName": "Wirus",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T08:25:51.639Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 3, "away": 1 },
+    { "matchId": "final-001", "home": 2, "away": 0 }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "predictionId": "959c6f1d-68ef-4d8b-aec7-504e46ce640f",
+  "displayName": "Radek Zet",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T11:45:40.759Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 1 },
+    { "matchId": "final-001", "home": 1, "away": 0 }
+  ]
+}

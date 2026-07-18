@@ -1,0 +1,10 @@
+{
+  "predictionId": "ffd23896-11aa-4145-b80c-d7d707dad64b",
+  "displayName": "Łukasz",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T18:43:17.860Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 1 },
+    { "matchId": "final-001", "home": 1, "away": 3 }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "predictionId": "44f7f43c-9f7b-418c-9ed3-e35caa6a81ac",
+  "displayName": "Krystian R.",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-17T03:30:55.146Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 3, "away": 1 },
+    { "matchId": "final-001", "home": 2, "away": 0 }
+  ]
+}

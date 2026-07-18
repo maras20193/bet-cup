@@ -1,0 +1,10 @@
+{
+  "predictionId": "e31caf92-1a8f-4124-aedf-cfd554649f41",
+  "displayName": "Madeline",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T19:00:13.598Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 1, "away": 1 },
+    { "matchId": "final-001", "home": 2, "away": 0 }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "predictionId": "3795e09b-5343-4321-b34c-8c2700a69ca9",
+  "displayName": "Krzyś",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-16T19:40:03.600Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 1 },
+    { "matchId": "final-001", "home": 1, "away": 2 }
+  ]
+}

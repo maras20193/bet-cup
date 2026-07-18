@@ -1,0 +1,10 @@
+{
+  "predictionId": "4cfd223d-d25e-492a-ab04-7c68fccfe012",
+  "displayName": "Grzegorz",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-16T19:39:07.112Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 1 },
+    { "matchId": "final-001", "home": 1, "away": 2 }
+  ]
+}

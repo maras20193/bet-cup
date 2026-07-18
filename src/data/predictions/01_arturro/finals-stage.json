@@ -1,0 +1,10 @@
+{
+  "predictionId": "c0775284-af1f-4d2c-b309-b1d5f685ebfc",
+  "displayName": "arturro",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T08:43:40.737Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 3, "away": 1 },
+    { "matchId": "final-001", "home": 0, "away": 2 }
+  ]
+}

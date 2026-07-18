@@ -1,0 +1,10 @@
+{
+  "predictionId": "2dcd89bc-c473-4e4c-90d8-6fe2b7fe85c9",
+  "displayName": "Kasia M",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-17T04:13:56.649Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 1, "away": 2 },
+    { "matchId": "final-001", "home": 1, "away": 2 }
+  ]
+}

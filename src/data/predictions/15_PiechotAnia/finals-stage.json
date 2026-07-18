@@ -1,0 +1,10 @@
+{
+  "predictionId": "e74eb66f-d64a-41c2-9b0a-4d6e7c75bf83",
+  "displayName": "PiechotAnia",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T12:30:51.409Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 1 },
+    { "matchId": "final-001", "home": 2, "away": 1 }
+  ]
+}

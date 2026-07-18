@@ -1,0 +1,10 @@
+{
+  "predictionId": "c72afe6f-cd93-4944-80de-2a07bec78da8",
+  "displayName": "Mateusz Fortunski",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-17T11:17:02.103Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 1 },
+    { "matchId": "final-001", "home": 3, "away": 1 }
+  ]
+}

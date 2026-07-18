@@ -1,0 +1,10 @@
+{
+  "predictionId": "d593d92b-1fb6-4565-80f6-03c439587e8a",
+  "displayName": "Patryk M",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T17:36:30.141Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 2, "away": 2 },
+    { "matchId": "final-001", "home": 1, "away": 3 }
+  ]
+}

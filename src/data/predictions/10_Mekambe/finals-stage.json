@@ -1,0 +1,10 @@
+{
+  "predictionId": "333eb8e4-870e-4dee-8ed9-715928893657",
+  "displayName": "Mekambe",
+  "phaseId": "finals-stage",
+  "submittedAt": "2026-07-18T19:29:14.848Z",
+  "predictions": [
+    { "matchId": "third-001", "home": 1, "away": 3 },
+    { "matchId": "final-001", "home": 4, "away": 2 }
+  ]
+}
